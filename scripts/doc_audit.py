@@ -10,6 +10,15 @@ import sys
 
 
 ROOT_FILES = ["README.md", "PRD.md", "TECHNICAL.md", "PROMPT.md"]
+LAUNCH_FILES = [
+    "index.html",
+    "assets/social-card.svg",
+    "assets/social-card.png",
+    "docs/LAUNCH_ESSAY.md",
+    "docs/LAUNCH_ESSAY.html",
+    "scripts/init_workspace.py",
+    "examples/synthetic-municipal-permitting/example_journey.md",
+]
 
 README_HINTS = [
     "what it does",
@@ -67,6 +76,38 @@ def check_file_exists(repo: pathlib.Path) -> list[tuple[str, str]]:
             results.append(result("PASS", f"{name} exists"))
         else:
             results.append(result("FAIL", f"{name} is missing"))
+    return results
+
+
+def check_launch_surface(repo: pathlib.Path) -> list[tuple[str, str]]:
+    results = []
+    for name in LAUNCH_FILES:
+        path = repo / name
+        if path.exists():
+            results.append(result("PASS", f"{name} exists"))
+        else:
+            results.append(result("FAIL", f"{name} is missing"))
+
+    index = repo / "index.html"
+    if index.exists():
+        text = normalize(read(index))
+        required = ["founder research", "decision pressure", "github", "start in three commands"]
+        missing = [term for term in required if term not in text]
+        if missing:
+            results.append(result("WARN", f"landing page missing launch signals: {', '.join(missing)}"))
+        else:
+            results.append(result("PASS", "landing page has launch positioning and start path"))
+
+    readme = repo / "README.md"
+    if readme.exists():
+        text = normalize(read(readme))
+        required = ["sukrit-bit.github.io/founder-research-os", "scripts/init_workspace.py", "assets/social-card.svg"]
+        missing = [term for term in required if term not in text]
+        if missing:
+            results.append(result("WARN", f"README missing launch-surface references: {', '.join(missing)}"))
+        else:
+            results.append(result("PASS", "README points to landing page, starter script, and social card"))
+
     return results
 
 
@@ -147,6 +188,7 @@ def main() -> int:
     repo = pathlib.Path(args.repo).resolve()
     checks: list[tuple[str, str]] = []
     checks.extend(check_file_exists(repo))
+    checks.extend(check_launch_surface(repo))
     checks.extend(check_section_hints(repo / "README.md", "README", README_HINTS))
     checks.extend(check_section_hints(repo / "PRD.md", "PRD", PRD_HINTS))
     checks.extend(check_links(repo))

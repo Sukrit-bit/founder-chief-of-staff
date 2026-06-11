@@ -66,6 +66,7 @@ The result is a repo that feels usable immediately. Users bring their own market
 
 A founder using this system gets:
 
+- a landing page explaining the method;
 - a dashboard for what matters now;
 - a working state file for full continuity;
 - an artifact index for navigation;
@@ -75,6 +76,7 @@ A founder using this system gets:
 - a decision queue;
 - operating reviews and failure-mode logs;
 - reusable templates.
+- a starter script for creating a new workspace.
 
 ## Architecture
 
@@ -108,12 +110,12 @@ If the team wants to share a repo or demo, the data-handling checklist should ca
 
 ## What's Next
 
-The next version should prove repeatability.
+The next version should prove repeatability with real users.
 
 - Run 2 synthetic examples.
 - Run 1 real local loop from source to experiment.
 - Add a stronger data-handling checklist.
-- Add a theme generator script.
+- Expand the starter script into a compact CLI.
 - Add examples of evals catching bad work.
 
 The quality bar is defined in [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md).

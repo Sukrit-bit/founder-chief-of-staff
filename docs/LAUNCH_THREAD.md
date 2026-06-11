@@ -18,12 +18,14 @@ input -> artifact -> pattern -> decision queue -> experiment -> evidence -> upda
 
 The repo includes:
 
+- landing page;
 - agent spec;
 - operating protocols;
 - evidence maturity ladder;
 - decision queue;
 - reusable templates;
 - synthetic example;
+- starter script;
 - visual explainer;
 - docs audit;
 - repo safety check.
@@ -32,16 +34,16 @@ The core idea:
 
 AI agents become much more useful when the workspace gives them state, standards, and permission to improve the system.
 
+Start here:
+
+```text
+https://sukrit-bit.github.io/founder-research-os/
+```
+
 Repo:
 
 ```text
 https://github.com/Sukrit-bit/founder-research-os
-```
-
-Visual:
-
-```text
-https://sukrit-bit.github.io/founder-research-os/visuals/operating-loop.html
 ```
 
 ## Longer Thread
@@ -85,10 +87,12 @@ Every meaningful input should create pressure on a decision.
 The repo includes:
 
 - README / PRD / TECHNICAL / PROMPT;
+- landing page and launch essay;
 - operating protocols;
 - evidence maturity ladder;
 - abstraction guardrails;
 - decision queue template;
+- starter workspace script;
 - synthetic example;
 - visual explainer;
 - docs audit and repo safety check.
@@ -128,13 +132,13 @@ It is an attempt to show what happens when an AI agent works inside a structured
 v0.1 is here:
 
 ```text
-https://github.com/Sukrit-bit/founder-research-os
+https://sukrit-bit.github.io/founder-research-os/
 ```
 
-Visual:
+Repo:
 
 ```text
-https://sukrit-bit.github.io/founder-research-os/visuals/operating-loop.html
+https://github.com/Sukrit-bit/founder-research-os
 ```
 
 10.

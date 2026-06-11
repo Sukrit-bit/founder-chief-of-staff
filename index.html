@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Founder Research OS</title>
+  <meta name="description" content="An open-source workspace for running AI-assisted startup discovery with memory, evals, and decision pressure.">
+  <meta property="og:title" content="Founder Research OS">
+  <meta property="og:description" content="Turn market signals into evidence-backed startup decisions with an AI-native operating system.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sukrit-bit.github.io/founder-research-os/assets/social-card.png">
+  <meta property="og:url" content="https://sukrit-bit.github.io/founder-research-os/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Founder Research OS">
+  <meta name="twitter:description" content="An open-source workspace for AI-assisted founder research and decision-making.">
+  <meta name="twitter:image" content="https://sukrit-bit.github.io/founder-research-os/assets/social-card.png">
+  <style>
+    :root {
+      --paper: #fbfaf7;
+      --surface: rgba(255, 255, 255, 0.84);
+      --ink: #111827;
+      --muted: #53606f;
+      --line: rgba(17, 24, 39, 0.12);
+      --slate: #18324a;
+      --blue: #1d4ed8;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --rose: #be123c;
+      --green: #166534;
+      --soft-blue: #dbeafe;
+      --soft-teal: #ccfbf1;
+      --soft-amber: #fef3c7;
+      --soft-rose: #ffe4e6;
+      --soft-green: #dcfce7;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(140deg, rgba(219, 234, 254, 0.72), transparent 36%),
+        linear-gradient(240deg, rgba(204, 251, 241, 0.72), transparent 34%),
+        linear-gradient(0deg, rgba(254, 243, 199, 0.52), transparent 48%),
+        var(--paper);
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 92vh;
+      padding: 28px min(6vw, 72px) 52px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at 62% 48%, black, transparent 72%);
+      pointer-events: none;
+    }
+
+    .nav {
+      position: absolute;
+      top: 24px;
+      left: min(6vw, 72px);
+      right: min(6vw, 72px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      z-index: 3;
+      font-size: 14px;
+      color: var(--slate);
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .mark-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+      color: var(--teal);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #334155;
+    }
+
+    .hero-grid {
+      width: min(1180px, 100%);
+      margin: 62px auto 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 34px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      right: min(3vw, 44px);
+      top: 232px;
+      width: min(31vw, 340px);
+      aspect-ratio: 1;
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0.86;
+    }
+
+    .hero-orbit svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .hero-orbit text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .eyebrow {
+      color: var(--rose);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 5.6vw, 78px);
+      line-height: 0.98;
+      letter-spacing: 0;
+      color: var(--slate);
+    }
+
+    .lede {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: #2f4053;
+      font-size: clamp(18px, 1.75vw, 24px);
+      line-height: 1.28;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.10);
+      color: var(--slate);
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .button.primary {
+      background: var(--slate);
+      color: #fff;
+      border-color: var(--slate);
+    }
+
+    .proof-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 9px 12px;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .system-map {
+      width: min(1040px, 100%);
+      margin-top: 28px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 26px;
+      padding: clamp(18px, 3vw, 34px);
+      overflow: hidden;
+    }
+
+    .loop {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(108px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .step {
+      min-height: 96px;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      position: relative;
+    }
+
+    .step:after {
+      content: ">";
+      position: absolute;
+      top: 50%;
+      right: -12px;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .step:last-child:after {
+      content: "";
+    }
+
+    .step small {
+      display: block;
+      color: #64748b;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: 8px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--slate);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .step p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .step.blue { background: var(--soft-blue); }
+    .step.teal { background: var(--soft-teal); }
+    .step.amber { background: var(--soft-amber); }
+    .step.rose { background: var(--soft-rose); }
+    .step.green { background: var(--soft-green); }
+
+    main {
+      width: min(1180px, calc(100vw - 36px));
+      margin: 0 auto;
+      padding: 70px 0;
+    }
+
+    section {
+      margin: 0 0 76px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(280px, 0.45fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--slate);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4vw, 62px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--slate);
+      font-size: 22px;
+      line-height: 1.12;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .artifact-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .artifact {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .artifact b {
+      color: var(--slate);
+    }
+
+    .artifact span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 3px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      flex: 0 0 12px;
+      margin-top: 6px;
+      background: var(--teal);
+    }
+
+    .dot.blue { background: var(--blue); }
+    .dot.amber { background: var(--amber); }
+    .dot.rose { background: var(--rose); }
+    .dot.green { background: var(--green); }
+
+    .example {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .decision-panel {
+      background: var(--slate);
+      color: #fff;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .decision-panel p {
+      color: #dbeafe;
+      margin: 12px 0 0;
+    }
+
+    .decision-panel code {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.10);
+      color: #fff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 15px 16px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--soft-amber);
+      color: var(--amber);
+      font-weight: 900;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: #111827;
+      color: #e5e7eb;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .cta {
+      border-radius: 28px;
+      padding: clamp(26px, 5vw, 54px);
+      background:
+        linear-gradient(120deg, rgba(24, 50, 74, 0.96), rgba(15, 118, 110, 0.92)),
+        var(--slate);
+      color: #fff;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      color: #fff;
+    }
+
+    .cta p {
+      max-width: 650px;
+      color: #dbeafe;
+      font-size: 18px;
+      margin: 14px 0 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px min(6vw, 72px);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .loop,
+      .grid-3,
+      .grid-2,
+      .example,
+      .section-head,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .step:after {
+        content: "v";
+        top: auto;
+        right: 50%;
+        bottom: -16px;
+        transform: translateX(50%);
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-end;
+      }
+
+      .hero-orbit {
+        opacity: 0.24;
+        right: -140px;
+        top: 190px;
+        width: 520px;
+      }
+    }
+
+    @media (max-width: 660px) {
+      .hero {
+        padding: 22px 18px 50px;
+      }
+
+      .nav {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+      }
+
+      .nav-links a:not(.button) {
+        display: none;
+      }
+
+      .hero-grid {
+        margin-top: 42px;
+      }
+
+      .hero-orbit {
+        display: none;
+      }
+
+      .artifact-list {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="mark" href="#top" aria-label="Founder Research OS home">
+        <span class="mark-icon">OS</span>
+        <span>Founder Research OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="#method">Method</a>
+        <a href="#example">Example</a>
+        <a href="#start">Start</a>
+        <a class="button primary" href="https://github.com/Sukrit-bit/founder-research-os">GitHub</a>
+      </div>
+    </nav>
+
+    <div class="hero-orbit" aria-hidden="true">
+      <svg viewBox="0 0 480 480">
+        <path d="M92 148 C150 50 318 58 379 150 C445 249 386 392 262 408 C130 425 38 274 92 148 Z" fill="none" stroke="#0f766e" stroke-width="6"/>
+        <path d="M362 144 l28 8 l-20 22 z" fill="#0f766e"/>
+        <rect x="18" y="80" width="154" height="58" rx="16" fill="#ecfeff" stroke="#0f766e"/>
+        <text x="54" y="116" fill="#0f766e">signals</text>
+        <rect x="278" y="86" width="174" height="58" rx="16" fill="#eff6ff" stroke="#1d4ed8"/>
+        <text x="312" y="122" fill="#1d4ed8">artifacts</text>
+        <rect x="300" y="285" width="164" height="58" rx="16" fill="#fef3c7" stroke="#b45309"/>
+        <text x="334" y="321" fill="#b45309">evidence</text>
+        <rect x="72" y="324" width="178" height="58" rx="16" fill="#ffe4e6" stroke="#be123c"/>
+        <text x="108" y="360" fill="#be123c">decision</text>
+        <circle cx="238" cy="232" r="72" fill="rgba(255,255,255,0.78)" stroke="#18324a" stroke-width="4"/>
+        <text x="193" y="224" fill="#18324a">founder</text>
+        <text x="190" y="250" fill="#18324a">judgment</text>
+      </svg>
+    </div>
+
+    <div class="hero-grid" id="top">
+      <div>
+        <p class="eyebrow">Open-source AI-native founder research</p>
+        <h1>Founder research should end in decisions.</h1>
+        <p class="lede">Founder Research OS turns messy market signals into source notes, patterns, problem candidates, experiments, and decision pressure.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/Sukrit-bit/founder-research-os">Use the framework</a>
+          <a class="button" href="docs/LAUNCH_ESSAY.html">Read the essay</a>
+          <a class="button" href="visuals/operating-loop.html">Open the map</a>
+        </div>
+        <div class="proof-strip" aria-label="Project proof points">
+          <span class="pill">Templates</span>
+          <span class="pill">Agent spec</span>
+          <span class="pill">Decision queue</span>
+          <span class="pill">Evals</span>
+          <span class="pill">Starter script</span>
+          <span class="pill">Synthetic example</span>
+        </div>
+      </div>
+
+      <div class="system-map" aria-label="Founder Research OS operating loop">
+        <div class="loop">
+          <div class="step blue">
+            <small>Input</small>
+            <strong>Signals</strong>
+            <p>Companies, articles, conversations, hunches.</p>
+          </div>
+          <div class="step">
+            <small>Capture</small>
+            <strong>Artifacts</strong>
+            <p>Source notes and case studies.</p>
+          </div>
+          <div class="step teal">
+            <small>Synthesis</small>
+            <strong>Patterns</strong>
+            <p>Repeated pain, workflow, or market signals.</p>
+          </div>
+          <div class="step amber">
+            <small>Pressure</small>
+            <strong>Queue</strong>
+            <p>Continue, narrow, experiment, park, pause, kill.</p>
+          </div>
+          <div class="step rose">
+            <small>Action</small>
+            <strong>Experiment</strong>
+            <p>What evidence changes the decision?</p>
+          </div>
+          <div class="step">
+            <small>Proof</small>
+            <strong>Evidence</strong>
+            <p>Interviews, tests, usage, rejection.</p>
+          </div>
+          <div class="step green">
+            <small>Memory</small>
+            <strong>State</strong>
+            <p>The workspace gets sharper every cycle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="method">
+      <div class="section-head">
+        <h2>Why this exists</h2>
+        <p>Most AI workflows help founders summarize more. The real bottleneck is deciding what deserves conviction, testing, or rejection.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Chat is not enough</h3>
+          <p>Chat helps with thinking. It is weak at durable state, evidence maturity, artifact routing, and cross-session continuity.</p>
+        </article>
+        <article class="card">
+          <h3>Research needs pressure</h3>
+          <p>Every serious hypothesis should move toward continue, narrow, experiment, park, pause, or kill. Otherwise it stays interesting forever.</p>
+        </article>
+        <article class="card">
+          <h3>Agents need a workspace</h3>
+          <p>The agent becomes more useful when it can maintain files, run checks, log failures, and update the system when the work changes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>What the repo gives you</h2>
+        <p>A reusable operating layer for founder research. Bring your own markets, sources, interviews, and decisions.</p>
+      </div>
+      <div class="artifact-list">
+        <div class="artifact"><span class="dot blue"></span><div><b>Dashboard</b><span>What matters right now.</span></div></div>
+        <div class="artifact"><span class="dot"></span><div><b>Working state</b><span>Full continuity across sessions.</span></div></div>
+        <div class="artifact"><span class="dot green"></span><div><b>Artifact index</b><span>Where durable work lives.</span></div></div>
+        <div class="artifact"><span class="dot amber"></span><div><b>Decision queue</b><span>The pressure layer for founder judgment.</span></div></div>
+        <div class="artifact"><span class="dot rose"></span><div><b>Evidence ladder</b><span>Stops public research from becoming fake validation.</span></div></div>
+        <div class="artifact"><span class="dot blue"></span><div><b>Failure modes</b><span>Repeated mistakes become operating rules.</span></div></div>
+        <div class="artifact"><span class="dot"></span><div><b>Templates</b><span>Source note, pattern, problem, experiment, handoff.</span></div></div>
+        <div class="artifact"><span class="dot green"></span><div><b>Starter script</b><span>Create a local workspace from the framework.</span></div></div>
+      </div>
+    </section>
+
+    <section id="example">
+      <div class="section-head">
+        <h2>A complete loop</h2>
+        <p>The synthetic example shows why the system is not just a note pack. It reaches a decision.</p>
+      </div>
+      <div class="example">
+        <div class="decision-panel">
+          <h3>Example decision</h3>
+          <p>Run a narrow discovery experiment on permit resubmission workflows. Do not promote the idea into a venture thesis yet.</p>
+          <code>Decision: experiment, do not promote</code>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><span class="num">1</span><div><b>Raw signal</b><br>Permitting pain looks broad, but broad pain is not a startup wedge.</div></div>
+          <div class="timeline-item"><span class="num">2</span><div><b>Pattern</b><br>The tighter workflow is the resubmission loop after city comments.</div></div>
+          <div class="timeline-item"><span class="num">3</span><div><b>Problem candidate</b><br>Translate comment packets into missing-document lists, owner maps, and resubmission packages.</div></div>
+          <div class="timeline-item"><span class="num">4</span><div><b>Experiment</b><br>Shadow one resubmission and interview expediters and contractors.</div></div>
+          <div class="timeline-item"><span class="num">5</span><div><b>Decision rule</b><br>Continue only if the workflow saves time and reduces missed items.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="start">
+      <div class="section-head">
+        <h2>Start in three commands</h2>
+        <p>The framework is meant to be used. The starter script creates a clean local workspace from the repo templates.</p>
+      </div>
+      <pre><code>git clone https://github.com/Sukrit-bit/founder-research-os.git
+cd founder-research-os
+python3 scripts/init_workspace.py ~/founder-research/my-next-idea</code></pre>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Built for founders</h3>
+          <p>This is for the messy middle of discovery: when you have signals, conversations, and market heat, but not enough evidence to call something a real startup thesis.</p>
+        </article>
+        <article class="card">
+          <h3>Built with AI, not for AI theater</h3>
+          <p>The human owns judgment, taste, and strategic calls. The agent helps maintain the workspace, preserve context, run checks, and turn corrections into better operating rules.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Use the framework.</h2>
+        <p>Clone it, make a workspace, and force your next startup idea through source notes, patterns, evidence maturity, experiments, and decisions.</p>
+      </div>
+      <a class="button" href="https://github.com/Sukrit-bit/founder-research-os">Open GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>Founder Research OS</span>
+    <span>Open-source founder research with memory, evals, and decision pressure.</span>
+  </footer>
+</body>
+</html>

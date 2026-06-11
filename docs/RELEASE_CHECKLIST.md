@@ -11,14 +11,17 @@ The framework is useful now, but it should keep improving through stronger examp
 | Check | Requirement |
 |---|---|
 | Complete first read | README, PRD, TECHNICAL, and PROMPT exist. |
+| Landing surface | Root Pages site explains the product before GitHub file browsing. |
 | Root docs | README, PRD, TECHNICAL, and PROMPT exist. |
 | Method clarity | Operating loop is visible in docs and visual. |
 | Templates | Reusable templates are included. |
 | Synthetic example | At least one example shows the loop end to end. |
+| Starter path | Starter script creates a new workspace from templates. |
 | Eval layer | Evals and failure modes are explained. |
 | Automation | Docs audit and repo safety check pass. |
 | Data handling | Examples avoid sensitive customer, interview, credential, and company material. |
 | License | Open-source license included. |
+| Release marker | Git tag and GitHub release exist for public sharing. |
 
 ## Positioning
 

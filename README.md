@@ -1,8 +1,10 @@
 # Founder Research OS
 
-An AI-native operating system for turning messy market curiosity into evidence-backed startup decisions.
+Founders do not have an information problem. They have a decision problem.
 
-Most AI founder workflows stop at summaries. This one keeps pushing toward decisions.
+Founder Research OS is an open-source workspace for turning messy market curiosity into evidence-backed startup decisions with AI agents.
+
+![Founder Research OS social card](assets/social-card.svg)
 
 ## What It Does
 
@@ -17,14 +19,16 @@ article, company, conversation, hunch
 into this:
 
 ```text
-source note -> pattern -> problem candidate -> decision queue -> experiment -> updated state
+source note -> pattern -> problem candidate -> decision queue -> experiment -> evidence -> updated state
 ```
 
 Start here:
 
+- [Live landing page](https://sukrit-bit.github.io/founder-research-os/) is the public front door.
 - [PRD.md](PRD.md) explains the product case.
 - [TECHNICAL.md](TECHNICAL.md) explains the operating architecture.
 - [PROMPT.md](PROMPT.md) contains the agent spec.
+- [docs/LAUNCH_ESSAY.md](docs/LAUNCH_ESSAY.md) explains the core idea.
 - [docs/LAUNCH_NOTE.md](docs/LAUNCH_NOTE.md) gives the short launch narrative.
 - [docs/LAUNCH_THREAD.md](docs/LAUNCH_THREAD.md) gives launch copy for X or LinkedIn.
 - [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md) defines the release bar.
@@ -32,7 +36,7 @@ Start here:
 - [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) defines the release checklist.
 - [docs/OPERATING_LOOP.md](docs/OPERATING_LOOP.md) shows the loop.
 - [visuals/operating-loop.html](visuals/operating-loop.html) gives a visual map.
-- [examples/synthetic-municipal-permitting](examples/synthetic-municipal-permitting) shows one synthetic loop.
+- [examples/synthetic-municipal-permitting](examples/synthetic-municipal-permitting) shows one complete synthetic loop.
 
 ## Product Decisions That Matter
 
@@ -74,13 +78,21 @@ The project uses five layers:
 
 ## Results
 
-This repository ships 39 files with 1 clear outcome: a founder can move from loose signal to decision pressure without relying on chat memory.
+This repository ships a complete v0.1 framework with 1 clear outcome: a founder can move from loose signal to decision pressure without relying on chat memory.
 
 The human outcome is faster founder judgment: fewer loose notes, fewer forgotten insights, and fewer ideas sitting in the vague middle between "interesting" and "worth testing."
 
 ## Setup
 
-Clone the repo and read the docs in this order:
+Create a starter workspace:
+
+```bash
+git clone https://github.com/Sukrit-bit/founder-research-os.git
+cd founder-research-os
+python3 scripts/init_workspace.py ~/founder-research/my-next-idea
+```
+
+Then read the docs in this order:
 
 ```bash
 README.md
@@ -114,10 +126,10 @@ templates/experiment_plan.md
 
 ## Next
 
-The next milestone is proof, not polish.
+The next milestone is repeatability with real users.
 
 - Add one more synthetic example outside municipal permitting.
-- Add a small CLI that creates a new theme folder from templates.
+- Expand the starter script into a small CLI.
 - Add a walkthrough video or short essay.
 - Test the system with another founder and record where it breaks.
 

@@ -16,7 +16,7 @@ The loop is simple:
 input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
 ```
 
-The repo includes docs, templates, an agent spec, a synthetic example, a visual explainer, and checks for documentation quality and repo safety.
+The repo includes a landing page, docs, templates, an agent spec, a synthetic example, a starter script, a visual explainer, and checks for documentation quality and repo safety.
 
 The important idea is not the folder structure.
 

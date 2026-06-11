@@ -9,6 +9,7 @@ The reader should understand three things within 90 seconds:
 1. The system helps a founder make startup decisions.
 2. The agent works inside a structured operating system.
 3. The repo is complete enough to use with their own research context.
+4. The public surface reflects strong product judgment, not only documentation completeness.
 
 ## What Counts As Good
 
@@ -19,6 +20,8 @@ The reader should understand three things within 90 seconds:
 - Evals that produce remediation.
 - Scripts that catch obvious drift.
 - Data-handling checks.
+- A landing page that makes the idea clear before someone reaches the file tree.
+- A starter path that makes the system usable.
 
 ## What Counts As Weak
 
@@ -28,6 +31,7 @@ The reader should understand three things within 90 seconds:
 - Claims without examples.
 - Examples that expose sensitive customer, interview, or company material.
 - A repo that looks like a prompt pack.
+- A launch surface that looks like internal cleanup work.
 
 ## Release Gate
 
@@ -44,4 +48,5 @@ Then ask:
 Would a serious founder, operator, investor, or AI builder understand why this exists?
 Could this be shared without exposing sensitive material?
 Does the repo show a method, not just a claim?
+Does the first public screen make the artifact feel finished?
 ```

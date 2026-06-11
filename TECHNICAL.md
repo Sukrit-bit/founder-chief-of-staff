@@ -77,10 +77,12 @@ Tradeoff: less emotional specificity. Cleaner adoption path.
 Current framework:
 
 - 4 root docs: README, PRD, TECHNICAL, PROMPT.
+- 1 root landing page.
 - 8 protocol docs.
 - 8 reusable templates.
 - 1 synthetic example loop.
 - 1 visual explainer.
+- 1 starter workspace script.
 - 2 audit scripts: documentation quality and repo safety.
 - 1 GitHub Actions workflow.
 
@@ -94,6 +96,7 @@ Recommended thresholds:
 - Every shared repo should pass the data-handling checklist.
 - Every meaningful milestone should run the docs audit.
 - Every shared repo should run the repo safety check.
+- Every launch surface should be reviewed as a product surface, not only as documentation.
 
 ## What Surprised Us
 

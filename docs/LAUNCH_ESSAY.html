@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What AI Founder Research Was Missing</title>
+  <meta name="description" content="A founder-facing essay about why AI-assisted discovery needs an operating system, not just chat.">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --ink: #172033;
+      --muted: #526173;
+      --line: rgba(23, 32, 51, 0.14);
+      --accent: #0f766e;
+      --warm: #b45309;
+      --paper: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(140deg, rgba(219, 234, 254, 0.76), transparent 36%),
+        linear-gradient(240deg, rgba(254, 243, 199, 0.70), transparent 38%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+
+    .page {
+      width: min(820px, calc(100vw - 36px));
+      margin: 0 auto;
+      padding: 42px 0 86px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 72px;
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 24px;
+      font-size: clamp(44px, 8vw, 86px);
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      margin: 0 0 42px;
+      color: #29384a;
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      font-size: 24px;
+      line-height: 1.38;
+    }
+
+    article {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: clamp(24px, 5vw, 54px);
+      box-shadow: 0 24px 72px rgba(15, 23, 42, 0.12);
+    }
+
+    h2 {
+      margin: 48px 0 12px;
+      font-size: 34px;
+      line-height: 1.08;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 21px;
+    }
+
+    ul {
+      margin: 0 0 22px;
+      padding-left: 24px;
+      font-size: 20px;
+    }
+
+    code,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    pre {
+      margin: 22px 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: #111827;
+      color: #e5e7eb;
+      overflow-x: auto;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .callout {
+      margin: 36px 0;
+      border-left: 5px solid var(--warm);
+      background: #fff7ed;
+      padding: 20px 22px;
+      border-radius: 14px;
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      color: #43301c;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav>
+      <a href="../index.html">Founder Research OS</a>
+      <a href="https://github.com/Sukrit-bit/founder-research-os">GitHub</a>
+    </nav>
+
+    <p class="eyebrow">Launch essay</p>
+    <h1>What AI Founder Research Was Missing</h1>
+    <p class="lede">Founders do not fail because they lack information. They fail because information does not become judgment fast enough.</p>
+
+    <article>
+      <p>The modern founder can read every market map, scan every funded company, ask AI for summaries, and still end the week with the same vague question: is this idea worth more time?</p>
+
+      <p>That is the problem Founder Research OS is built for.</p>
+
+      <h2>Chat Is Not A System</h2>
+      <p>AI chat is useful. It helps you think. It helps you summarize. It helps you draft.</p>
+      <p>But founder discovery is not one task. It is a long-running loop across markets, companies, conversations, hunches, contradictions, and decisions.</p>
+      <p>Chat alone has weak memory. It does not naturally know which idea is current, which one is parked, which one was killed, and which one needs one more interview before it deserves another week of attention.</p>
+
+      <div class="callout">The missing layer is the workspace.</div>
+
+      <h2>The Workspace Is The Memory Layer</h2>
+      <p>Founder Research OS treats the repo as the durable memory layer.</p>
+      <p>The AI agent works inside that workspace. It does not only answer questions. It helps maintain the operating system.</p>
+
+      <pre><code>input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context</code></pre>
+
+      <p>A source becomes a source note. Repeated signals become a pattern. A pattern becomes a problem candidate. A problem candidate enters the decision queue.</p>
+      <p>The decision queue forces a next evidence requirement. The experiment either strengthens, narrows, parks, pauses, or kills the idea.</p>
+
+      <h2>Decision Pressure Is The Point</h2>
+      <p>Most research systems reward accumulation.</p>
+      <p>Founder Research OS rewards decision pressure.</p>
+      <p>The question is not, "Did we learn something?"</p>
+      <p>The question is, "What should this learning change?"</p>
+      <p>That is why the system has an evidence maturity ladder. Public research, repeated patterns, interviews, experiments, and decision-ready conviction are different things. Treating them as the same thing is how founders overclaim too early.</p>
+
+      <h2>The Agent Should Improve The System</h2>
+      <p>The other important idea is controlled autonomy.</p>
+      <p>An AI agent should not wait for the founder to ask for every small maintenance task.</p>
+      <p>If a source note changes a pattern register, it should update the pattern register. If an eval finds a failure, it should create the remediation artifact. If the same mistake happens twice, it should become a failure mode with a prevention rule.</p>
+      <p>This is how the workspace compounds.</p>
+
+      <h2>What This Is</h2>
+      <p>Founder Research OS is an open-source workspace for AI-assisted startup discovery.</p>
+      <ul>
+        <li>a founder research operating loop;</li>
+        <li>an agent spec;</li>
+        <li>reusable templates;</li>
+        <li>a decision queue;</li>
+        <li>evidence maturity rules;</li>
+        <li>evals and failure modes;</li>
+        <li>a synthetic example;</li>
+        <li>a starter script for creating a new workspace.</li>
+      </ul>
+      <p>It is not a claim that AI can replace founder judgment.</p>
+      <p>It is the opposite.</p>
+      <p>It is a way to make founder judgment sharper by giving AI the structure it needs to preserve context, pressure decisions, and improve the operating system.</p>
+
+      <h2>The Bet</h2>
+      <p>AI agents become more useful when the workspace gives them state, standards, and permission to improve the system.</p>
+      <p>That is the bet behind Founder Research OS.</p>
+      <p>It starts with founder research.</p>
+      <p>The deeper idea is bigger: serious AI work needs an operating system, not just prompts.</p>
+    </article>
+  </main>
+</body>
+</html>

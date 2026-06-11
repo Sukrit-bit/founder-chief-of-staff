@@ -12,8 +12,11 @@ source_note.md
 -> problem_backlog.md
 -> decision_queue.md
 -> experiment_plan.md
+-> decision_memo.md
 -> working_state.md
 ```
+
+For the narrative version, read [example_journey.md](example_journey.md).
 
 ## Synthetic Setup
 
@@ -29,7 +32,6 @@ This is not validation. It is only enough to create a problem candidate and a di
 
 ## Decision
 
-Current status: `Experiment`.
+Current status: `Experiment, do not promote to venture thesis`.
 
 Next evidence needed: 5 interviews with small contractors, 3 interviews with permit expediters, and 1 shadowed permit resubmission workflow.
-

@@ -3,22 +3,27 @@
 ## v0.1
 
 - Root docs.
+- Root landing page.
 - Agent spec.
 - Operating protocols.
 - Reusable templates.
 - Synthetic municipal permitting example.
 - Visual operating-loop explainer.
+- Starter workspace script.
 - Docs audit.
 - Repo safety check.
+- Launch essay.
 - Launch thread draft.
+- GitHub release and tag.
 
 ## v0.2
 
 - Add a second synthetic example in a different domain.
-- Add a theme generator script.
+- Expand the starter script into a compact CLI.
 - Add artifact-quality eval templates.
-- Add a stronger walkthrough.
+- Add a walkthrough video.
 - Improve the visual explainer after feedback.
+- Add first external-user feedback notes.
 
 ## v0.3
 
