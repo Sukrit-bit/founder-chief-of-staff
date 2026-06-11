@@ -10,6 +10,7 @@
 - Visual operating-loop explainer.
 - Docs audit.
 - Public leak scan.
+- Launch thread draft.
 
 ## v0.2
 
@@ -33,4 +34,3 @@ Each release should make the system better at one job:
 ```text
 turning market inputs into evidence-backed startup decisions
 ```
-

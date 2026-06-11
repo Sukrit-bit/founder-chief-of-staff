@@ -28,6 +28,7 @@ Start here:
 - [TECHNICAL.md](TECHNICAL.md) explains the operating architecture.
 - [PROMPT.md](PROMPT.md) contains the public agent spec.
 - [docs/LAUNCH_NOTE.md](docs/LAUNCH_NOTE.md) gives the short public narrative.
+- [docs/LAUNCH_THREAD.md](docs/LAUNCH_THREAD.md) gives launch copy for X or LinkedIn.
 - [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md) defines the release bar.
 - [docs/OPERATING_LOOP.md](docs/OPERATING_LOOP.md) shows the loop.
 - [visuals/operating-loop.html](visuals/operating-loop.html) gives a visual map.
