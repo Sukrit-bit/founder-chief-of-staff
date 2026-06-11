@@ -25,6 +25,7 @@ source note -> pattern -> problem candidate -> decision queue -> experiment -> e
 Start here:
 
 - [Live landing page](https://sukrit-bit.github.io/founder-research-os/) is the public front door.
+- [Use this template](https://github.com/new?template_name=founder-research-os&template_owner=Sukrit-bit) to create your own workspace.
 - [PRD.md](PRD.md) explains the product case.
 - [TECHNICAL.md](TECHNICAL.md) explains the operating architecture.
 - [PROMPT.md](PROMPT.md) contains the agent spec.
