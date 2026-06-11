@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Founder Research OS - Operating Loop</title>
+  <style>
+    :root {
+      --bg: #fbf7f0;
+      --ink: #17202a;
+      --muted: #69716f;
+      --line: #d9cbbb;
+      --paper: #fffdf8;
+      --terracotta: #b5532f;
+      --terracotta-soft: #f2d8cc;
+      --sage: #58745b;
+      --sage-soft: #dce8dd;
+      --gold: #a97825;
+      --gold-soft: #f2e4c9;
+      --slate: #31485c;
+      --slate-soft: #dbe6ee;
+      --shadow: 0 20px 60px rgba(55, 40, 22, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(181, 83, 47, 0.06), transparent 34%),
+        linear-gradient(240deg, rgba(88, 116, 91, 0.08), transparent 36%),
+        radial-gradient(circle at 50% 0%, rgba(169, 120, 37, 0.12), transparent 42%),
+        var(--bg);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .page {
+      width: min(1180px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--terracotta);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: 0.94;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
+
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.45;
+      max-width: 420px;
+    }
+
+    .stage {
+      position: relative;
+      background: rgba(255, 253, 248, 0.76);
+      border: 1px solid rgba(77, 61, 45, 0.12);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      overflow: hidden;
+    }
+
+    .stage:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(49, 72, 92, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49, 72, 92, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at 50% 45%, black, transparent 72%);
+      pointer-events: none;
+    }
+
+    .loop {
+      position: relative;
+      z-index: 1;
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+    }
+
+    .center {
+      position: absolute;
+      width: min(360px, 82vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(255, 253, 248, 0.98), rgba(242, 228, 201, 0.9));
+      border: 1px solid rgba(169, 120, 37, 0.28);
+      box-shadow: inset 0 0 0 18px rgba(255, 253, 248, 0.72), 0 18px 50px rgba(49, 72, 92, 0.12);
+      padding: 44px;
+    }
+
+    .center h2 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .center p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 16px;
+    }
+
+    .ring {
+      position: absolute;
+      width: min(820px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px dashed rgba(49, 72, 92, 0.22);
+    }
+
+    .node-card {
+      position: absolute;
+      width: 190px;
+      min-height: 116px;
+      padding: 18px;
+      background: rgba(255, 253, 248, 0.94);
+      border: 1px solid rgba(77, 61, 45, 0.14);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(49, 72, 92, 0.1);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .node-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(49, 72, 92, 0.16);
+    }
+
+    .node-card b {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .node-card span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.35;
+      font-size: 14px;
+    }
+
+    .node-card small {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--terracotta);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .n1 { top: 0; left: calc(50% - 95px); border-top: 5px solid var(--terracotta); }
+    .n2 { top: 16%; right: 4%; border-top: 5px solid var(--gold); }
+    .n3 { bottom: 23%; right: 1%; border-top: 5px solid var(--sage); }
+    .n4 { bottom: 0; left: calc(50% - 95px); border-top: 5px solid var(--slate); }
+    .n5 { bottom: 23%; left: 1%; border-top: 5px solid var(--terracotta); }
+    .n6 { top: 16%; left: 4%; border-top: 5px solid var(--sage); }
+
+    .rail-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .rail {
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(77, 61, 45, 0.12);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .rail h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .rail p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      color: var(--slate);
+      background: var(--slate-soft);
+      border-radius: 999px;
+      padding: 8px 10px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .metric {
+      background: var(--paper);
+      border: 1px solid rgba(77, 61, 45, 0.12);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .loop {
+        min-height: auto;
+        display: block;
+      }
+
+      .ring,
+      .center {
+        position: relative;
+        width: 100%;
+        aspect-ratio: auto;
+        border-radius: 24px;
+        margin-bottom: 16px;
+      }
+
+      .ring {
+        border: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .node-card {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        inset: auto;
+      }
+
+      .rail-grid,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <section>
+        <div class="eyebrow">Founder Research OS</div>
+        <h1>From loose signals to startup decisions.</h1>
+      </section>
+      <p class="lede">The system gives an AI agent memory, protocols, evals, and autonomy boundaries so founder research keeps moving toward evidence and judgment.</p>
+    </header>
+
+    <section class="stage" aria-label="Founder Research OS operating loop">
+      <div class="loop">
+        <div class="ring" aria-hidden="true"></div>
+
+        <article class="node-card n1">
+          <small>01</small>
+          <b>Input</b>
+          <span>Article, company, call, transcript, hunch, or question.</span>
+        </article>
+
+        <article class="node-card n2">
+          <small>02</small>
+          <b>Artifact</b>
+          <span>Source note, case study, interview note, or theme update.</span>
+        </article>
+
+        <article class="node-card n3">
+          <small>03</small>
+          <b>Pattern</b>
+          <span>Repeated signal becomes a reusable pattern, not a vague memory.</span>
+        </article>
+
+        <article class="node-card n4">
+          <small>04</small>
+          <b>Decision Queue</b>
+          <span>Continue, narrow, experiment, park, pause, or kill.</span>
+        </article>
+
+        <article class="node-card n5">
+          <small>05</small>
+          <b>Experiment</b>
+          <span>Test the riskiest assumption with the smallest credible loop.</span>
+        </article>
+
+        <article class="node-card n6">
+          <small>06</small>
+          <b>Updated State</b>
+          <span>Dashboard, working state, and artifact index stay current.</span>
+        </article>
+
+        <div class="center">
+          <div>
+            <h2>Agent inside a workspace</h2>
+            <p>The agent does not just answer. It maintains the system that turns research into decisions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-grid">
+        <article class="rail">
+          <h3>Evidence rail</h3>
+          <p>Raw signals do not become conviction until interviews, experiments, or pilots support them.</p>
+          <div class="pill-row">
+            <span class="pill">raw</span>
+            <span class="pill">pattern</span>
+            <span class="pill">interview</span>
+            <span class="pill">experiment</span>
+          </div>
+        </article>
+
+        <article class="rail">
+          <h3>Scope rail</h3>
+          <p>The system separates project, theme, wedge, workflow, and artifact so one sprint does not become the whole strategy.</p>
+          <div class="pill-row">
+            <span class="pill">project</span>
+            <span class="pill">theme</span>
+            <span class="pill">wedge</span>
+            <span class="pill">workflow</span>
+          </div>
+        </article>
+
+        <article class="rail">
+          <h3>Safety rail</h3>
+          <p>The public repo shares method and synthetic examples. Live startup theses and private access paths stay out.</p>
+          <div class="pill-row">
+            <span class="pill">redact</span>
+            <span class="pill">sanitize</span>
+            <span class="pill">evaluate</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="metrics">
+        <article class="metric">
+          <strong>4</strong>
+          <span>root docs for scan, product case, technical depth, and agent spec.</span>
+        </article>
+        <article class="metric">
+          <strong>8</strong>
+          <span>templates for source notes, patterns, decisions, experiments, and handoffs.</span>
+        </article>
+        <article class="metric">
+          <strong>1</strong>
+          <span>synthetic loop that shows the method without exposing private research.</span>
+        </article>
+        <article class="metric">
+          <strong>0</strong>
+          <span>live startup theses included in the public export.</span>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+

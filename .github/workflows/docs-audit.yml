@@ -1,0 +1,19 @@
+name: Docs Audit
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Documentation audit
+        run: python3 scripts/doc_audit.py --repo . --strict
+      - name: Public leak scan
+        run: python3 scripts/public_leak_scan.py --repo .
+
