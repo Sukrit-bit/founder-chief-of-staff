@@ -36,8 +36,7 @@ Kill if the work is already handled by a simple checklist or city portal.
 
 ## Next Evidence
 
-1. Shadow one redacted resubmission.
+1. Shadow one sample resubmission.
 2. Interview three permit expediters.
 3. Interview five small contractors.
 4. Update the decision queue.
-

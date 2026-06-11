@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit public Founder Research OS docs."""
+"""Audit Founder Research OS docs."""
 
 from __future__ import annotations
 
@@ -128,12 +128,14 @@ def check_banned(repo: pathlib.Path) -> list[tuple[str, str]]:
     return results
 
 
-def check_public_boundary(repo: pathlib.Path) -> list[tuple[str, str]]:
+def check_framework_completeness(repo: pathlib.Path) -> list[tuple[str, str]]:
     text = "\n".join(read(path) for path in repo.rglob("*.md"))
     normalized = normalize(text)
-    if "synthetic" in normalized and "redaction" in normalized and "private" in normalized:
-        return [result("PASS", "public/private boundary appears in docs")]
-    return [result("WARN", "public/private boundary should be clearer")]
+    required = ["synthetic", "decision queue", "evidence maturity", "data handling"]
+    missing = [term for term in required if term not in normalized]
+    if not missing:
+        return [result("PASS", "framework completeness signals appear in docs")]
+    return [result("WARN", f"framework completeness signals missing: {', '.join(missing)}")]
 
 
 def main() -> int:
@@ -149,7 +151,7 @@ def main() -> int:
     checks.extend(check_section_hints(repo / "PRD.md", "PRD", PRD_HINTS))
     checks.extend(check_links(repo))
     checks.extend(check_banned(repo))
-    checks.extend(check_public_boundary(repo))
+    checks.extend(check_framework_completeness(repo))
 
     counts = {"PASS": 0, "WARN": 0, "FAIL": 0}
     for level, message in checks:
@@ -169,4 +171,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

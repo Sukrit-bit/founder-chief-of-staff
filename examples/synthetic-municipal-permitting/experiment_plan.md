@@ -14,7 +14,7 @@ Permit expediters spend meaningful time translating city comments into checklist
 
 Run a concierge workflow with 3 permit expediters.
 
-For each one, ask for a redacted permit comment packet. Manually turn it into:
+For each one, use a sample permit comment packet. Manually turn it into:
 
 - missing-document checklist;
 - responsibility map;
@@ -48,4 +48,3 @@ Continue if the output saves time and creates a trusted next-action package.
 Narrow if value exists only for one municipality or permit type.
 
 Park if the buyer is unclear or the workflow is too bespoke.
-

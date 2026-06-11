@@ -4,7 +4,7 @@
 
 Founder Research OS is a file-native operating system for AI-assisted startup research.
 
-The audience for this document is a builder who wants to understand the mechanics and tradeoffs behind the public scaffold.
+The audience for this document is a builder who wants to understand the mechanics and tradeoffs behind the framework.
 
 For product framing, start with [README.md](README.md) and [PRD.md](PRD.md).
 
@@ -42,7 +42,7 @@ Decision: encode protocols first:
 - abstraction guardrails;
 - evidence maturity ladder;
 - artifact lifecycle;
-- redaction rules;
+- data-handling rules;
 - session handoff rules;
 - failure-mode register.
 
@@ -60,28 +60,28 @@ Decision: keep evals as first-class artifacts. Evals should produce remediation 
 
 Tradeoff: more friction after major work. Better learning rate.
 
-### Decision 4: Public export instead of public repo dump
+### Decision 4: Synthetic examples instead of real research examples
 
-Problem: a private founder workspace contains edge.
+Problem: real founder research contains names, decisions, market context, and access paths that distract from the reusable method.
 
-Attempt: remove obvious private names and publish the structure.
+Attempt: remove names and publish a cleaned-up research trail.
 
-Learning: redaction is not enough. The public product needs its own examples and narrative.
+Learning: cleanup is not enough. The framework needs examples designed for teaching.
 
-Decision: create a separate public export with synthetic examples.
+Decision: ship the framework with synthetic examples.
 
-Tradeoff: more packaging work. Lower confidentiality risk.
+Tradeoff: less emotional specificity. Cleaner adoption path.
 
 ## System Characteristics
 
-Current public scaffold:
+Current framework:
 
 - 4 root docs: README, PRD, TECHNICAL, PROMPT.
 - 8 protocol docs.
 - 8 reusable templates.
 - 1 synthetic example loop.
 - 1 visual explainer.
-- 2 audit scripts: documentation quality and public leak scan.
+- 2 audit scripts: documentation quality and repo safety.
 - 1 GitHub Actions workflow.
 
 The system is optimized for judgment quality, not low-latency interaction.
@@ -91,9 +91,9 @@ Recommended thresholds:
 - Every strategic artifact should have scope, maturity, parent, children, decision status, and next evidence.
 - Every active hypothesis should have a decision queue row.
 - Every repeated operating failure should update the failure-mode register.
-- Every public export should pass the redaction checklist.
+- Every shared repo should pass the data-handling checklist.
 - Every meaningful milestone should run the docs audit.
-- Every public export should run the leak scan.
+- Every shared repo should run the repo safety check.
 
 ## What Surprised Us
 
@@ -101,7 +101,7 @@ The hard part was not creating folders.
 
 The hard part was preventing useful research from becoming a giant memory file. The dashboard/index/state split became necessary once the working state started carrying too many jobs.
 
-The second surprise was that autonomy needs friction. The agent should act without waiting on routine maintenance, but it still needs bright lines around evidence, confidentiality, and session boundaries.
+The second surprise was that autonomy needs friction. The agent should act without waiting on routine maintenance, but it still needs bright lines around evidence quality, sensitive material, and session boundaries.
 
 ## Closing
 

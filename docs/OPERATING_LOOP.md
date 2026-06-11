@@ -33,5 +33,4 @@ Every meaningful input should answer:
 
 ## Visual
 
-Open [../visuals/operating-loop.html](../visuals/operating-loop.html) for the public visual map.
-
+Open [../visuals/operating-loop.html](../visuals/operating-loop.html) for the visual map.

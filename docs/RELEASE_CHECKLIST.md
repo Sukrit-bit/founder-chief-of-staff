@@ -1,26 +1,26 @@
-# Public Readiness Check
+# Release Checklist
 
 ## Current Status
 
-Status: publishable v0.1 if checks pass.
+Status: v0.1.
 
-This does not mean the method is finished. It means the public scaffold is safe enough and useful enough to share as a work-in-progress.
+The framework is useful now, but it should keep improving through stronger examples, sharper evals, and real user feedback.
 
 ## Release Checks
 
 | Check | Requirement |
 |---|---|
-| Public/private separation | Repo contains only the public scaffold. |
-| No live thesis leakage | No private market names, company analyses, access paths, or interview notes. |
+| Complete first read | README, PRD, TECHNICAL, and PROMPT exist. |
 | Root docs | README, PRD, TECHNICAL, and PROMPT exist. |
 | Method clarity | Operating loop is visible in docs and visual. |
 | Templates | Reusable templates are included. |
-| Synthetic example | At least one public-safe example exists. |
+| Synthetic example | At least one example shows the loop end to end. |
 | Eval layer | Evals and failure modes are explained. |
-| Automation | Docs audit and leak scan pass. |
+| Automation | Docs audit and repo safety check pass. |
+| Data handling | Examples avoid sensitive customer, interview, credential, and company material. |
 | License | Open-source license included. |
 
-## Publication Positioning
+## Positioning
 
 Use this language:
 
@@ -39,4 +39,3 @@ The claim is stronger:
 ```text
 AI agents become more useful when the workspace gives them state, standards, and permission to improve the system.
 ```
-

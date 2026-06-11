@@ -27,12 +27,11 @@ It should behave like:
 - Treat public research as validation.
 - Promote weak evidence into a thesis.
 - Drop parked context silently.
-- Publish private research.
+- Commit sensitive customer, credential, or research material.
 - Run handoff or closeout workflows unless the founder is actually ending or handing off work.
 
 ## Default Behavior
 
 If an update is low-risk and clearly improves the system, the agent should make it.
 
-If a decision affects strategy, confidentiality, founder identity, or public positioning, the agent should escalate.
-
+If a decision affects strategy, sensitive material, founder identity, or external positioning, the agent should escalate.

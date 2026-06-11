@@ -54,13 +54,13 @@ The chosen approach is controlled autonomy. The agent can make low-risk maintena
 
 The result is a system that improves when it breaks.
 
-### Decision 5: Treat public sharing as a separate product
+### Decision 5: Ship with synthetic examples
 
-The obvious approach is to publish the private workspace. That leaks edge.
+The obvious approach is to explain the framework with someone else's real research. That creates noise and risk.
 
-The chosen approach is a sanitized public export. It shares the method, templates, evals, and synthetic examples. It does not share live theses, access paths, interview notes, or private decisions.
+The chosen approach is to make the framework complete on its own and use synthetic examples to show the loop.
 
-The result is a public artifact that can build trust without giving away the work.
+The result is a repo that feels usable immediately. Users bring their own markets, sources, interviews, and decisions into their own workspace.
 
 ## The Output
 
@@ -74,7 +74,7 @@ A founder using this system gets:
 - problem backlogs and experiment plans;
 - a decision queue;
 - operating reviews and failure-mode logs;
-- public-safe templates.
+- reusable templates.
 
 ## Architecture
 
@@ -92,7 +92,7 @@ The architecture is file-native:
 templates
 ```
 
-The public scaffold compresses that into docs, templates, examples, and scripts.
+This repo compresses that into docs, templates, examples, and scripts.
 
 See [TECHNICAL.md](TECHNICAL.md) for implementation details.
 
@@ -104,22 +104,22 @@ If the founder changes scope, abstraction guardrails should prevent the current 
 
 If the agent repeats a mistake, the failure-mode register should turn the correction into a protocol change.
 
-If the team wants to publish, the redaction protocol should separate reusable method from private edge.
+If the team wants to share a repo or demo, the data-handling checklist should catch sensitive material before release.
 
 ## What's Next
 
 The next version should prove repeatability.
 
 - Run 2 synthetic examples.
-- Run 1 real private loop from source to experiment.
-- Add a redaction/export checklist.
+- Run 1 real local loop from source to experiment.
+- Add a stronger data-handling checklist.
 - Add a theme generator script.
-- Add public examples of evals catching bad work.
+- Add examples of evals catching bad work.
 
-The public quality bar is defined in [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md).
+The quality bar is defined in [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md).
 
 ## How It Was Built
 
-This scaffold was built from a private operating system that had already been used for founder research.
+This framework was built from an operating system already used for founder research.
 
-Codex helped turn the private method into public-safe documentation, templates, a synthetic example, a visual explainer, and an audit script. The private opportunity research is not included.
+Codex helped turn the method into documentation, templates, a synthetic example, a visual explainer, and audit scripts.

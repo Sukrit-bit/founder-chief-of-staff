@@ -9,7 +9,7 @@ Update the workspace after:
 - new pattern;
 - new problem candidate;
 - material thesis change;
-- public/export work;
+- release or sharing work;
 - repeated operating failure;
 - major sprint or handoff.
 
@@ -31,5 +31,4 @@ The founder should not need to ask:
 - Is this cross-referenced?
 - What changed?
 - What decision does this force?
-- Is this public-safe?
-
+- Is this safe to share?

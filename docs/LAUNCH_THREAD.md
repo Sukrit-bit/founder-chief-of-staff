@@ -1,6 +1,6 @@
 # Launch Thread
 
-Use this as the first public announcement draft.
+Use this as the first launch announcement draft.
 
 ## Short Post
 
@@ -18,7 +18,7 @@ input -> artifact -> pattern -> decision queue -> experiment -> evidence -> upda
 
 The repo includes:
 
-- public agent spec;
+- agent spec;
 - operating protocols;
 - evidence maturity ladder;
 - decision queue;
@@ -26,7 +26,7 @@ The repo includes:
 - synthetic example;
 - visual explainer;
 - docs audit;
-- public leak scan.
+- repo safety check.
 
 The core idea:
 
@@ -91,7 +91,7 @@ The repo includes:
 - decision queue template;
 - synthetic example;
 - visual explainer;
-- docs audit and leak scan.
+- docs audit and repo safety check.
 
 6.
 
@@ -115,7 +115,7 @@ The agent is allowed to maintain the workspace:
 - log repeated failures;
 - improve protocols.
 
-But it is not allowed to overclaim evidence or leak private research.
+But it is not allowed to overclaim evidence or commit sensitive material.
 
 8.
 
@@ -125,7 +125,7 @@ It is an attempt to show what happens when an AI agent works inside a structured
 
 9.
 
-v0.1 is public here:
+v0.1 is here:
 
 ```text
 https://github.com/Sukrit-bit/founder-research-os
@@ -144,4 +144,3 @@ I would love feedback from founders, AI builders, operators, and investors.
 The question I am most interested in:
 
 What would make this more useful as a real founder decision system, not just a clean repo?
-

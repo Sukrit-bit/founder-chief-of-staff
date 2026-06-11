@@ -8,17 +8,17 @@ The reader should understand three things within 90 seconds:
 
 1. The system helps a founder make startup decisions.
 2. The agent works inside a structured operating system.
-3. The public repo protects private research edge.
+3. The repo is complete enough to use with their own research context.
 
 ## What Counts As Good
 
 - Clear operating loop.
 - Sharp evidence labels.
-- Public/private boundary.
-- Decision queue.
 - Synthetic examples.
+- Decision queue.
 - Evals that produce remediation.
 - Scripts that catch obvious drift.
+- Data-handling checks.
 
 ## What Counts As Weak
 
@@ -26,23 +26,22 @@ The reader should understand three things within 90 seconds:
 - A folder structure with no loop.
 - Generic AI language.
 - Claims without examples.
-- Public examples that leak private research.
+- Examples that expose sensitive customer, interview, or company material.
 - A repo that looks like a prompt pack.
 
-## Pre-Publish Gate
+## Release Gate
 
-Before public release:
+Before sharing a repo or demo:
 
 ```bash
 python3 scripts/doc_audit.py --repo . --strict
-python3 scripts/public_leak_scan.py --repo .
+python3 scripts/repo_safety_check.py --repo .
 ```
 
 Then ask:
 
 ```text
 Would a serious founder, operator, investor, or AI builder understand why this exists?
-Would publishing this reduce any private startup edge?
+Could this be shared without exposing sensitive material?
 Does the repo show a method, not just a claim?
 ```
-

@@ -14,6 +14,5 @@ jobs:
           python-version: "3.12"
       - name: Documentation audit
         run: python3 scripts/doc_audit.py --repo . --strict
-      - name: Public leak scan
-        run: python3 scripts/public_leak_scan.py --repo .
-
+      - name: Repo safety check
+        run: python3 scripts/repo_safety_check.py --repo .

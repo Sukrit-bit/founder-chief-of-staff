@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan the public export for common public-safety mistakes."""
+"""Scan the repo for common sharing-safety mistakes."""
 
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ def main() -> int:
             continue
 
         relative = path.relative_to(repo).as_posix()
-        if relative == "scripts/public_leak_scan.py":
+        if relative == "scripts/repo_safety_check.py":
             continue
 
         text = path.read_text(encoding="utf-8", errors="ignore")
@@ -53,12 +53,12 @@ def main() -> int:
                     findings.append((relative, line_no, term))
 
     if findings:
-        print("Potential public-safety issue found:")
+        print("Potential sharing-safety issue found:")
         for relative, line_no, term in findings:
             print(f"[FAIL] {relative}:{line_no} matched '{term}'")
         return 1
 
-    print("PASS: no common public-safety terms found")
+    print("PASS: no common sharing-safety terms found")
     return 0
 
 
