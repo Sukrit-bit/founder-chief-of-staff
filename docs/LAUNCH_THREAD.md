@@ -8,12 +8,20 @@ I open-sourced Founder Research OS.
 
 It is a workspace for running AI-assisted startup discovery with memory, protocols, evals, and decision pressure.
 
+It automates decision preparation, not founder judgment.
+
 Most AI founder workflows stop at summaries.
 
 This one keeps pushing toward decisions:
 
 ```text
 input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+```
+
+And it improves after weak runs:
+
+```text
+failure -> eval -> failure log -> protocol update -> better next run
 ```
 
 The repo includes:
@@ -23,8 +31,9 @@ The repo includes:
 - operating protocols;
 - evidence maturity ladder;
 - decision queue;
+- continuous-improvement logs;
 - reusable templates;
-- synthetic example;
+- synthetic examples;
 - starter script;
 - visual explainer;
 - docs audit;
@@ -54,6 +63,8 @@ I open-sourced Founder Research OS.
 
 It is a workspace for running AI-assisted startup discovery with memory, protocols, evals, and decision pressure.
 
+It automates decision preparation, not founder judgment.
+
 2.
 
 Most founders do not have a research problem.
@@ -82,6 +93,8 @@ input -> artifact -> pattern -> decision queue -> experiment -> evidence -> upda
 
 Every meaningful input should create pressure on a decision.
 
+Every repeated failure should improve the next run.
+
 5.
 
 The repo includes:
@@ -92,8 +105,9 @@ The repo includes:
 - evidence maturity ladder;
 - abstraction guardrails;
 - decision queue template;
+- continuous-improvement and protocol-change logs;
 - starter workspace script;
-- synthetic example;
+- synthetic examples;
 - visual explainer;
 - docs audit and repo safety check.
 

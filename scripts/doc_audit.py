@@ -14,10 +14,21 @@ LAUNCH_FILES = [
     "index.html",
     "assets/social-card.svg",
     "assets/social-card.png",
+    "docs/WORKING_WITH_AGENT.md",
+    "docs/ARTIFACT_LIFECYCLE.md",
+    "docs/CONTINUOUS_IMPROVEMENT_LOOP.md",
     "docs/LAUNCH_ESSAY.md",
     "docs/LAUNCH_ESSAY.html",
     "scripts/init_workspace.py",
     "examples/synthetic-municipal-permitting/example_journey.md",
+    "examples/synthetic-ai-services-pilot/README.md",
+    "examples/synthetic-ai-services-pilot/pilot_evidence.md",
+    "examples/synthetic-self-improving-loop/README.md",
+    "examples/synthetic-self-improving-loop/improved_next_run.md",
+    "templates/artifact_card.md",
+    "templates/continuous_improvement_entry.md",
+    "templates/pilot_evidence.md",
+    "templates/protocol_change.md",
 ]
 
 README_HINTS = [
@@ -172,11 +183,47 @@ def check_banned(repo: pathlib.Path) -> list[tuple[str, str]]:
 def check_framework_completeness(repo: pathlib.Path) -> list[tuple[str, str]]:
     text = "\n".join(read(path) for path in repo.rglob("*.md"))
     normalized = normalize(text)
-    required = ["synthetic", "decision queue", "evidence maturity", "data handling"]
+    required = [
+        "synthetic",
+        "decision queue",
+        "evidence maturity",
+        "data handling",
+        "founder-agent",
+        "artifact lifecycle",
+        "public credibility",
+        "continuous improvement",
+        "protocol change",
+        "decision preparation",
+    ]
     missing = [term for term in required if term not in normalized]
     if not missing:
         return [result("PASS", "framework completeness signals appear in docs")]
     return [result("WARN", f"framework completeness signals missing: {', '.join(missing)}")]
+
+
+def check_starter_workspace(repo: pathlib.Path) -> list[tuple[str, str]]:
+    script = repo / "scripts" / "init_workspace.py"
+    if not script.exists():
+        return []
+
+    text = normalize(read(script))
+    required = [
+        "current_decision_dashboard.md",
+        "current_working_state.md",
+        "project_artifact_index.md",
+        "active_decision_queue.md",
+        "failure_mode_register.md",
+        "continuous_improvement_log.md",
+        "protocol_change_log.md",
+        "artifact_card.md",
+        "continuous_improvement_entry.md",
+        "pilot_evidence.md",
+        "protocol_change.md",
+    ]
+    missing = [term for term in required if term not in text]
+    if missing:
+        return [result("FAIL", f"starter workspace missing core operating outputs: {', '.join(missing)}")]
+    return [result("PASS", "starter workspace creates core operating outputs")]
 
 
 def main() -> int:
@@ -194,6 +241,7 @@ def main() -> int:
     checks.extend(check_links(repo))
     checks.extend(check_banned(repo))
     checks.extend(check_framework_completeness(repo))
+    checks.extend(check_starter_workspace(repo))
 
     counts = {"PASS": 0, "WARN": 0, "FAIL": 0}
     for level, message in checks:

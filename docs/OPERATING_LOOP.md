@@ -8,6 +8,18 @@ The operating loop prevents research from staying as loose thinking.
 input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
 ```
 
+In practice, the agent should also keep the workspace synchronized:
+
+```text
+founder input -> durable artifact -> index/dashboard/queue updates -> next founder judgment
+```
+
+The improvement loop sits behind it:
+
+```text
+bad run or new learning -> eval -> failure register -> protocol/template change -> better next run
+```
+
 ## Loop Stages
 
 | Stage | Meaning | Output |
@@ -30,6 +42,8 @@ Every meaningful input should answer:
 2. What pattern does it support or challenge?
 3. What decision does it pressure?
 4. What evidence would change our mind?
+5. Which dashboard, index, queue, register, or template should change?
+6. Did this expose a protocol or template improvement?
 
 ## Visual
 

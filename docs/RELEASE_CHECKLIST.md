@@ -15,11 +15,14 @@ The framework is useful now, but it should keep improving through stronger examp
 | Root docs | README, PRD, TECHNICAL, and PROMPT exist. |
 | Method clarity | Operating loop is visible in docs and visual. |
 | Templates | Reusable templates are included. |
-| Synthetic example | At least one example shows the loop end to end. |
-| Starter path | Starter script creates a new workspace from templates. |
+| Synthetic examples | At least three examples show different research motions. |
+| Working model | Founder-agent collaboration and artifact lifecycle are explicit. |
+| Continuous improvement | The repo shows how evals, failure logs, and protocol changes improve future runs. |
+| Starter path | Starter script creates a new workspace with dashboard, state, index, queue, failure modes, continuous-improvement logs, protocol-change logs, and templates. |
 | Eval layer | Evals and failure modes are explained. |
 | Automation | Docs audit and repo safety check pass. |
 | Data handling | Examples avoid sensitive customer, interview, credential, and company material. |
+| Public credibility | A cold reader can understand the method and why the author is worth talking to. |
 | License | Open-source license included. |
 | Release marker | Git tag and GitHub release exist for public sharing. |
 
@@ -29,6 +32,12 @@ Use this language:
 
 ```text
 Founder Research OS is an open-source workspace for running AI-assisted startup discovery with memory, protocols, evals, and decision pressure.
+```
+
+Sharper version:
+
+```text
+Founder Research OS automates decision preparation while preserving founder judgment.
 ```
 
 Do not pitch it as:

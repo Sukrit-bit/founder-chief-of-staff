@@ -44,6 +44,10 @@ The decision queue forces a next evidence requirement.
 
 The experiment either strengthens, narrows, parks, pauses, or kills the idea.
 
+The system automates decision preparation.
+
+It does not automate founder judgment.
+
 ## Decision Pressure Is The Point
 
 Most research systems reward accumulation.
@@ -68,6 +72,8 @@ If an eval finds a failure, it should create the remediation artifact.
 
 If the same mistake happens twice, it should become a failure mode with a prevention rule.
 
+If the failure changes how the agent should work, it should become a protocol or template change.
+
 This is how the workspace compounds.
 
 ## What This Is
@@ -82,7 +88,8 @@ It includes:
 - a decision queue;
 - evidence maturity rules;
 - evals and failure modes;
-- a synthetic example;
+- continuous-improvement logs;
+- synthetic examples;
 - a starter script for creating a new workspace.
 
 It is not a claim that AI can replace founder judgment.

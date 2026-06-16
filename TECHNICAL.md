@@ -60,7 +60,35 @@ Decision: keep evals as first-class artifacts. Evals should produce remediation 
 
 Tradeoff: more friction after major work. Better learning rate.
 
-### Decision 4: Synthetic examples instead of real research examples
+### Decision 4: Continuous improvement as an operating loop
+
+Problem: evals and failure logs can become dead artifacts.
+
+Attempt: document failure modes and trust the agent to remember them.
+
+Learning: the valuable behavior is not the log itself. The value is the protocol or template change that improves the next run.
+
+Decision: make the improvement loop explicit:
+
+```text
+bad run or new learning -> eval -> failure register -> protocol/template change -> better next run
+```
+
+Tradeoff: more maintenance surfaces. Better compounding.
+
+### Decision 5: Founder-agent collaboration as an explicit protocol
+
+Problem: a public repo can describe files while hiding the working style that makes those files useful.
+
+Attempt: rely on README and prompt instructions.
+
+Learning: cold readers need to see who owns judgment, who owns maintenance, and how messy inputs become durable artifacts.
+
+Decision: add explicit collaboration and artifact lifecycle docs, then make the starter workspace create the operating files that support that behavior.
+
+Tradeoff: more documentation surface. Better cold-start adoption.
+
+### Decision 6: Synthetic examples instead of real research examples
 
 Problem: real founder research contains names, decisions, market context, and access paths that distract from the reusable method.
 
@@ -78,9 +106,9 @@ Current framework:
 
 - 4 root docs: README, PRD, TECHNICAL, PROMPT.
 - 1 root landing page.
-- 8 protocol docs.
-- 8 reusable templates.
-- 1 synthetic example loop.
+- 16 protocol and launch docs.
+- 12 reusable templates.
+- 3 synthetic example loops.
 - 1 visual explainer.
 - 1 starter workspace script.
 - 2 audit scripts: documentation quality and repo safety.
@@ -93,6 +121,8 @@ Recommended thresholds:
 - Every strategic artifact should have scope, maturity, parent, children, decision status, and next evidence.
 - Every active hypothesis should have a decision queue row.
 - Every repeated operating failure should update the failure-mode register.
+- Every repeated operating failure should create or reference a protocol or template change.
+- Every new workspace should start with a dashboard, working state, artifact index, decision queue, failure-mode register, continuous-improvement log, and protocol-change log.
 - Every shared repo should pass the data-handling checklist.
 - Every meaningful milestone should run the docs audit.
 - Every shared repo should run the repo safety check.

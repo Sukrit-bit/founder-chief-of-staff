@@ -24,10 +24,14 @@ ROOT_DIRS = [
 
 
 TEMPLATE_FILES = [
+    "artifact_card.md",
+    "continuous_improvement_entry.md",
     "source_note.md",
     "pattern_register.md",
     "decision_queue.md",
     "experiment_plan.md",
+    "pilot_evidence.md",
+    "protocol_change.md",
     "problem_statement.md",
     "company_case_study.md",
     "operating_review.md",
@@ -78,12 +82,88 @@ Use it to move from market signals to evidence-backed startup decisions.
 
 See `../06_Decision_Log/Active_Decision_Queue.md`.
 
+## Artifact Index
+
+See `Project_Artifact_Index.md`.
+
+## Dashboard
+
+See `Current_Decision_Dashboard.md`.
+
+## Continuous Improvement
+
+See `../09_Automation/Continuous_Improvement_Log.md`.
+
 ## Next Best Actions
 
 1. Add the first source note in `../07_Source_Material/`.
 2. Update a theme in `../01_Themes/`.
 3. Add or update a decision queue row.
 4. Decide whether the next step is continue, narrow, experiment, park, pause, or kill.
+"""
+
+
+def dashboard(project_name: str, today: str) -> str:
+    return f"""# Current Decision Dashboard
+
+Last updated: {today}
+Project: {project_name}
+
+## Current Focus
+
+Define the first market, workflow, user pain, or company hypothesis under exploration.
+
+## Current Decision Pressure
+
+| Priority | Decision | Current Status | Next Evidence Needed | Owner |
+|---:|---|---|---|---|
+| 1 | Choose first research theme | Continue | First source note and first pattern scan | Founder |
+
+## Active Paths
+
+| Path | Evidence Maturity | Current Read | Next Action |
+|---|---|---|---|
+| First theme | Raw signal | Not enough evidence yet | Create source note |
+
+## Parked Context
+
+- None yet.
+
+## Next Best Actions
+
+1. Capture one real input as a source note.
+2. Convert the strongest repeated signal into a pattern row.
+3. Update the decision queue with the decision being pressured.
+"""
+
+
+def artifact_index(today: str) -> str:
+    return f"""# Project Artifact Index
+
+Last updated: {today}
+
+Use this index so the founder and agent can restart from the workspace without reconstructing chat history.
+
+## Core Operating Files
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| `Current_Decision_Dashboard.md` | Current focus and decision pressure | Active |
+| `Current_Working_State.md` | Full continuity state | Active |
+| `../06_Decision_Log/Active_Decision_Queue.md` | Decisions that need founder judgment | Active |
+| `../09_Automation/Failure_Mode_Register.md` | Repeated mistakes and protocol fixes | Active |
+| `../09_Automation/Continuous_Improvement_Log.md` | What changed in the OS and why | Active |
+| `../09_Automation/Protocol_Change_Log.md` | Protocol and template changes | Active |
+
+## Research Artifacts
+
+| Artifact | Scope Level | Evidence Maturity | Decision Status |
+|---|---|---|---|
+| None yet | Source | Raw signal | Not decision-bearing |
+
+## Maintenance Rule
+
+When a new strategic artifact is created, add it here.
 """
 
 
@@ -107,6 +187,65 @@ Last updated: {today}
 """
 
 
+def failure_mode_register(today: str) -> str:
+    return f"""# Failure Mode Register
+
+Last updated: {today}
+
+Use this file when the founder or agent notices a repeated operating failure.
+
+| Failure Mode | Example Trigger | Protocol Fix | Status |
+|---|---|---|---|
+| Summary without system update | Agent summarizes a source but does not create or update an artifact | Create/update artifact, index, and decision queue when input changes project state | Active guardrail |
+| Evidence inflation | Public research is treated as validation | Apply evidence maturity label before recommending a decision | Active guardrail |
+| Scope collapse | Current wedge is described as the whole company | Name active wedge, parent theme, and parked paths separately | Active guardrail |
+
+## Add New Failures Here
+
+| Date | Failure Mode | What Happened | Fix Added |
+|---|---|---|---|
+| {today} | None yet | Starter workspace created | None |
+"""
+
+
+def continuous_improvement_log(today: str) -> str:
+    return f"""# Continuous Improvement Log
+
+Last updated: {today}
+
+Use this file when the workspace improves because of an eval, correction, repeated failure, or new workflow.
+
+## Operating Rule
+
+The OS should get better because work happened.
+
+```text
+failure or new learning -> eval -> failure log -> protocol/template update -> better next run
+```
+
+## Entries
+
+| Date | Trigger | Change Made | Why It Matters | Verification |
+|---|---|---|---|---|
+| {today} | Starter workspace created | Continuous-improvement log initialized | Future changes have a place to be explained | Workspace includes core operating files |
+"""
+
+
+def protocol_change_log(today: str) -> str:
+    return f"""# Protocol Change Log
+
+Last updated: {today}
+
+Use this file when a protocol, template, prompt, or operating rule changes.
+
+## Entries
+
+| Date | Trigger | Protocol Or Template Changed | New Rule | Verification |
+|---|---|---|---|---|
+| {today} | Starter workspace created | Initial protocol set | Meaningful inputs should create artifacts and decision pressure | Starter workspace created |
+"""
+
+
 def readme(project_name: str) -> str:
     return f"""# {project_name}
 
@@ -120,13 +259,21 @@ The goal is to turn founder curiosity into evidence-backed startup decisions.
 input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
 ```
 
+```text
+failure -> eval -> failure log -> protocol/template update -> better next run
+```
+
 ## Start Here
 
-1. Read `00_Context/Current_Working_State.md`.
-2. Add source material in `07_Source_Material/`.
-3. Create or update theme notes in `01_Themes/`.
-4. Keep `06_Decision_Log/Active_Decision_Queue.md` current.
-5. Use templates from `templates/`.
+1. Read `00_Context/Current_Decision_Dashboard.md`.
+2. Read `00_Context/Current_Working_State.md`.
+3. Add source material in `07_Source_Material/`.
+4. Create or update theme notes in `01_Themes/`.
+5. Keep `06_Decision_Log/Active_Decision_Queue.md` current.
+6. Keep `00_Context/Project_Artifact_Index.md` current.
+7. Use `09_Automation/Continuous_Improvement_Log.md` when the OS changes.
+8. Use `09_Automation/Protocol_Change_Log.md` when a rule or template changes.
+9. Use templates from `templates/`.
 """
 
 
@@ -152,10 +299,20 @@ def main() -> int:
     created_files = []
     if write_if_missing(target / "README.md", readme(project_name)):
         created_files.append(target / "README.md")
+    if write_if_missing(target / "00_Context" / "Current_Decision_Dashboard.md", dashboard(project_name, today)):
+        created_files.append(target / "00_Context" / "Current_Decision_Dashboard.md")
     if write_if_missing(target / "00_Context" / "Current_Working_State.md", current_state(project_name, today)):
         created_files.append(target / "00_Context" / "Current_Working_State.md")
+    if write_if_missing(target / "00_Context" / "Project_Artifact_Index.md", artifact_index(today)):
+        created_files.append(target / "00_Context" / "Project_Artifact_Index.md")
     if write_if_missing(target / "06_Decision_Log" / "Active_Decision_Queue.md", decision_queue(today)):
         created_files.append(target / "06_Decision_Log" / "Active_Decision_Queue.md")
+    if write_if_missing(target / "09_Automation" / "Failure_Mode_Register.md", failure_mode_register(today)):
+        created_files.append(target / "09_Automation" / "Failure_Mode_Register.md")
+    if write_if_missing(target / "09_Automation" / "Continuous_Improvement_Log.md", continuous_improvement_log(today)):
+        created_files.append(target / "09_Automation" / "Continuous_Improvement_Log.md")
+    if write_if_missing(target / "09_Automation" / "Protocol_Change_Log.md", protocol_change_log(today)):
+        created_files.append(target / "09_Automation" / "Protocol_Change_Log.md")
 
     copied = copy_templates(repo, target)
 
@@ -165,8 +322,10 @@ def main() -> int:
     print(f"Files created: {len(created_files)}")
     print(f"Templates copied: {len(copied)}")
     print("\nStart here:")
+    print(f"  {target / '00_Context' / 'Current_Decision_Dashboard.md'}")
     print(f"  {target / '00_Context' / 'Current_Working_State.md'}")
     print(f"  {target / '06_Decision_Log' / 'Active_Decision_Queue.md'}")
+    print(f"  {target / '09_Automation' / 'Continuous_Improvement_Log.md'}")
     return 0
 
 

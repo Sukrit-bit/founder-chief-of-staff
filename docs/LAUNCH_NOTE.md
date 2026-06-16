@@ -10,17 +10,25 @@ Founder Research OS is a workspace for that problem.
 
 It treats AI as more than a summarizer. The agent works inside a structured workspace with memory, protocols, evals, and autonomy boundaries. Its job is not just to answer. Its job is to keep the research system moving.
 
+It automates decision preparation, not founder judgment.
+
 The loop is simple:
 
 ```text
 input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
 ```
 
-The repo includes a landing page, docs, templates, an agent spec, a synthetic example, a starter script, a visual explainer, and checks for documentation quality and repo safety.
+The improvement loop matters too:
+
+```text
+failure -> eval -> failure log -> protocol update -> better next run
+```
+
+The repo includes a landing page, docs, templates, an agent spec, synthetic examples, a starter script, a visual explainer, and checks for documentation quality and repo safety.
 
 The important idea is not the folder structure.
 
-The important idea is that AI-assisted founder work needs an operating system. Without one, the agent becomes a clever chat window. With one, it can preserve context, pressure decisions, catch repeated mistakes, and make the next work cycle sharper.
+The important idea is that AI-assisted founder work needs an operating system. Without one, the agent becomes a clever chat window. With one, it can preserve context, pressure decisions, catch repeated mistakes, update protocols, and make the next work cycle sharper.
 
 This is v0.1.
 

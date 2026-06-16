@@ -8,16 +8,28 @@ They read markets, scan companies, talk to operators, test ideas, and collect st
 
 Most AI workflows help with one task. They summarize an article. They draft a memo. They answer a question. They do not carry a founder's research state across weeks of messy exploration.
 
+They also do not improve the founder's operating system when the workflow breaks.
+
 ## The Core Insight
 
 An AI agent becomes more useful when the workspace gives it memory, protocols, evals, and autonomy boundaries.
 
 The agent should not only answer. It should help run the research operating system.
 
+The collaboration model is part of the product. The founder owns judgment, taste, access, and risk. The agent owns structure, memory, synthesis, maintenance, and decision pressure.
+
+The system should automate decision preparation, not founder judgment.
+
 That means every important input should move through a visible loop:
 
 ```text
 input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+```
+
+And every meaningful failure should move through a second loop:
+
+```text
+failure -> eval -> failure log -> protocol or template update -> better next run
 ```
 
 ## Key Decisions And Why
@@ -54,11 +66,27 @@ The chosen approach is controlled autonomy. The agent can make low-risk maintena
 
 The result is a system that improves when it breaks.
 
-### Decision 5: Ship with synthetic examples
+### Decision 5: Make continuous improvement explicit
+
+The obvious approach is to treat evals and failure logs as cleanup work. That undersells the system.
+
+The chosen approach is to make the improvement loop public: bad run, eval, failure log, protocol change, improved next run.
+
+The result is a repo that shows the compounding mechanism, not only the folder structure.
+
+### Decision 6: Make the working style visible
+
+The obvious approach is to publish files and hope readers infer the workflow. That fails for cold readers.
+
+The chosen approach is to document the founder-agent relationship, artifact lifecycle, autonomy rules, and failure modes directly.
+
+The result is a public repo that can be understood without private context.
+
+### Decision 7: Ship with synthetic examples
 
 The obvious approach is to explain the framework with someone else's real research. That creates noise and risk.
 
-The chosen approach is to make the framework complete on its own and use synthetic examples to show the loop.
+The chosen approach is to make the framework complete on its own and use synthetic examples to show the loop. One example shows source-to-experiment research. Another shows a live service pilot becoming product evidence. A third shows a weak agent run becoming a better protocol.
 
 The result is a repo that feels usable immediately. Users bring their own markets, sources, interviews, and decisions into their own workspace.
 
@@ -75,8 +103,13 @@ A founder using this system gets:
 - problem backlogs and experiment plans;
 - a decision queue;
 - operating reviews and failure-mode logs;
-- reusable templates.
+- continuous-improvement and protocol-change logs;
+- reusable templates;
 - a starter script for creating a new workspace.
+- a founder-agent working model;
+- an artifact lifecycle protocol;
+- a continuous-improvement protocol;
+- three synthetic examples showing different research motions.
 
 ## Architecture
 
@@ -106,17 +139,19 @@ If the founder changes scope, abstraction guardrails should prevent the current 
 
 If the agent repeats a mistake, the failure-mode register should turn the correction into a protocol change.
 
+If an eval identifies a structural gap, the continuous-improvement log should explain what changed and why.
+
 If the team wants to share a repo or demo, the data-handling checklist should catch sensitive material before release.
 
 ## What's Next
 
 The next version should prove repeatability with real users.
 
-- Run 2 synthetic examples.
 - Run 1 real local loop from source to experiment.
 - Add a stronger data-handling checklist.
 - Expand the starter script into a compact CLI.
-- Add examples of evals catching bad work.
+- Add examples of real evals catching bad work.
+- Capture external feedback from founders, builders, or investors.
 
 The quality bar is defined in [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md).
 
@@ -124,4 +159,4 @@ The quality bar is defined in [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md).
 
 This framework was built from an operating system already used for founder research.
 
-Codex helped turn the method into documentation, templates, a synthetic example, a visual explainer, and audit scripts.
+Codex helped turn the method into documentation, templates, synthetic examples, a visual explainer, starter tooling, and audit scripts.
