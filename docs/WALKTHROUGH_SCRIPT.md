@@ -1,4 +1,6 @@
-# Walkthrough Script
+# Historical v0.1 Walkthrough Script
+
+> This script records the original research-focused release. The current project is **Founder Chief of Staff**. Start with [README.md](../README.md).
 
 Use this for a 3-5 minute demo of Founder Research OS.
 
@@ -124,4 +126,3 @@ Ask:
 3. Is the self-improving loop clear?
 4. What feels too heavy?
 5. What would make this more useful?
-

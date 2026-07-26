@@ -1,4 +1,6 @@
-# Release Checklist
+# Historical v0.1 Release Checklist
+
+> This checklist records the original research-focused release. Use the current checks in [README.md](../README.md) for Founder Chief of Staff.
 
 ## Current Status
 

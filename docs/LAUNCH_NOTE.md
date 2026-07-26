@@ -1,4 +1,6 @@
-# Launch Note
+# Historical v0.1 Launch Note
+
+> This note records the original research-focused release. The current project is **Founder Chief of Staff**. Start with [README.md](../README.md).
 
 Most founders do not have a research problem.
 

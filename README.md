@@ -1,193 +1,152 @@
-# Founder Research OS
+# Founder Chief of Staff
 
-Founders do not have an information problem. They have a decision problem.
+An open-source operating system that turns a general AI agent into a durable Chief of Staff for an early-stage founder.
 
-Founder Research OS is an open-source workspace for turning messy market curiosity into evidence-backed startup decisions with AI agents.
+It keeps the company's state current, prepares decisions, coordinates daily execution, and improves its own operating controls. The founder keeps judgment. The agent owns the system work around that judgment.
 
-It automates decision preparation, not founder judgment.
-
-![Founder Research OS social card](assets/social-card.svg)
+![Founder Chief of Staff social card](assets/social-card.svg)
 
 ## What It Does
 
-Founder Research OS gives an AI agent a structured workspace so it can operate as a research assistant, decision OS, and chief-of-staff layer for a founder.
-
-It turns this:
+Most AI assistants answer the prompt in front of them. This system also reconciles what changed across the founder's work.
 
 ```text
-article, company, conversation, hunch
+messy update
+-> canonical state
+-> affected decisions and commitments
+-> ranked execution
+-> verified system update
 ```
 
-into this:
+It supports six connected jobs:
 
-```text
-source note -> pattern -> problem candidate -> decision queue -> experiment -> evidence -> updated state
-```
+1. **Company memory:** current facts, decisions, evidence, owners, dates, and open questions live in named sources of truth rather than chat history.
+2. **Decision preparation:** research and founder updates become options, evidence gaps, and explicit decisions without taking judgment away from the founder.
+3. **Capability intelligence:** direct competitors and adjacent companies are decomposed into problems, workflows, and capabilities that can inform a product roadmap.
+4. **Relationship operations:** free-text captures become deduplicated people, organization, opportunity, interaction, and introduction records.
+5. **Daily execution:** CRM suggestions, strategic commitments, waiting items, and carryovers become a short morning plan.
+6. **Continuous improvement:** corrections and failed checks are classified, repaired at the right level, tested, and tracked through a proof window.
 
-Then it keeps improving:
+This is not a promise of perfect memory or zero mistakes. Chat memory is never treated as authority. Material claims route to canonical sources; contradictions stop closure; repeated failures must produce an enforceable control and verification.
 
-```text
-eval -> failure log -> protocol/template update -> better future run
-```
+## Start Here
 
-The public goal is simple: make the working style visible enough that another founder can use it, and serious builders can judge the quality of the method.
-
-Start here:
-
+- [PRD.md](PRD.md) explains the product and the founder-agent contract.
+- [TECHNICAL.md](TECHNICAL.md) explains the state, routing, automation, and verification architecture.
+- [AGENTS.md](AGENTS.md) is the native entry point for Codex and compatible agents.
+- [CLAUDE.md](CLAUDE.md) is the native entry point for Claude Code.
+- [PROMPT.md](PROMPT.md) is the portable agent specification for Hermes and other agents.
+- [docs/OPERATING_CONTROL_MAP.md](docs/OPERATING_CONTROL_MAP.md) tells the agent which artifact owns each job.
+- [docs/MEMORY_AND_SYNTHESIS.md](docs/MEMORY_AND_SYNTHESIS.md) explains canonical memory, evidence handling, and capability intelligence.
+- [docs/RELATIONSHIP_AND_EXECUTION_STACK.md](docs/RELATIONSHIP_AND_EXECUTION_STACK.md) explains CRM, task planning, and one-way handoffs.
+- [docs/CONTINUOUS_IMPROVEMENT_LOOP.md](docs/CONTINUOUS_IMPROVEMENT_LOOP.md) explains how corrections become tested structural controls.
+- [docs/AUTOMATION_CONTRACTS.md](docs/AUTOMATION_CONTRACTS.md) defines safe recurring work.
 - [Live landing page](https://sukrit-bit.github.io/founder-research-os/) is the public front door.
-- [Use this template](https://github.com/new?template_name=founder-research-os&template_owner=Sukrit-bit) to create your own workspace.
-- [PRD.md](PRD.md) explains the product case.
-- [TECHNICAL.md](TECHNICAL.md) explains the operating architecture.
-- [PROMPT.md](PROMPT.md) contains the agent spec.
-- [docs/WORKING_WITH_AGENT.md](docs/WORKING_WITH_AGENT.md) explains the founder-agent working model.
-- [docs/ARTIFACT_LIFECYCLE.md](docs/ARTIFACT_LIFECYCLE.md) explains how inputs become durable artifacts.
-- [docs/CONTINUOUS_IMPROVEMENT_LOOP.md](docs/CONTINUOUS_IMPROVEMENT_LOOP.md) explains how the OS improves through logs, evals, and protocol changes.
-- [docs/WALKTHROUGH_SCRIPT.md](docs/WALKTHROUGH_SCRIPT.md) gives a 3-5 minute demo script.
-- [docs/LAUNCH_ESSAY.md](docs/LAUNCH_ESSAY.md) explains the core idea.
-- [docs/LAUNCH_NOTE.md](docs/LAUNCH_NOTE.md) gives the short launch narrative.
-- [docs/LAUNCH_THREAD.md](docs/LAUNCH_THREAD.md) gives launch copy for X or LinkedIn.
-- [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md) defines the release bar.
-- [docs/DATA_HANDLING.md](docs/DATA_HANDLING.md) defines how to handle real workspace material.
-- [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) defines the release checklist.
-- [docs/OPERATING_LOOP.md](docs/OPERATING_LOOP.md) shows the loop.
-- [visuals/operating-loop.html](visuals/operating-loop.html) gives a visual map.
-- [examples/synthetic-municipal-permitting](examples/synthetic-municipal-permitting) shows one complete synthetic loop.
-- [examples/synthetic-ai-services-pilot](examples/synthetic-ai-services-pilot) shows how a live service pilot can become product evidence.
-- [examples/synthetic-self-improving-loop](examples/synthetic-self-improving-loop) shows a bad agent run becoming a better protocol.
 
-## Product Decisions That Matter
+## Product Decisions
 
-1. The workspace is the memory layer.
+### The workspace, not the chat, carries state
 
-   Chat is useful for thinking. The repo is where durable state lives.
+The agent may use conversation context to reason, but it must verify material facts against named sources of truth. A small state registry records what is authoritative, what is read-only, and what is historical.
 
-2. Evidence has levels.
+### State is routed, not duplicated
 
-   Public research, repeated patterns, interviews, experiments, and decisions should not be treated as the same thing.
+The dashboard owns current focus. Working state owns continuity. The decision queue owns unresolved judgment. CRM owns relationships and opportunities. The task console owns the founder's execution view. An operating control map prevents one giant memory document from carrying every job.
 
-3. The system keeps a decision queue.
+### Research must change a decision or remain evidence
 
-   Good research is not enough. The project must force continue, narrow, experiment, park, pause, or kill calls.
+A company case is not automatically a product recommendation. The synthesis layer extracts the problem, user, workflow, capability, proof, and limitation, then routes the learning to a build, integrate, bundle, compete, monitor, or reject decision.
 
-4. Decision preparation is automated, but judgment is preserved.
+### The agent maintains the system
 
-   The agent prepares evidence, options, and next tests. The founder still makes the call.
+When a material update arrives, the agent should reconcile every affected canonical surface. Low-risk internal maintenance can be automatic. External publication, sensitive data, irreversible actions, and unsupported strategic calls remain human-gated.
 
-5. The agent is allowed to maintain the system.
+### Corrections require structural remedies
 
-   If the agent finds a low-risk operating fix, it should implement it and cross-reference it.
+Changing one answer or one priority is not enough when the underlying failure can recur. The system classifies the failure, inspects its blast radius, changes the controlling rule or code, runs a positive test and a negative test, and keeps the remedy under observation.
 
-6. The working style is part of the product.
+### Strategy and execution stay connected but separate
 
-   The repo should show how the founder and agent collaborate, not only what files exist.
+The CRM can suggest tasks to the founder's daily console. The console does not rewrite CRM truth. A coding agent can receive a narrow implementation handoff. It does not need the entire founder workspace.
 
-7. Examples are synthetic by default.
-
-   The repo should feel complete out of the box. Users bring their own markets, sources, interviews, and decisions into their own workspace.
-
-## How It Works
-
-The core loop is simple:
+## Architecture
 
 ```text
-input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+00_Context/
+  Current_Decision_Dashboard.md
+  Current_Working_State.md
+  Project_Artifact_Index.md
+  Operating_Control_Map.md
+  State_Registry.json
+
+01_Themes/                 market and capability synthesis
+03_Problem_Statements/     defined user and workflow problems
+04_Venture_Theses/         product and business hypotheses
+05_Experiments/            tests, pilots, and evidence
+06_Decision_Log/           active decisions and reviews
+07_Source_Material/        source notes and company cases
+08_Execution/              relationship and personal execution views
+09_Automation/             contracts, controls, checks, and proof
+templates/                 reusable artifact formats
 ```
 
-The improvement loop is equally important:
+The architecture is file-native so it remains inspectable, portable, and usable by different agents. Sheets or databases can own live CRM and task data; the registry and control map record those boundaries.
 
-```text
-bad run or new learning -> eval -> failure register -> protocol/template change -> better next run
-```
-
-The project uses seven layers:
-
-- Dashboard: what matters now.
-- Working state: canonical full context.
-- Artifact index: where files live.
-- Decision queue: what needs judgment.
-- Failure-mode register: repeated mistakes and prevention rules.
-- Continuous-improvement log: what changed in the OS and why.
-- Evals and protocol changes: how the system improves.
-
-## Results
-
-This repository ships a complete v0.1 framework with 1 clear outcome: a founder can move from loose signal to decision pressure without relying on chat memory.
-
-The human outcome is faster founder judgment: fewer loose notes, fewer forgotten insights, and fewer ideas sitting in the vague middle between "interesting" and "worth testing."
-
-The public outcome is proof of work: the repo shows a concrete AI-native research method, the judgment behind the method, and the boundaries that keep it from becoming a prompt pack.
-
-## Setup
-
-Create a starter workspace:
+## Install
 
 ```bash
 git clone https://github.com/Sukrit-bit/founder-research-os.git
 cd founder-research-os
-python3 scripts/init_workspace.py ~/founder-research/my-next-idea
+python3 scripts/init_workspace.py ~/founder-workspace/my-company
 ```
 
-Then read the docs in this order:
+Then point your agent at the generated workspace:
 
-```bash
-README.md
-PRD.md
-TECHNICAL.md
-PROMPT.md
-docs/WORKING_WITH_AGENT.md
-docs/ARTIFACT_LIFECYCLE.md
-docs/CONTINUOUS_IMPROVEMENT_LOOP.md
-docs/WALKTHROUGH_SCRIPT.md
-docs/OPERATING_LOOP.md
-examples/synthetic-municipal-permitting/README.md
-examples/synthetic-ai-services-pilot/README.md
-examples/synthetic-self-improving-loop/README.md
+```text
+Codex: read AGENTS.md
+Claude Code: read CLAUDE.md
+Other agents: read PROMPT.md
 ```
 
-Run the documentation audit:
+Run the checks:
 
 ```bash
 python3 scripts/doc_audit.py --repo .
-```
-
-Run the repo safety check:
-
-```bash
 python3 scripts/repo_safety_check.py --repo .
+python3 scripts/workspace_audit.py ~/founder-workspace/my-company
 ```
 
-Use the templates:
+## Daily Rhythm
 
-```bash
-templates/source_note.md
-templates/artifact_card.md
-templates/continuous_improvement_entry.md
-templates/pattern_register.md
-templates/decision_queue.md
-templates/experiment_plan.md
-templates/pilot_evidence.md
-templates/protocol_change.md
-```
+A useful default is three bounded runs:
 
-## Next
+1. **Relationship triage:** process eligible free-text captures into canonical CRM records.
+2. **Founder planning:** reconcile new commitments, import CRM suggestions without writeback, and produce a ranked daily plan.
+3. **Control scan:** check stale state, broken references, contradictory claims, automation drift, and open proof windows.
 
-The next milestone is repeatability with real users.
+Each run needs an automation contract with eligible inputs, allowed writes, inference limits, stop conditions, verification, and a no-change reporting rule.
 
-- Expand the starter script into a small CLI.
-- Add a walkthrough video or short essay.
-- Test the system with another founder and record where it breaks.
-- Capture adoption proof: forks, issues, user notes, or external feedback.
+## Safe By Default
 
-## Data Handling
+The repository contains synthetic examples only. Do not publish client work, credentials, personal notes, private company strategy, or live relationship data.
 
-The repo ships with synthetic examples.
+The included safety check catches common leaks. It does not replace judgment or access controls.
 
-When using it for real work, keep sensitive customer, interview, credential, and company material in your own controlled workspace.
+## Results
 
-The safety check is intentionally simple. It is not a substitute for judgment, but it catches common mistakes before a repo is shared.
+This repository is not a prompt pack. It is an inspectable operating harness:
+
+- canonical state instead of chat-only memory;
+- explicit ownership and routing instead of one large context file;
+- evidence-backed synthesis instead of competitor summaries;
+- CRM-to-task handoffs instead of disconnected trackers;
+- bounded automations instead of broad agent access;
+- tested remedies instead of a failure log that nobody enforces.
+
+The repo slug is retained for continuity with the original research-focused release. The system has since expanded into a broader Founder Chief of Staff.
 
 ## Built With
 
-This framework was built with Codex as the implementation partner.
+This framework was developed through sustained founder-agent collaboration. Codex helped maintain the operating system and implementation; the founder supplied judgment, corrections, risk boundaries, and real operating pressure.
 
-The human role was product judgment: defining the operating model, release standard, and quality bar. The AI role was scaffolding the repo, drafting docs, preserving cross-references, and running checks.
+Style check: external style applied.

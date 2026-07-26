@@ -1,143 +1,149 @@
-# TECHNICAL: Founder Research OS
+# TECHNICAL: Founder Chief of Staff
 
 ## Overview
 
-Founder Research OS is a file-native operating system for AI-assisted startup research.
+Founder Chief of Staff is a file-native control layer for AI-assisted company building. It can coordinate connected Sheets, documents, repositories, and automations, but no connector becomes the source of truth merely because the agent can access it.
 
-The audience for this document is a builder who wants to understand the mechanics and tradeoffs behind the framework.
+Start with [README.md](README.md) and [PRD.md](PRD.md).
 
-For product framing, start with [README.md](README.md) and [PRD.md](PRD.md).
+## System Model
+
+```text
+founder or external event
+        |
+        v
+eligibility and evidence check
+        |
+        v
+operating control map -> state registry -> implicated canonical systems
+        |                                  |
+        |                                  +-> decisions
+        |                                  +-> relationships
+        |                                  +-> tasks
+        |                                  +-> research and capabilities
+        v
+bounded writes -> read-back verification -> proof or clarification status
+```
 
 ## Engineering Decisions
 
-### Decision 1: File-native state over chat-native state
+### 1. File-native control, tool-native data
 
-Problem: chat is a weak memory substrate for multi-week founder research.
+Markdown and JSON make the control system inspectable and portable. Live CRM or task records may remain in Sheets. Product delivery status may remain in another repository. The state registry records authority, access mode, and update triggers.
 
-Attempt: rely on conversation continuity and summaries.
+Tradeoff: the agent must route carefully. Benefit: one tool outage or chat reset does not redefine truth.
 
-Learning: important distinctions get lost. Current focus gets mistaken for project identity. Session-end workflows can fire at the wrong time.
+### 2. Registry plus control map
 
-Decision: make state explicit in files:
+The state registry is machine-readable. The control map is human-readable. Together they answer:
 
-- dashboard for current operating state;
-- working state for full continuity;
-- artifact index for navigation;
-- decision queue for judgment pressure;
-- evals and reviews for quality control.
+- what is authoritative;
+- what is current versus historical;
+- what is read-only;
+- what can be updated automatically;
+- what requires a human decision;
+- what must never be opened or published.
 
-Tradeoff: more files. Better auditability.
+### 3. Event-to-system reconciliation
 
-### Decision 2: Protocols before automation
+The agent classifies a founder update as a fact change, commitment, decision, relationship event, research signal, correction, or combination. It then resolves every implicated route before closing the turn.
 
-Problem: automation without rules creates confident drift.
+This prevents the common failure where chat is correct but the CRM, task list, and working state remain stale.
 
-Attempt: let the agent infer what to update.
+### 4. Evidence and contradiction gates
 
-Learning: inference works until scope changes. Then the agent may update the wrong layer.
+Material claims carry a source, evidence level, and proof status. When two current sources disagree, the agent records a contradiction and blocks closure of the affected claim.
 
-Decision: encode protocols first:
+This does not eliminate hallucinations. It makes unsupported claims and unresolved conflicts observable.
 
-- agent contract;
-- abstraction guardrails;
-- evidence maturity ladder;
-- artifact lifecycle;
-- data-handling rules;
-- session handoff rules;
-- failure-mode register.
+### 5. Capability intelligence
 
-Tradeoff: more upfront structure. Better repeatability.
-
-### Decision 3: Evals as operating artifacts
-
-Problem: a research system can feel smart while making weak decisions.
-
-Attempt: review outputs informally.
-
-Learning: informal review catches prose problems but misses structural problems.
-
-Decision: keep evals as first-class artifacts. Evals should produce remediation items, not just scores.
-
-Tradeoff: more friction after major work. Better learning rate.
-
-### Decision 4: Continuous improvement as an operating loop
-
-Problem: evals and failure logs can become dead artifacts.
-
-Attempt: document failure modes and trust the agent to remember them.
-
-Learning: the valuable behavior is not the log itself. The value is the protocol or template change that improves the next run.
-
-Decision: make the improvement loop explicit:
+Company research enters as evidence, not scope. A normalized capability record contains:
 
 ```text
-bad run or new learning -> eval -> failure register -> protocol/template change -> better next run
+problem -> user -> trigger -> workflow -> capability -> proof
+-> limitation -> transfer conditions -> Inkstone-style decision
 ```
 
-Tradeoff: more maintenance surfaces. Better compounding.
+The final field is generic in a new workspace: build, integrate, bundle, compete, monitor, reject, or needs evidence.
 
-### Decision 5: Founder-agent collaboration as an explicit protocol
+### 6. One-way operational handoffs
 
-Problem: a public repo can describe files while hiding the working style that makes those files useful.
+CRM actions may create suggestions in the personal execution console. The console does not silently update CRM opportunity truth. Product strategy may create an implementation brief. The coding agent does not silently rewrite strategy.
 
-Attempt: rely on README and prompt instructions.
+### 7. Automation as a contract
 
-Learning: cold readers need to see who owns judgment, who owns maintenance, and how messy inputs become durable artifacts.
+Each recurring job defines:
 
-Decision: add explicit collaboration and artifact lifecycle docs, then make the starter workspace create the operating files that support that behavior.
+- trigger and purpose;
+- allowed inputs and eligible states;
+- allowed writes;
+- prohibited actions;
+- inference and deduplication rules;
+- stop conditions;
+- verification;
+- reporting behavior.
 
-Tradeoff: more documentation surface. Better cold-start adoption.
+No eligible input means no write. No material change can mean no report.
 
-### Decision 6: Synthetic examples instead of real research examples
+### 8. Structural correction controller
 
-Problem: real founder research contains names, decisions, market context, and access paths that distract from the reusable method.
+Correction handling has three routes:
 
-Attempt: remove names and publish a cleaned-up research trail.
+| Route | Use | Required proof |
+|---|---|---|
+| Local | One output is wrong and cannot recur through a shared control | Correct output and read-back |
+| Bounded structural | Shared prompt, protocol, schema, or automation can reproduce the failure | Control change, rollback path, positive and negative tests |
+| Human gate | External, destructive, sensitive, or strategic decision | Explicit founder approval |
 
-Learning: cleanup is not enough. The framework needs examples designed for teaching.
+A proof window tracks whether the same failure class returns. A clean test proves the control works on the fixture; it does not prove the system can never fail.
 
-Decision: ship the framework with synthetic examples.
+## Generated Workspace
 
-Tradeoff: less emotional specificity. Cleaner adoption path.
+The starter creates:
 
-## System Characteristics
+- current dashboard, working state, artifact index, control map, and JSON state registry;
+- decision queue and operating reviews;
+- relationship and personal-execution boundaries;
+- automation registry and contracts;
+- failure, continuous-improvement, protocol-change, and autonomy-control logs;
+- reusable templates.
 
-Current framework:
+## Verification
 
-- 4 root docs: README, PRD, TECHNICAL, PROMPT.
-- 1 root landing page.
-- 16 protocol and launch docs.
-- 12 reusable templates.
-- 3 synthetic example loops.
-- 1 visual explainer.
-- 1 starter workspace script.
-- 2 audit scripts: documentation quality and repo safety.
-- 1 GitHub Actions workflow.
+Repository checks:
 
-The system is optimized for judgment quality, not low-latency interaction.
+```bash
+python3 scripts/doc_audit.py --repo .
+python3 scripts/repo_safety_check.py --repo .
+```
 
-Recommended thresholds:
+Generated workspace check:
 
-- Every strategic artifact should have scope, maturity, parent, children, decision status, and next evidence.
-- Every active hypothesis should have a decision queue row.
-- Every repeated operating failure should update the failure-mode register.
-- Every repeated operating failure should create or reference a protocol or template change.
-- Every new workspace should start with a dashboard, working state, artifact index, decision queue, failure-mode register, continuous-improvement log, and protocol-change log.
-- Every shared repo should pass the data-handling checklist.
-- Every meaningful milestone should run the docs audit.
-- Every shared repo should run the repo safety check.
-- Every launch surface should be reviewed as a product surface, not only as documentation.
+```bash
+python3 scripts/init_workspace.py /tmp/founder-chief-of-staff-demo
+python3 scripts/workspace_audit.py /tmp/founder-chief-of-staff-demo
+```
 
-## What Surprised Us
+The workspace audit checks required control files, JSON validity, state-registry targets, and required automation-control fields.
 
-The hard part was not creating folders.
+## Security And Privacy Boundaries
 
-The hard part was preventing useful research from becoming a giant memory file. The dashboard/index/state split became necessary once the working state started carrying too many jobs.
+- Keep credentials and environment files outside publishable paths.
+- Keep client and customer work in restricted systems.
+- Give agents the minimum read and write scope needed for the route.
+- Treat external publication and outreach as human-gated.
+- Use synthetic examples in the public repository.
+- Run the safety check before a commit intended for sharing.
 
-The second surprise was that autonomy needs friction. The agent should act without waiting on routine maintenance, but it still needs bright lines around evidence quality, sensitive material, and session boundaries.
+## Tradeoffs
+
+The system adds operating discipline. That is worthwhile only if each artifact has one clear job.
+
+Avoid adding a new document when an existing canonical surface can own the information. Add a new control only when it prevents a real failure, removes recurring work, or defines a distinct source of truth.
 
 ## Closing
 
-Founder Research OS is not a note-taking template.
+The technical claim is narrow: a general agent becomes more reliable as a founder's Chief of Staff when state, ownership, evidence, write boundaries, corrections, and verification are explicit and inspectable.
 
-It is a decision system for founders working with AI agents. The core technical idea is simple: put the agent inside a workspace where state, evidence, protocols, evals, and failure modes are all inspectable files.
+Style check: external style applied.

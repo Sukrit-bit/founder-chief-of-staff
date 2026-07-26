@@ -1,103 +1,112 @@
 # Continuous Improvement Loop
 
-Founder Research OS is not only a place to store research.
+## Purpose
 
-It is a way to make founder judgment compound.
+A self-improving agent must do more than remember that it made a mistake.
 
-The agent should prepare decisions, preserve memory, catch repeated mistakes, and improve the workspace after meaningful work.
+The system improves only when a correction changes the control that produced the failure and the change is tested.
 
-The founder still owns judgment.
+## Trigger Signals
 
-## Core Loop
+Run this loop when:
 
-Use this loop when a source, conversation, pilot result, or strong hunch changes the project:
+- the founder corrects reasoning, priority, scope, or a factual claim;
+- the agent fixes an instance but the failure class can recur;
+- a validator or automation fails;
+- two current artifacts contradict each other;
+- the same manual intervention appears twice;
+- a new workflow exposes a missing control;
+- a public claim exceeds its evidence.
+
+## Required Route
 
 ```text
-messy input
--> classify level and evidence
--> create or update artifact
--> update dashboard, index, and decision queue
--> run eval or check
--> log failure if the system broke
--> update protocol or template
--> improve the next run
+1. Correct the immediate output
+2. Name the failure class
+3. Find the controlling route
+4. Inspect the blast radius
+5. Choose local, bounded structural, or human-gated repair
+6. Change the control
+7. Run a positive test
+8. Run a negative test
+9. Read back the affected state
+10. Record proof status and observation window
 ```
 
-This is the part that makes the OS better over time.
+## Repair Classes
 
-## What Gets Automated
+| Class | Example | Remedy |
+|---|---|---|
+| Local | One date was transcribed incorrectly | Correct and read back the record |
+| Bounded structural | Priority logic repeatedly overweights brand or revenue | Change scoring contract and test contrasting fixtures |
+| Human gate | Publishing, outreach, deletion, or a strategic commitment | Prepare options and wait for approval |
 
-The agent should automate decision preparation:
+## Structural Remedy Standard
 
-- classify the input level;
-- label evidence maturity;
-- create or update the right artifact;
-- cross-reference related files;
-- update the decision queue;
-- add repeated problems to the failure-mode register;
-- propose or apply low-risk protocol and template fixes;
-- run lightweight checks.
+A structural remedy must identify:
 
-The agent should not automate founder judgment.
+- the shared control that allowed the failure;
+- every active route that uses that control;
+- the smallest enforceable change;
+- a rollback path;
+- a positive fixture that should pass;
+- a negative fixture that should fail or stop;
+- the proof status after testing;
+- the window in which recurrence will be watched.
 
-The founder decides whether to continue, narrow, experiment, park, pause, or kill.
+Updating only the failure log is not a structural remedy.
 
-## Required Logs
+## Proof Language
 
-Every workspace should keep these logs current:
+Use bounded proof statements:
 
-| Log | Purpose |
-|---|---|
-| `Current_Decision_Dashboard.md` | Current focus and decision pressure. |
-| `Project_Artifact_Index.md` | Where durable memory lives. |
-| `Active_Decision_Queue.md` | The decisions being prepared for founder judgment. |
-| `Failure_Mode_Register.md` | Repeated mistakes and prevention rules. |
-| `Continuous_Improvement_Log.md` | What changed in the OS and why. |
-| `Protocol_Change_Log.md` | Protocol or template changes caused by failure, eval, or repeated use. |
+- `Fixture pass`: the control worked on the tested case.
+- `Live pass`: the control worked during a qualifying live event.
+- `Observation open`: the repair is active but recurrence has not been tested enough.
+- `Human-gated`: the remaining decision requires the founder.
 
-## Trigger Rules
-
-Run the improvement loop when:
-
-- the founder corrects the agent;
-- an eval finds a structural gap;
-- the same confusion appears twice;
-- the agent produces a summary without decision pressure;
-- a new workflow needs a reusable template;
-- public-facing docs fail to explain the real method;
-- a pilot produces evidence that should change the decision queue.
+Do not say a remedy makes failure impossible.
 
 ## Example
 
-A weak run looks like this:
+Weak response:
 
 ```text
-Founder shares a customer conversation.
-Agent summarizes it.
-Nothing is logged.
-No decision changes.
-The next session forgets the signal.
+The agent gives an overconfident competitor recommendation.
+The founder corrects it.
+The agent apologizes and edits the answer.
 ```
 
-A good run looks like this:
+Structural response:
 
 ```text
-Founder shares a customer conversation.
-Agent creates an evidence note.
-Agent updates the pattern register.
-Agent updates the decision queue.
-Agent logs that a new template is needed.
-Agent updates the template.
-The next session starts from better structure.
+The agent gives an overconfident competitor recommendation.
+The founder corrects it.
+The system names the failure: competitor-as-ceiling reasoning.
+The research protocol changes: company evidence must route through capability synthesis.
+A positive test preserves a transferable capability.
+A negative test blocks an unsupported market-exit recommendation.
+The control enters a live observation window.
 ```
+
+## Required Logs
+
+| Log | Purpose |
+|---|---|
+| Failure-mode register | The failure class and recurrence risk |
+| Continuous-improvement log | What changed and why |
+| Protocol-change log | The exact rule, template, prompt, schema, test, or code change |
+| Autonomy-control ledger | Repair class, verification, rollback, proof status, and observation window |
 
 ## Completion Standard
 
-After meaningful work, a future reader should be able to answer:
+The loop closes only when:
 
-1. What changed?
-2. What decision is now better prepared?
-3. What failure was caught?
-4. What protocol or template improved?
-5. What should the founder decide next?
+1. the immediate issue is corrected;
+2. the right controlling surface changed;
+3. related routes were inspected;
+4. positive and negative checks passed;
+5. unresolved human decisions are explicit;
+6. proof language matches the evidence.
 
+Style check: external style applied.

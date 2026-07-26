@@ -1,4 +1,6 @@
-# What AI Founder Research Was Missing
+# Historical v0.1 Launch Essay: Founder Research OS
+
+> This essay records the original research-focused release. The current project is **Founder Chief of Staff**. Start with [README.md](../README.md).
 
 Founders do not fail because they lack information.
 

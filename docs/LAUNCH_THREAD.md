@@ -1,4 +1,6 @@
-# Launch Thread
+# Historical v0.1 Launch Thread
+
+> This thread records the original research-focused release. The current project is **Founder Chief of Staff**. Start with [README.md](../README.md).
 
 Use this as the first launch announcement draft.
 

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Create a starter Founder Research OS workspace."""
+"""Create a starter Founder Chief of Staff workspace."""
 
 from __future__ import annotations
 
 import argparse
 import datetime as dt
+import json
 import pathlib
 import shutil
 import sys
@@ -18,6 +19,7 @@ ROOT_DIRS = [
     "05_Experiments",
     "06_Decision_Log",
     "07_Source_Material",
+    "08_Execution",
     "09_Automation",
     "templates",
 ]
@@ -36,6 +38,9 @@ TEMPLATE_FILES = [
     "company_case_study.md",
     "operating_review.md",
     "session_handoff.md",
+    "daily_operating_console.md",
+    "automation_contract.md",
+    "implementation_handoff.md",
 ]
 
 
@@ -67,9 +72,9 @@ Project: {project_name}
 
 ## Current Read
 
-This workspace is the durable memory layer for founder research.
+This workspace is the durable operating layer for the founder and AI Chief of Staff.
 
-Use it to move from market signals to evidence-backed startup decisions.
+Use it to keep current state, decisions, relationships, execution, research, and controls aligned.
 
 ## Active Questions
 
@@ -86,9 +91,17 @@ See `../06_Decision_Log/Active_Decision_Queue.md`.
 
 See `Project_Artifact_Index.md`.
 
+## Operating Control Map
+
+See `Operating_Control_Map.md`.
+
 ## Dashboard
 
 See `Current_Decision_Dashboard.md`.
+
+## Daily Operating Console
+
+See `Daily_Operating_Console.md`.
 
 ## Continuous Improvement
 
@@ -150,7 +163,10 @@ Use this index so the founder and agent can restart from the workspace without r
 |---|---|---|
 | `Current_Decision_Dashboard.md` | Current focus and decision pressure | Active |
 | `Current_Working_State.md` | Full continuity state | Active |
+| `Operating_Control_Map.md` | Which files own which jobs | Active |
+| `Daily_Operating_Console.md` | Today's execution cockpit | Active |
 | `../06_Decision_Log/Active_Decision_Queue.md` | Decisions that need founder judgment | Active |
+| `../09_Automation/Automation_Registry.md` | Scheduled or recurring agent workflows | Active |
 | `../09_Automation/Failure_Mode_Register.md` | Repeated mistakes and protocol fixes | Active |
 | `../09_Automation/Continuous_Improvement_Log.md` | What changed in the OS and why | Active |
 | `../09_Automation/Protocol_Change_Log.md` | Protocol and template changes | Active |
@@ -164,6 +180,141 @@ Use this index so the founder and agent can restart from the workspace without r
 ## Maintenance Rule
 
 When a new strategic artifact is created, add it here.
+"""
+
+
+def operating_control_map(today: str) -> str:
+    return f"""# Operating Control Map
+
+Last updated: {today}
+
+Use this file to decide what to read and update. Do not load the whole workspace by default.
+
+## Read Order
+
+1. `Current_Decision_Dashboard.md`
+2. `State_Registry.json`
+3. `Current_Working_State.md`
+4. `Project_Artifact_Index.md`
+5. `../06_Decision_Log/Active_Decision_Queue.md`
+6. The task-specific canonical source.
+
+## Source-Of-Truth Map
+
+| Need | Source of truth | Update when |
+|---|---|---|
+| Current focus | Current decision dashboard | Priorities or active bets change |
+| Full continuity | Current working state | The project phase, thesis, or active evidence changes |
+| Authority and access | State registry | A canonical system or boundary changes |
+| Navigation | Project artifact index | A current artifact or active work path is added |
+| Founder judgment | Active decision queue | A hypothesis needs continue, narrow, experiment, park, pause, or kill pressure |
+| Daily execution | Daily operating console | Today's plan, waiting items, or carryovers change |
+| Repeated mistakes | Failure-mode register | The same operating mistake appears twice or creates material risk |
+| Scheduled work | Automation registry | A recurring workflow is added or changed |
+| System changes | Continuous-improvement log | The OS changes because of correction, eval, or new workflow |
+| Rule changes | Protocol-change log | A protocol, template, prompt, or automation contract changes |
+| Structural repair proof | Autonomy-control ledger | A structural repair is opened, tested, or closed |
+
+## Boundary Rules
+
+- The dashboard is not a history file.
+- The working state is not an artifact index.
+- The decision queue is not a task manager.
+- The daily console is not the source of truth for research evidence.
+- Implementation handoffs should be narrow and safe to share with a build repo.
+"""
+
+
+def state_registry(today: str) -> str:
+    payload = {
+        "schema_version": "1.0",
+        "last_updated": today,
+        "systems": [
+            {
+                "id": "current-dashboard",
+                "purpose": "Current focus and decision pressure",
+                "location": "00_Context/Current_Decision_Dashboard.md",
+                "authority": "canonical",
+                "access": "read_write",
+                "status": "current",
+                "owner": "founder",
+                "update_trigger": "Priorities or active bets change",
+            },
+            {
+                "id": "working-state",
+                "purpose": "Full current continuity",
+                "location": "00_Context/Current_Working_State.md",
+                "authority": "canonical",
+                "access": "read_write",
+                "status": "current",
+                "owner": "founder",
+                "update_trigger": "Phase, thesis, evidence, or blockers change",
+            },
+            {
+                "id": "decision-queue",
+                "purpose": "Founder decisions requiring preparation",
+                "location": "06_Decision_Log/Active_Decision_Queue.md",
+                "authority": "canonical",
+                "access": "read_write",
+                "status": "current",
+                "owner": "founder",
+                "update_trigger": "A strategic call needs preparation",
+            },
+            {
+                "id": "daily-console",
+                "purpose": "Founder execution view",
+                "location": "00_Context/Daily_Operating_Console.md",
+                "authority": "canonical",
+                "access": "read_write",
+                "status": "current",
+                "owner": "founder",
+                "update_trigger": "Commitments, dates, blockers, or carryovers change",
+            },
+            {
+                "id": "automation-controls",
+                "purpose": "Recurring workflows and structural repair proof",
+                "location": "09_Automation",
+                "authority": "canonical",
+                "access": "read_write",
+                "status": "current",
+                "owner": "agent",
+                "update_trigger": "An automation or control changes",
+            },
+        ],
+        "global_boundaries": [
+            "Do not infer material facts, owners, dates, or relationships",
+            "External publication, outreach, destructive actions, and strategic commitments are human-gated",
+            "Do not store credentials, client work, private notes, or confidential strategy in public paths",
+        ],
+        "open_contradictions": [],
+    }
+    return json.dumps(payload, indent=2) + "\n"
+
+
+def daily_operating_console(today: str) -> str:
+    return f"""# Daily Operating Console
+
+Last updated: {today}
+
+Use this file for execution. Keep strategic evidence in the research OS.
+
+## Today
+
+| Rank | Task | Workstream | Priority | Effort | Depth | Next Action |
+|---:|---|---|---|---|---|---|
+| 1 | Capture first real source note | Research | P1 | 30 min | Medium | Pick one source and use `templates/source_note.md` |
+
+## Waiting
+
+| Task | Waiting On | Follow-Up Date |
+|---|---|---|
+| None yet |  |  |
+
+## Carryovers
+
+| Task | Carryover Count | Decision Needed |
+|---|---:|---|
+| None yet | 0 |  |
 """
 
 
@@ -246,12 +397,70 @@ Use this file when a protocol, template, prompt, or operating rule changes.
 """
 
 
+def automation_registry(today: str) -> str:
+    return f"""# Automation Registry
+
+Last updated: {today}
+
+Use this file to track recurring or scheduled agent workflows.
+
+Each automation should have a contract before it runs.
+
+## Automations
+
+| Name | Trigger | Purpose | Allowed Writes | Verification | Status |
+|---|---|---|---|---|---|
+| None yet |  |  |  |  | Not started |
+
+## Contract Rule
+
+Every automation should define:
+
+- eligible inputs;
+- allowed writes;
+- prohibited actions;
+- deduplication rule;
+- inference rule;
+- verification;
+- reporting rule;
+- stop conditions.
+"""
+
+
+def autonomy_control_ledger(today: str) -> str:
+    payload = {
+        "schema_version": "1.0",
+        "last_updated": today,
+        "controls": [],
+        "required_fields": [
+            "control_id",
+            "failure_class",
+            "repair_class",
+            "controlling_surface",
+            "blast_radius",
+            "change",
+            "rollback",
+            "positive_test",
+            "negative_test",
+            "proof_status",
+            "observation_window",
+        ],
+        "proof_statuses": [
+            "fixture_pass",
+            "live_pass",
+            "observation_open",
+            "human_gated",
+        ],
+    }
+    return json.dumps(payload, indent=2) + "\n"
+
+
 def readme(project_name: str) -> str:
     return f"""# {project_name}
 
-This is a Founder Research OS workspace.
+This is a Founder Chief of Staff workspace.
 
-The goal is to turn founder curiosity into evidence-backed startup decisions.
+The goal is to keep company memory, decision preparation, relationships, execution, research, and operating controls aligned.
 
 ## Operating Loop
 
@@ -266,19 +475,23 @@ failure -> eval -> failure log -> protocol/template update -> better next run
 ## Start Here
 
 1. Read `00_Context/Current_Decision_Dashboard.md`.
-2. Read `00_Context/Current_Working_State.md`.
-3. Add source material in `07_Source_Material/`.
-4. Create or update theme notes in `01_Themes/`.
-5. Keep `06_Decision_Log/Active_Decision_Queue.md` current.
-6. Keep `00_Context/Project_Artifact_Index.md` current.
-7. Use `09_Automation/Continuous_Improvement_Log.md` when the OS changes.
-8. Use `09_Automation/Protocol_Change_Log.md` when a rule or template changes.
-9. Use templates from `templates/`.
+2. Read `00_Context/State_Registry.json`.
+3. Read `00_Context/Current_Working_State.md`.
+4. Read `00_Context/Operating_Control_Map.md`.
+5. Use `00_Context/Daily_Operating_Console.md` for today's execution.
+6. Add source material in `07_Source_Material/`.
+7. Create or update theme notes in `01_Themes/`.
+8. Keep `06_Decision_Log/Active_Decision_Queue.md` current.
+9. Keep `00_Context/Project_Artifact_Index.md` current.
+10. Use `09_Automation/Automation_Registry.md` for recurring agent workflows.
+11. Use `09_Automation/Continuous_Improvement_Log.md` when the OS changes.
+12. Use `09_Automation/Autonomy_Control_Ledger.json` for structural repair proof.
+13. Use templates from `templates/`.
 """
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Create a Founder Research OS starter workspace.")
+    parser = argparse.ArgumentParser(description="Create a Founder Chief of Staff starter workspace.")
     parser.add_argument("target", help="Path for the new workspace")
     parser.add_argument("--name", help="Project name. Defaults to the target folder name.")
     args = parser.parse_args()
@@ -299,24 +512,40 @@ def main() -> int:
     created_files = []
     if write_if_missing(target / "README.md", readme(project_name)):
         created_files.append(target / "README.md")
+    for agent_file in ("AGENTS.md", "CLAUDE.md", "PROMPT.md"):
+        source = repo / agent_file
+        destination = target / agent_file
+        if source.exists() and not destination.exists():
+            shutil.copy2(source, destination)
+            created_files.append(destination)
     if write_if_missing(target / "00_Context" / "Current_Decision_Dashboard.md", dashboard(project_name, today)):
         created_files.append(target / "00_Context" / "Current_Decision_Dashboard.md")
     if write_if_missing(target / "00_Context" / "Current_Working_State.md", current_state(project_name, today)):
         created_files.append(target / "00_Context" / "Current_Working_State.md")
     if write_if_missing(target / "00_Context" / "Project_Artifact_Index.md", artifact_index(today)):
         created_files.append(target / "00_Context" / "Project_Artifact_Index.md")
+    if write_if_missing(target / "00_Context" / "Operating_Control_Map.md", operating_control_map(today)):
+        created_files.append(target / "00_Context" / "Operating_Control_Map.md")
+    if write_if_missing(target / "00_Context" / "State_Registry.json", state_registry(today)):
+        created_files.append(target / "00_Context" / "State_Registry.json")
+    if write_if_missing(target / "00_Context" / "Daily_Operating_Console.md", daily_operating_console(today)):
+        created_files.append(target / "00_Context" / "Daily_Operating_Console.md")
     if write_if_missing(target / "06_Decision_Log" / "Active_Decision_Queue.md", decision_queue(today)):
         created_files.append(target / "06_Decision_Log" / "Active_Decision_Queue.md")
+    if write_if_missing(target / "09_Automation" / "Automation_Registry.md", automation_registry(today)):
+        created_files.append(target / "09_Automation" / "Automation_Registry.md")
     if write_if_missing(target / "09_Automation" / "Failure_Mode_Register.md", failure_mode_register(today)):
         created_files.append(target / "09_Automation" / "Failure_Mode_Register.md")
     if write_if_missing(target / "09_Automation" / "Continuous_Improvement_Log.md", continuous_improvement_log(today)):
         created_files.append(target / "09_Automation" / "Continuous_Improvement_Log.md")
     if write_if_missing(target / "09_Automation" / "Protocol_Change_Log.md", protocol_change_log(today)):
         created_files.append(target / "09_Automation" / "Protocol_Change_Log.md")
+    if write_if_missing(target / "09_Automation" / "Autonomy_Control_Ledger.json", autonomy_control_ledger(today)):
+        created_files.append(target / "09_Automation" / "Autonomy_Control_Ledger.json")
 
     copied = copy_templates(repo, target)
 
-    print(f"Created Founder Research OS workspace: {target}")
+    print(f"Created Founder Chief of Staff workspace: {target}")
     print(f"Project name: {project_name}")
     print(f"Directories created: {len(created_dirs)}")
     print(f"Files created: {len(created_files)}")
@@ -324,6 +553,9 @@ def main() -> int:
     print("\nStart here:")
     print(f"  {target / '00_Context' / 'Current_Decision_Dashboard.md'}")
     print(f"  {target / '00_Context' / 'Current_Working_State.md'}")
+    print(f"  {target / '00_Context' / 'State_Registry.json'}")
+    print(f"  {target / '00_Context' / 'Operating_Control_Map.md'}")
+    print(f"  {target / '00_Context' / 'Daily_Operating_Console.md'}")
     print(f"  {target / '06_Decision_Log' / 'Active_Decision_Queue.md'}")
     print(f"  {target / '09_Automation' / 'Continuous_Improvement_Log.md'}")
     return 0

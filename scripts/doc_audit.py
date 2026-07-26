@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit Founder Research OS docs."""
+"""Audit Founder Chief of Staff docs."""
 
 from __future__ import annotations
 
@@ -9,17 +9,24 @@ import re
 import sys
 
 
-ROOT_FILES = ["README.md", "PRD.md", "TECHNICAL.md", "PROMPT.md"]
+ROOT_FILES = ["README.md", "PRD.md", "TECHNICAL.md", "PROMPT.md", "AGENTS.md", "CLAUDE.md"]
 LAUNCH_FILES = [
     "index.html",
     "assets/social-card.svg",
     "assets/social-card.png",
     "docs/WORKING_WITH_AGENT.md",
+    "docs/OPERATING_CONTROL_MAP.md",
+    "docs/MEMORY_AND_SYNTHESIS.md",
+    "docs/RELATIONSHIP_AND_EXECUTION_STACK.md",
     "docs/ARTIFACT_LIFECYCLE.md",
     "docs/CONTINUOUS_IMPROVEMENT_LOOP.md",
+    "docs/DAILY_OPERATING_CONSOLE.md",
+    "docs/AUTOMATION_CONTRACTS.md",
+    "docs/IMPLEMENTATION_HANDOFF.md",
     "docs/LAUNCH_ESSAY.md",
     "docs/LAUNCH_ESSAY.html",
     "scripts/init_workspace.py",
+    "scripts/workspace_audit.py",
     "examples/synthetic-municipal-permitting/example_journey.md",
     "examples/synthetic-ai-services-pilot/README.md",
     "examples/synthetic-ai-services-pilot/pilot_evidence.md",
@@ -27,6 +34,9 @@ LAUNCH_FILES = [
     "examples/synthetic-self-improving-loop/improved_next_run.md",
     "templates/artifact_card.md",
     "templates/continuous_improvement_entry.md",
+    "templates/daily_operating_console.md",
+    "templates/automation_contract.md",
+    "templates/implementation_handoff.md",
     "templates/pilot_evidence.md",
     "templates/protocol_change.md",
 ]
@@ -34,10 +44,10 @@ LAUNCH_FILES = [
 README_HINTS = [
     "what it does",
     "product decision",
-    "how it works",
+    "architecture",
     "result",
-    "setup",
-    "next",
+    "install",
+    "daily rhythm",
     "built with",
 ]
 
@@ -102,7 +112,7 @@ def check_launch_surface(repo: pathlib.Path) -> list[tuple[str, str]]:
     index = repo / "index.html"
     if index.exists():
         text = normalize(read(index))
-        required = ["founder research", "decision pressure", "github", "start in three commands"]
+        required = ["founder chief of staff", "canonical state", "github", "start in three commands"]
         missing = [term for term in required if term not in text]
         if missing:
             results.append(result("WARN", f"landing page missing launch signals: {', '.join(missing)}"))
@@ -194,6 +204,16 @@ def check_framework_completeness(repo: pathlib.Path) -> list[tuple[str, str]]:
         "continuous improvement",
         "protocol change",
         "decision preparation",
+        "operating control map",
+        "daily operating console",
+        "automation contract",
+        "implementation handoff",
+        "founder chief of staff",
+        "state registry",
+        "capability intelligence",
+        "relationship and execution",
+        "positive test",
+        "negative test",
     ]
     missing = [term for term in required if term not in normalized]
     if not missing:
@@ -211,12 +231,20 @@ def check_starter_workspace(repo: pathlib.Path) -> list[tuple[str, str]]:
         "current_decision_dashboard.md",
         "current_working_state.md",
         "project_artifact_index.md",
+        "operating_control_map.md",
+        "state_registry.json",
+        "daily_operating_console.md",
         "active_decision_queue.md",
+        "automation_registry.md",
         "failure_mode_register.md",
         "continuous_improvement_log.md",
         "protocol_change_log.md",
+        "autonomy_control_ledger.json",
         "artifact_card.md",
         "continuous_improvement_entry.md",
+        "daily_operating_console.md",
+        "automation_contract.md",
+        "implementation_handoff.md",
         "pilot_evidence.md",
         "protocol_change.md",
     ]

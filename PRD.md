@@ -1,162 +1,157 @@
-# PRD: Founder Research OS
+# PRD: Founder Chief of Staff
 
 ## The Problem
 
-Founders gather signals faster than they make decisions.
+An early-stage founder works across product, customers, hiring, fundraising, partnerships, research, and daily execution. Important facts arrive through calls, messages, documents, spreadsheets, and half-formed thoughts.
 
-They read markets, scan companies, talk to operators, test ideas, and collect strong opinions. The hard part is not note-taking. The hard part is converting those inputs into a clear view of what to continue, narrow, test, park, pause, or kill.
+General AI assistants can help with each task, but they usually fail at the longer job:
 
-Most AI workflows help with one task. They summarize an article. They draft a memo. They answer a question. They do not carry a founder's research state across weeks of messy exploration.
+- carrying authoritative state across weeks;
+- knowing which document owns which fact;
+- reconciling one update across every affected system;
+- separating evidence from conviction;
+- turning company research into product choices;
+- connecting relationship follow-ups to daily work;
+- learning structurally from a correction.
 
-They also do not improve the founder's operating system when the workflow breaks.
+The result is repeated explanation, stale priorities, contradictory documents, and an agent that sounds informed without reliably running the founder's operating system.
 
 ## The Core Insight
 
-An AI agent becomes more useful when the workspace gives it memory, protocols, evals, and autonomy boundaries.
+The useful unit is not a conversation. It is a founder-agent operating relationship with inspectable state, clear ownership, bounded autonomy, and verification.
 
-The agent should not only answer. It should help run the research operating system.
-
-The collaboration model is part of the product. The founder owns judgment, taste, access, and risk. The agent owns structure, memory, synthesis, maintenance, and decision pressure.
-
-The system should automate decision preparation, not founder judgment.
-
-That means every important input should move through a visible loop:
+The founder owns judgment, taste, relationships, risk, and final calls. The agent owns capture, reconciliation, synthesis, cross-references, decision preparation, daily planning, checks, and system maintenance.
 
 ```text
-input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+founder event
+-> canonical reconciliation
+-> decision and execution effects
+-> verified writes
+-> concise founder view
 ```
 
-And every meaningful failure should move through a second loop:
+When the system fails:
 
 ```text
-failure -> eval -> failure log -> protocol or template update -> better next run
+signal
+-> failure classification
+-> blast-radius check
+-> structural remedy
+-> positive and negative tests
+-> proof window
 ```
 
-## Key Decisions And Why
+## Key Decisions
 
-### Decision 1: Make the repo the memory layer
+### 1. Use canonical state, not chat memory
 
-The obvious approach is to keep using chat history. That fails because chat history is hard to audit, hard to search, and easy to lose across sessions.
+Chat context is useful but not authoritative. The workspace keeps a registry of current sources of truth, their owners, update triggers, and access boundaries.
 
-The chosen approach is to make the project folder carry the live state. The dashboard, working state, artifact index, decision queue, and evals are all files.
+### 2. Route state by job
 
-The result is a workspace that can be resumed without asking the founder to reconstruct the last conversation.
+Current focus, full continuity, decisions, relationships, personal execution, research evidence, and automation controls have different owners. The operating control map defines the route and prevents a single memory document from becoming a dump.
 
-### Decision 2: Separate evidence from conviction
+### 3. Reconcile events across systems
 
-The obvious approach is to turn strong market research into a thesis. That is dangerous. Public research can show patterns, but it does not prove buyer urgency.
+A material founder update can change a relationship, a task, a decision, and current state at once. The agent identifies every implicated canonical system before it replies.
 
-The chosen approach is an evidence maturity ladder. Each artifact says whether it is raw, structured, pattern-backed, interview-backed, experiment-backed, or decision-ready.
+### 4. Prepare decisions without taking them
 
-The result is less false certainty.
+The system turns evidence into options, assumptions, tradeoffs, and next tests. It does not silently promote a hypothesis, assign ownership, invent a deadline, or make a founder-level strategic call.
 
-### Decision 3: Force decision pressure
+### 5. Turn market research into capability intelligence
 
-The obvious approach is to keep adding research. That feels productive but often avoids judgment.
+Company analysis is decomposed into the problem solved, user, workflow, capability, proof, limitation, and transfer conditions. The result can inform build, integrate, bundle, compete, monitor, or reject decisions. Competitor presence is evidence, never a ceiling.
 
-The chosen approach is a decision queue. Every serious hypothesis needs a status and next evidence requirement.
+### 6. Keep CRM and personal execution distinct
 
-The result is a system that asks, "What would make us continue, narrow, experiment, park, pause, or kill this?"
+The relationship system owns people, organizations, opportunities, interactions, and introductions. The personal console owns the founder's tasks. CRM actions can flow into the console as suggestions; v0 has no automatic writeback.
 
-### Decision 4: Let the agent maintain the system
+### 7. Contract every recurring automation
 
-The obvious approach is to make the agent wait for every instruction. That creates hidden admin work for the founder.
+Scheduled work must specify eligible inputs, allowed writes, prohibited actions, inference rules, deduplication, stop conditions, verification, and reporting behavior.
 
-The chosen approach is controlled autonomy. The agent can make low-risk maintenance updates, cross-reference artifacts, run checks, and log repeated failure modes.
+### 8. Treat corrections as system failures when warranted
 
-The result is a system that improves when it breaks.
+A local answer correction is enough only for a local mistake. A recurring or high-risk failure must change the controlling prompt, protocol, schema, test, or code path and stay under a proof window.
 
-### Decision 5: Make continuous improvement explicit
+### 9. Hand implementation context to coding agents narrowly
 
-The obvious approach is to treat evals and failure logs as cleanup work. That undersells the system.
+A coding agent receives product intent, current decisions, constraints, non-goals, acceptance checks, and source links through an implementation handoff. It does not need confidential founder or customer context.
 
-The chosen approach is to make the improvement loop public: bad run, eval, failure log, protocol change, improved next run.
+### 10. Ship synthetic examples
 
-The result is a repo that shows the compounding mechanism, not only the folder structure.
-
-### Decision 6: Make the working style visible
-
-The obvious approach is to publish files and hope readers infer the workflow. That fails for cold readers.
-
-The chosen approach is to document the founder-agent relationship, artifact lifecycle, autonomy rules, and failure modes directly.
-
-The result is a public repo that can be understood without private context.
-
-### Decision 7: Ship with synthetic examples
-
-The obvious approach is to explain the framework with someone else's real research. That creates noise and risk.
-
-The chosen approach is to make the framework complete on its own and use synthetic examples to show the loop. One example shows source-to-experiment research. Another shows a live service pilot becoming product evidence. A third shows a weak agent run becoming a better protocol.
-
-The result is a repo that feels usable immediately. Users bring their own markets, sources, interviews, and decisions into their own workspace.
+The public repository demonstrates the method without exposing private research, company strategy, customer work, credentials, or live relationships.
 
 ## The Output
 
-A founder using this system gets:
+A founder gets:
 
-- a landing page explaining the method;
-- a dashboard for what matters now;
-- a working state file for full continuity;
-- an artifact index for navigation;
-- source notes and case studies for research inputs;
-- pattern registers for repeated signals;
-- problem backlogs and experiment plans;
-- a decision queue;
-- operating reviews and failure-mode logs;
-- continuous-improvement and protocol-change logs;
-- reusable templates;
-- a starter script for creating a new workspace.
-- a founder-agent working model;
-- an artifact lifecycle protocol;
-- a continuous-improvement protocol;
-- three synthetic examples showing different research motions.
+- a current decision dashboard;
+- a canonical working state;
+- a source-of-truth registry;
+- a compact artifact index and control map;
+- evidence and capability records;
+- an active decision queue;
+- a relationship CRM contract;
+- a personal daily operating console;
+- bounded automation contracts;
+- failure, protocol-change, and proof logs;
+- implementation handoffs for separate coding agents;
+- audits for documentation, workspace integrity, and public safety.
 
 ## Architecture
 
-The architecture is file-native:
+The system is file-native at its control layer:
 
 ```text
-00_Context
-01_Themes
+00_Context          current state, registry, routing, navigation
+01_Themes           patterns and capability intelligence
 03_Problem_Statements
 04_Venture_Theses
 05_Experiments
 06_Decision_Log
 07_Source_Material
-09_Automation
+08_Execution        CRM and personal-console contracts or exports
+09_Automation       contracts, failures, protocol changes, proof
 templates
 ```
 
-This repo compresses that into docs, templates, examples, and scripts.
+Live operational data may sit in Sheets or databases. The control layer records which external system is authoritative and what the agent may read or write.
 
 See [TECHNICAL.md](TECHNICAL.md) for implementation details.
 
 ## Edge Cases
 
-If the agent overclaims, the evidence ladder should force a lower maturity label.
+- If sources conflict, record the contradiction and stop the affected closure.
+- If evidence is weak, lower the maturity label instead of improving the prose.
+- If a deadline or owner is missing, create a clarification need instead of inferring it.
+- If a CRM action is already a task, update or link it instead of creating a duplicate.
+- If a correction affects a class of behavior, inspect every route that can reproduce it.
+- If an automation has no eligible input, make no writes and produce no noisy report.
+- If a product build needs context, create a narrow handoff instead of exposing the whole workspace.
+- If a public artifact depends on private proof, replace it with a synthetic example or a bounded claim.
 
-If the founder changes scope, abstraction guardrails should prevent the current sprint from being mistaken for the whole project.
+## Results
 
-If the agent repeats a mistake, the failure-mode register should turn the correction into a protocol change.
+The system is working when:
 
-If an eval identifies a structural gap, the continuous-improvement log should explain what changed and why.
-
-If the team wants to share a repo or demo, the data-handling checklist should catch sensitive material before release.
+- a founder can resume without reconstructing prior chats;
+- material updates reach every affected canonical surface;
+- decisions show their evidence and remaining assumptions;
+- CRM and daily execution remain linked without source-of-truth confusion;
+- repeated mistakes produce tested controls;
+- an external reader can understand the framework without private context.
 
 ## What's Next
 
-The next version should prove repeatability with real users.
-
-- Run 1 real local loop from source to experiment.
-- Add a stronger data-handling checklist.
-- Expand the starter script into a compact CLI.
-- Add examples of real evals catching bad work.
-- Capture external feedback from founders, builders, or investors.
-
-The quality bar is defined in [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md).
+- Test the generated workspace with founders other than its creator.
+- Measure duplicate reduction, stale-state detection, and time-to-daily-plan.
+- Add connector-specific adapters without weakening the canonical-state contract.
+- Publish more synthetic proof cases for corrections, contradictions, and capability synthesis.
 
 ## How It Was Built
 
-This framework was built from an operating system already used for founder research.
+The framework began as a research operating system and expanded through sustained use into a broader Founder Chief of Staff. The design decisions come from real operating failures: stale state, superficial corrections, inflated evidence, duplicated trackers, and context handed to the wrong agent.
 
-Codex helped turn the method into documentation, templates, synthetic examples, a visual explainer, starter tooling, and audit scripts.
+Style check: external style applied.

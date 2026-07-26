@@ -1,142 +1,112 @@
 # Working With The Agent
 
-Founder Research OS is built around a specific working relationship.
+## The Relationship
 
-The founder brings judgment, taste, access, and strategic intent.
+The founder brings judgment, taste, access, relationships, risk ownership, and strategic intent.
 
-The agent brings structure, memory, synthesis, maintenance, and decision pressure.
+The agent brings state maintenance, reconciliation, synthesis, cross-references, decision preparation, execution support, checks, and bounded system repair.
 
-The goal is not to make the agent sound smart. The goal is to make the founder's learning compound.
+The goal is not a smarter chat. The goal is a founder-agent working relationship that compounds.
 
-The agent automates decision preparation.
-
-The founder keeps judgment.
-
-## The Collaboration Pattern
-
-Use this loop for meaningful work:
+## Default Co-Working Loop
 
 ```text
-founder input
--> agent classifies the level
--> agent creates or updates the durable artifact
--> agent cross-references the workspace
--> agent updates decision pressure
--> agent runs checks
--> agent logs improvements when the workflow breaks
--> founder makes the next judgment call
+founder shares a messy event
+-> agent identifies facts, commitments, decisions, and uncertainty
+-> agent routes each change to its canonical system
+-> agent prepares affected decisions and next actions
+-> agent verifies the writes
+-> founder receives a concise operating view
 ```
 
-The agent should not stop at a summary when the input changes the project.
+The agent should not ask the founder to perform routine administrative reconciliation.
 
-If the founder shares a company, article, customer conversation, pilot result, or sharp hunch, the agent should ask:
-
-1. What level is this?
-2. What artifact should preserve it?
-3. What pattern does it support or challenge?
-4. What decision does it pressure?
-5. What evidence would change the answer?
-
-## What The Founder Owns
+## Founder Responsibilities
 
 The founder owns:
 
 - what matters;
-- what is worth testing;
-- who to talk to;
-- what risk is acceptable;
-- what should become public;
-- when to continue, narrow, experiment, park, pause, or kill.
+- final strategy and priority;
+- relationship judgment;
+- acceptable risk;
+- external commitments;
+- sensitive access;
+- what becomes public.
 
-The agent should make this easier. It should not replace judgment.
+The founder should correct the agent directly when the reasoning or operating behavior is wrong. A correction is a system signal, not only feedback on prose.
 
-## What The Agent Owns
+## Agent Responsibilities
 
-The agent should own the system work:
+The agent owns:
 
-- capture durable notes;
-- keep the dashboard current;
-- keep the artifact index useful;
-- update pattern registers;
-- update the decision queue;
-- preserve parked context;
-- create experiment plans;
-- run audits;
-- log repeated failure modes;
-- update continuous-improvement and protocol-change logs;
-- update templates or protocols when the workflow breaks.
+- preserving material updates in durable state;
+- checking existing records before creating new ones;
+- keeping the dashboard, working state, index, and decision queue aligned;
+- turning research into evidence and capability choices;
+- connecting CRM suggestions to the founder's execution view;
+- surfacing blockers, contradictions, stale state, and missing ownership;
+- maintaining automation contracts;
+- applying low-risk internal repairs;
+- testing structural remedies after failures;
+- preparing narrow handoffs for other agents.
 
-This is the difference between using AI for answers and using AI inside an operating system.
+## Autonomy Boundary
 
-## Default Agent Behavior
+The agent should act on low-risk, reversible, internal maintenance when the controlling contract is clear.
 
-For low-risk maintenance, the agent should act.
+The agent should stop for:
 
-Examples:
+- an unsupported strategic call;
+- outreach or publication;
+- a destructive or irreversible action;
+- access to sensitive systems;
+- ambiguous ownership or deadlines;
+- contradictions that affect the decision.
 
-- A new source supports a pattern. Add the pattern row.
-- A new artifact is created. Add it to the index.
-- A hypothesis becomes active. Add or update the decision queue.
-- A repeated miss appears. Add it to failure modes.
-- A live pilot creates evidence. Capture it in an evidence template.
+## Good Inputs
 
-For strategic calls, the agent should preserve options and make the decision visible.
-
-Examples:
-
-- Do not promote a thesis without evidence.
-- Do not collapse the current wedge into the whole company.
-- Do not publish sensitive material.
-- Do not run handoff unless the founder is actually ending or handing off.
-
-## Good Founder Prompts
-
-Use prompts like these:
+The founder should be able to say:
 
 ```text
-Analyze this company and tell me what pattern it supports.
+We had this conversation. Here is what changed and what we committed to.
 ```
 
 ```text
-We just had this customer conversation. Capture the evidence and update the decision queue.
+Analyze this company and tell me which capabilities could matter to us.
 ```
 
 ```text
-We are exploring this as a pilot. Create the experiment artifact and evidence template.
+This recommendation is wrong. Find the system-level reason and fix it.
 ```
 
 ```text
-Audit the workspace. Tell me what is stale, what is overclaimed, and what needs decision pressure.
+What are my priorities today?
 ```
 
-```text
-Prepare a handoff. Preserve active and parked context.
-```
+The agent should know which systems to reconcile without asking the founder to name every document.
 
-## Bad Agent Behavior
+## Failure Signs
 
-The agent is failing when it:
+The working relationship is failing when the agent:
 
-- summarizes without logging;
-- creates a polished memo with no decision implication;
-- treats public research as validation;
-- forgets parked context;
-- updates one artifact but leaves the index or dashboard stale;
-- recommends an obvious fix but does not implement it;
-- turns a live pilot into a thesis too early.
+- leaves material state in chat;
+- updates one tracker but not another implicated source;
+- treats public research as customer proof;
+- treats competitor presence as a reason to avoid a market;
+- fixes an instance without fixing a recurring control;
+- creates a duplicate tracker;
+- invents a date, owner, relationship, or proof claim;
+- produces a long report when the founder needs a decision.
 
-## Working Standard
+## Completion Standard
 
-The system is working when the founder can say:
+After substantive work, the founder should know:
 
-```text
-Here is a messy update.
-```
+1. what changed;
+2. what matters now;
+3. which decision needs judgment;
+4. which action is next;
+5. what is blocked or uncertain;
+6. what the agent changed in the operating system.
 
-And the agent can turn it into:
-
-```text
-artifact -> pattern -> decision pressure -> next evidence
-```
-
-without the founder doing the admin work.
+Style check: external style applied.
