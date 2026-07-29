@@ -2,7 +2,7 @@
 
 This is a fictional example.
 
-It shows how Founder Research OS turns a weak agent run into a better operating system.
+It shows how Founder Chief of Staff turns a weak agent run into a better operating system.
 
 ## Synthetic Setup
 

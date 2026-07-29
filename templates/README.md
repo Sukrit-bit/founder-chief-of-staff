@@ -1,6 +1,6 @@
 # Templates
 
-Use these files to create durable founder research artifacts.
+Use these files to create durable founder operating artifacts.
 
 The core flow is:
 
@@ -22,5 +22,5 @@ Start with:
 Use the starter script to copy the templates into a fresh workspace:
 
 ```bash
-python3 scripts/init_workspace.py ~/founder-research/my-next-idea
+python3 scripts/init_workspace.py ~/founder-workspace/my-company
 ```

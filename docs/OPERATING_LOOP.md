@@ -2,16 +2,21 @@
 
 ## Purpose
 
-The operating loop prevents research from staying as loose thinking.
+The operating loop prevents founder updates from remaining trapped in chat.
 
 ```text
-input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+founder event
+-> evidence and eligibility check
+-> affected canonical systems
+-> bounded writes
+-> read-back verification
+-> concise founder view
 ```
 
-In practice, the agent should also keep the workspace synchronized:
+Research and discovery use a nested loop:
 
 ```text
-founder input -> durable artifact -> index/dashboard/queue updates -> next founder judgment
+source -> structured observation -> pattern -> decision -> experiment -> evidence
 ```
 
 The improvement loop sits behind it:
@@ -24,26 +29,25 @@ bad run or new learning -> eval -> failure register -> protocol/template change 
 
 | Stage | Meaning | Output |
 |---|---|---|
-| Input | Article, company, conversation, transcript, customer call, hunch, or question. | Raw material. |
-| Artifact | Structured source note, case study, theme note, or interview note. | Durable memory. |
-| Pattern | Repeated signal across artifacts. | Pattern-register entry. |
-| Decision queue | Forced judgment: continue, narrow, experiment, park, pause, or kill. | Decision row. |
-| Experiment | Fast test of a risky assumption. | Experiment plan or prototype. |
-| Evidence | Interview, workflow observation, usage, payment, or pilot signal. | Evidence note. |
-| Updated context | Working state changes based on what was learned. | Dashboard, state, index, or thesis update. |
+| Event | Update, commitment, correction, relationship change, research signal, or decision. | Supported facts and uncertainties. |
+| Routing | Resolve which canonical systems own the change. | Affected-system checklist. |
+| Writes | Apply only allowed, deduplicated changes. | Updated state, CRM, tasks, evidence, or controls. |
+| Verification | Read back every material write and run relevant checks. | Verified result or explicit failure. |
+| Founder view | Surface priorities, blockers, decisions, and clarification needs. | Concise operating update. |
+| Improvement | Classify recurring failures and change the shared control. | Tested structural remedy. |
 
 ## Operating Rule
 
-Do not let an input stop at summary.
+Do not let a material event stop at summary.
 
 Every meaningful input should answer:
 
-1. What did we learn?
-2. What pattern does it support or challenge?
-3. What decision does it pressure?
-4. What evidence would change our mind?
-5. Which dashboard, index, queue, register, or template should change?
-6. Did this expose a protocol or template improvement?
+1. What changed, and what remains uncertain?
+2. Which systems are authoritative for the change?
+3. What decision or action does it affect?
+4. What may not be inferred?
+5. What was written and read back?
+6. Did this expose a shared-control failure?
 
 ## Visual
 

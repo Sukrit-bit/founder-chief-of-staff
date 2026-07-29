@@ -54,7 +54,7 @@ This is not a promise of perfect memory or zero mistakes. Chat memory is never t
 - [docs/CONTINUOUS_IMPROVEMENT_LOOP.md](docs/CONTINUOUS_IMPROVEMENT_LOOP.md) explains how corrections become tested structural controls.
 - [docs/PROOF_OF_OPERATION.md](docs/PROOF_OF_OPERATION.md) maps each major claim to runnable, synthetic, or agent-dependent evidence.
 - [docs/AUTOMATION_CONTRACTS.md](docs/AUTOMATION_CONTRACTS.md) defines safe recurring work.
-- [Live landing page](https://sukrit-bit.github.io/founder-research-os/) is the public front door.
+- [Live landing page](https://sukrit-bit.github.io/founder-chief-of-staff/) is the public front door.
 
 ## Product Decisions
 
@@ -108,8 +108,8 @@ The architecture is file-native so it remains inspectable, portable, and usable 
 ## Install
 
 ```bash
-git clone https://github.com/Sukrit-bit/founder-research-os.git
-cd founder-research-os
+git clone https://github.com/Sukrit-bit/founder-chief-of-staff.git
+cd founder-chief-of-staff
 python3 scripts/init_workspace.py ~/founder-workspace/my-company
 ```
 
@@ -155,8 +155,6 @@ This repository is not a prompt pack. It is an inspectable operating harness:
 - tested remedies instead of a failure log that nobody enforces.
 
 The public founder-event eval includes both a plan that must pass and a plan that must be blocked for incomplete routing, an invented deadline, an unsupported rejection, and unapproved outreach.
-
-The repo slug is retained for continuity with the original research-focused release. The system has since expanded into a broader Founder Chief of Staff.
 
 See [CHANGELOG.md](CHANGELOG.md) for the current release history.
 

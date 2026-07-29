@@ -2,7 +2,7 @@
 
 This is a fictional example.
 
-It exists only to show how Founder Research OS moves from a market signal to a decision queue and experiment plan.
+It exists only to show how Founder Chief of Staff moves from a market signal to a decision queue and experiment plan.
 
 ## Example Loop
 

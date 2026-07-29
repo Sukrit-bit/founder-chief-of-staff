@@ -19,7 +19,7 @@
 - Publish the first external-user feedback and resulting changes.
 - Add a second reconciliation scenario covering a multi-system priority change.
 - Add connector setup recipes without making any connector the canonical source.
-- Add a short, current walkthrough of the Founder Chief of Staff rather than the historical research-only release.
+- Record a short walkthrough video after the cold-user test.
 - Improve the CLI only where external use reveals repeated setup work.
 
 ## Release Standard

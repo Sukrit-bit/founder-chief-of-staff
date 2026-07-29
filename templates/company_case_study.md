@@ -34,7 +34,7 @@ How do they describe themselves?
 - 
 - 
 
-## Relevance To Our Research
+## Capability And Decision Relevance
 
 What should we learn from this without copying it?
 
@@ -43,4 +43,3 @@ What should we learn from this without copying it?
 - 
 - 
 - 
-

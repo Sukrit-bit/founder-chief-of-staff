@@ -4,11 +4,15 @@
 
 This repo should signal founder judgment, not prompt enthusiasm.
 
+## Public Credibility
+
+Every external claim should point to runnable code, a synthetic fixture, an inspectable contract, or an explicit private-proof boundary.
+
 The reader should understand three things within 90 seconds:
 
-1. The system helps a founder make startup decisions.
+1. The system maintains company state and helps a founder make decisions.
 2. The agent works inside a structured operating system.
-3. The repo is complete enough to use with their own research context.
+3. The repo is complete enough to start with their own company context.
 4. The public surface reflects strong product judgment, not only documentation completeness.
 5. The working style is clear without private chat context.
 6. The self-improving loop is obvious: evals and failures change future behavior.
@@ -48,6 +52,7 @@ Before sharing a repo or demo:
 ```bash
 python3 scripts/doc_audit.py --repo . --strict
 python3 scripts/repo_safety_check.py --repo .
+python3 scripts/identity_audit.py --repo .
 ```
 
 Then ask:

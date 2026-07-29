@@ -1,8 +1,16 @@
 # Changelog
 
+## v0.2.1 - 2026-07-29
+
+- Renamed the public project and repository to Founder Chief of Staff.
+- Rewrote the starter workspace, agent contract, operating loop, launch material, examples, and visual around company-state reconciliation rather than discovery alone.
+- Kept research and capability intelligence as one module inside the broader system.
+- Added a legacy-identity audit with positive and negative self-tests to the release gate.
+- Removed obsolete launch collateral and refreshed GitHub metadata, topics, clone paths, and Pages URLs.
+
 ## v0.2.0 - 2026-07-29
 
-- Reframed the project from a research OS into a full Founder Chief of Staff.
+- Expanded the initial discovery workflow into a full Founder Chief of Staff.
 - Added canonical state routing, event-to-system reconciliation, relationship-to-execution boundaries, and narrow implementation handoffs.
 - Added a structural correction controller with positive tests, negative tests, proof status, and observation windows.
 - Added Codex, Claude Code, and portable agent entry points.
@@ -16,4 +24,4 @@
 
 ## v0.1.0 - 2026-06-12
 
-- Published the original research-focused framework, starter workspace, templates, examples, documentation audits, and safety checks.
+- Published the initial discovery workflow, starter workspace, templates, examples, documentation audits, and safety checks.

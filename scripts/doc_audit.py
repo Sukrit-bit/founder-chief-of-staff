@@ -25,8 +25,10 @@ LAUNCH_FILES = [
     "docs/AUTOMATION_CONTRACTS.md",
     "docs/IMPLEMENTATION_HANDOFF.md",
     "docs/LAUNCH_ESSAY.md",
-    "docs/LAUNCH_ESSAY.html",
+    "docs/WALKTHROUGH_SCRIPT.md",
+    "docs/RELEASE_CHECKLIST.md",
     "scripts/init_workspace.py",
+    "scripts/identity_audit.py",
     "scripts/eval_scenarios.py",
     "scripts/release_audit.py",
     "scripts/workspace_audit.py",
@@ -128,7 +130,7 @@ def check_launch_surface(repo: pathlib.Path) -> list[tuple[str, str]]:
     readme = repo / "README.md"
     if readme.exists():
         text = normalize(read(readme))
-        required = ["sukrit-bit.github.io/founder-research-os", "scripts/init_workspace.py", "assets/social-card.svg"]
+        required = ["sukrit-bit.github.io/founder-chief-of-staff", "scripts/init_workspace.py", "assets/social-card.svg"]
         missing = [term for term in required if term not in text]
         if missing:
             results.append(result("WARN", f"README missing launch-surface references: {', '.join(missing)}"))

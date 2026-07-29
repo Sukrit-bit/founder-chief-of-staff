@@ -4,7 +4,7 @@
 
 The daily operating console is the founder's execution cockpit.
 
-It should sit above the research OS. It does not replace the decision queue, CRM, notes, or experiments.
+It is the execution view inside the Founder Chief of Staff. It does not replace the decision queue, CRM, evidence, or experiments.
 
 The job is simple:
 
@@ -25,7 +25,7 @@ Founder work gets messy quickly:
 - service delivery;
 - personal commitments to collaborators.
 
-The research OS preserves judgment and evidence. The daily console preserves execution.
+Canonical company systems preserve judgment and evidence. The daily console preserves execution.
 
 Do not merge those jobs.
 

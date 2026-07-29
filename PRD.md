@@ -152,6 +152,6 @@ The system is working when:
 
 ## How It Was Built
 
-The framework began as a research operating system and expanded through sustained use into a broader Founder Chief of Staff. The design decisions come from real operating failures: stale state, superficial corrections, inflated evidence, duplicated trackers, and context handed to the wrong agent.
+The framework expanded through sustained use from decision support into a broader Founder Chief of Staff. The design decisions come from real operating failures: stale state, superficial corrections, inflated evidence, duplicated trackers, and context handed to the wrong agent.
 
 Style check: external style applied.

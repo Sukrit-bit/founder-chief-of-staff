@@ -11,7 +11,7 @@ The handoff should be narrow, current, and versioned.
 ## Core Pattern
 
 ```text
-research OS
+Founder Chief of Staff
 -> implementation handoff brief
 -> product repo
 -> build artifact
@@ -51,7 +51,7 @@ Use the lightest bridge that solves the problem:
 
 - Do not expose private research, customer details, credentials, or sensitive access paths.
 - Do not let the coding agent infer product strategy from old notes.
-- Do not let the research OS edit the product repo silently.
+- Do not let the Founder Chief of Staff edit the product repo silently.
 - Do not let build output become validation until users or evidence support it.
 
 ## Completion Standard

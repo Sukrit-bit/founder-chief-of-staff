@@ -1,128 +1,82 @@
-# Historical v0.1 Walkthrough Script
+# Founder Chief Of Staff Walkthrough
 
-> This script records the original research-focused release. The current project is **Founder Chief of Staff**. Start with [README.md](../README.md).
+Use this for a 3-5 minute demonstration.
 
-Use this for a 3-5 minute demo of Founder Research OS.
-
-## Goal
-
-Show the core loop quickly:
+## 1. State The Problem
 
 ```text
-messy input
--> durable artifact
--> decision pressure
--> eval
--> failure log
--> protocol/template change
--> better future run
+A founder update rarely changes one thing.
+It can change a relationship, task, decision, and company state at once.
+Most AI assistants answer the message and leave those systems stale.
 ```
 
-The message:
+Show `README.md` and the live landing page.
+
+## 2. Show The Operating Contract
 
 ```text
-Founder Research OS automates decision preparation.
-It preserves founder judgment.
-```
-
-## Demo Flow
-
-### 1. Open With The Problem
-
-Say:
-
-```text
-Most founders do not have an information problem.
-They have a decision problem.
-
-AI can summarize more information.
-But founder discovery needs memory, evidence labels, decision pressure, and a way to improve when the workflow breaks.
+Chat is input, not authority.
+The state registry and control map tell the agent which system owns each fact and what it may change.
 ```
 
 Show:
 
-- `README.md`
-- `index.html`
+- `docs/OPERATING_CONTROL_MAP.md`
+- `docs/MEMORY_AND_SYNTHESIS.md`
+- `AGENTS.md`
 
-### 2. Show The Operating Loop
+## 3. Run The Public Proof
 
-Say:
+```bash
+python3 scripts/release_audit.py
+```
+
+Explain:
 
 ```text
-Every meaningful input should become project memory.
-The agent should not stop at a summary.
-It should create or update the artifact, pattern register, decision queue, and working state.
+The positive founder-event fixture must reconcile CRM, personal execution,
+current state, and the decision queue.
+
+The negative fixture must be blocked when it invents a rejection,
+response date, or outreach.
 ```
 
 Show:
 
-- `docs/OPERATING_LOOP.md`
-- `docs/WORKING_WITH_AGENT.md`
-- `docs/ARTIFACT_LIFECYCLE.md`
+- `evals/founder-event-reconciliation/contract.json`
+- `evals/founder-event-reconciliation/valid-plan.json`
+- `evals/founder-event-reconciliation/invalid-plan.json`
+- `docs/PROOF_OF_OPERATION.md`
 
-### 3. Show The Self-Improving Loop
-
-Say:
+## 4. Show Structural Improvement
 
 ```text
-The second loop is the important one.
-When the agent fails, the OS should improve.
-
-A bad run becomes an eval.
-The eval becomes a failure log.
-The failure log becomes a protocol or template change.
-The next run is better.
+When a failure can recur, fixing one answer is insufficient.
+The shared control changes, positive and negative tests run,
+and the remedy stays under observation.
 ```
 
 Show:
 
 - `docs/CONTINUOUS_IMPROVEMENT_LOOP.md`
-- `examples/synthetic-self-improving-loop/bad_agent_output.md`
 - `examples/synthetic-self-improving-loop/protocol_change.md`
 - `examples/synthetic-self-improving-loop/improved_next_run.md`
 
-### 4. Show The Starter Workspace
-
-Run:
+## 5. Generate A Workspace
 
 ```bash
-python3 scripts/init_workspace.py /tmp/founder-research-demo --name "Demo Workspace"
+python3 scripts/init_workspace.py /tmp/founder-chief-of-staff-demo --name "Demo Company"
+python3 scripts/workspace_audit.py /tmp/founder-chief-of-staff-demo
 ```
 
-Say:
+Show the generated state registry, dashboard, working state, decision queue, daily console, and automation controls.
+
+## Close
 
 ```text
-The starter workspace creates the operating files on day one:
-dashboard, working state, artifact index, decision queue, failure register, continuous-improvement log, and protocol-change log.
+The founder keeps judgment.
+The agent owns capture, reconciliation, decision preparation,
+verification, and low-risk system maintenance.
 ```
 
-Show:
-
-- `/tmp/founder-research-demo/00_Context/Current_Decision_Dashboard.md`
-- `/tmp/founder-research-demo/06_Decision_Log/Active_Decision_Queue.md`
-- `/tmp/founder-research-demo/09_Automation/Continuous_Improvement_Log.md`
-- `/tmp/founder-research-demo/09_Automation/Protocol_Change_Log.md`
-
-### 5. Close With The Boundary
-
-Say:
-
-```text
-The founder still owns judgment.
-
-The agent prepares decisions.
-The system preserves memory.
-The failure logs improve future runs.
-
-That is the difference between using AI as a chat window and using AI inside a founder operating system.
-```
-
-## Questions To Ask Viewers
-
-Ask:
-
-1. What do you think this is?
-2. Would you use this for your own founder research?
-3. Is the self-improving loop clear?
-4. What feels too heavy?
-5. What would make this more useful?
+Style check: external style applied.

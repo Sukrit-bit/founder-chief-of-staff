@@ -2,7 +2,7 @@
 
 This is a fictional example.
 
-It shows how Founder Research OS handles a live service pilot without pretending the pilot is already a venture thesis.
+It shows how Founder Chief of Staff handles a live service pilot without pretending the pilot is already a venture thesis.
 
 ## Synthetic Setup
 

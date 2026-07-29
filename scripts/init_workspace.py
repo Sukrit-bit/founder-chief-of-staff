@@ -74,14 +74,14 @@ Project: {project_name}
 
 This workspace is the durable operating layer for the founder and AI Chief of Staff.
 
-Use it to keep current state, decisions, relationships, execution, research, and controls aligned.
+Use it to keep current state, decisions, relationships, execution, evidence, and controls aligned.
 
 ## Active Questions
 
-- What market, workflow, or user pain is being explored?
-- What evidence exists?
-- What evidence is missing?
-- What decision should this research pressure next?
+- What changed since the last verified state?
+- Which system is authoritative for each material fact?
+- What decisions, commitments, blockers, and waiting states are active?
+- What evidence or clarification is still missing?
 
 ## Active Decision Queue
 
@@ -109,10 +109,10 @@ See `../09_Automation/Continuous_Improvement_Log.md`.
 
 ## Next Best Actions
 
-1. Add the first source note in `../07_Source_Material/`.
-2. Update a theme in `../01_Themes/`.
-3. Add or update a decision queue row.
-4. Decide whether the next step is continue, narrow, experiment, park, pause, or kill.
+1. Replace the starter dashboard row with the founder's current decision.
+2. Register any external CRM, task, product, or document system in `State_Registry.json`.
+3. Record the current company state without reconstructing it from chat.
+4. Add the first recurring workflow only after its automation contract is explicit.
 """
 
 
@@ -124,19 +124,19 @@ Project: {project_name}
 
 ## Current Focus
 
-Define the first market, workflow, user pain, or company hypothesis under exploration.
+Define the first company priority, decision, or operating pressure.
 
 ## Current Decision Pressure
 
 | Priority | Decision | Current Status | Next Evidence Needed | Owner |
 |---:|---|---|---|---|
-| 1 | Choose first research theme | Continue | First source note and first pattern scan | Founder |
+| 1 | Establish current operating state | Configure | Verified priorities, owners, and sources of truth | Founder |
 
 ## Active Paths
 
 | Path | Evidence Maturity | Current Read | Next Action |
 |---|---|---|---|
-| First theme | Raw signal | Not enough evidence yet | Create source note |
+| Company state | Unverified | Starter row only | Replace with current facts and open questions |
 
 ## Parked Context
 
@@ -144,9 +144,9 @@ Define the first market, workflow, user pain, or company hypothesis under explor
 
 ## Next Best Actions
 
-1. Capture one real input as a source note.
-2. Convert the strongest repeated signal into a pattern row.
-3. Update the decision queue with the decision being pressured.
+1. Configure canonical systems and access boundaries.
+2. Record the founder's current priorities and waiting states.
+3. Add the first decision that needs preparation.
 """
 
 
@@ -171,11 +171,11 @@ Use this index so the founder and agent can restart from the workspace without r
 | `../09_Automation/Continuous_Improvement_Log.md` | What changed in the OS and why | Active |
 | `../09_Automation/Protocol_Change_Log.md` | Protocol and template changes | Active |
 
-## Research Artifacts
+## Evidence And Capability Artifacts
 
 | Artifact | Scope Level | Evidence Maturity | Decision Status |
 |---|---|---|---|
-| None yet | Source | Raw signal | Not decision-bearing |
+| None yet | Evidence | Unverified | Not decision-bearing |
 
 ## Maintenance Rule
 
@@ -207,7 +207,7 @@ Use this file to decide what to read and update. Do not load the whole workspace
 | Full continuity | Current working state | The project phase, thesis, or active evidence changes |
 | Authority and access | State registry | A canonical system or boundary changes |
 | Navigation | Project artifact index | A current artifact or active work path is added |
-| Founder judgment | Active decision queue | A hypothesis needs continue, narrow, experiment, park, pause, or kill pressure |
+| Founder judgment | Active decision queue | A strategic or operating call needs preparation |
 | Daily execution | Daily operating console | Today's plan, waiting items, or carryovers change |
 | Repeated mistakes | Failure-mode register | The same operating mistake appears twice or creates material risk |
 | Scheduled work | Automation registry | A recurring workflow is added or changed |
@@ -220,7 +220,7 @@ Use this file to decide what to read and update. Do not load the whole workspace
 - The dashboard is not a history file.
 - The working state is not an artifact index.
 - The decision queue is not a task manager.
-- The daily console is not the source of truth for research evidence.
+- The daily console is not the source of truth for relationship, product, or evidence state.
 - Implementation handoffs should be narrow and safe to share with a build repo.
 """
 
@@ -296,13 +296,13 @@ def daily_operating_console(today: str) -> str:
 
 Last updated: {today}
 
-Use this file for execution. Keep strategic evidence in the research OS.
+Use this file for execution. Keep strategic, relationship, product, and evidence truth in their canonical systems.
 
 ## Today
 
 | Rank | Task | Workstream | Priority | Effort | Depth | Next Action |
 |---:|---|---|---|---|---|---|
-| 1 | Capture first real source note | Research | P1 | 30 min | Medium | Pick one source and use `templates/source_note.md` |
+| 1 | Configure current company state | Founder operations | P1 | 30 min | Medium | Replace starter rows and register canonical systems |
 
 ## Waiting
 
@@ -325,7 +325,7 @@ Last updated: {today}
 
 | Priority | Decision Item | Evidence Maturity | Current Decision | Next Evidence Needed | Next Artifact |
 |---:|---|---|---|---|---|
-| 1 | First research theme | Raw signal | Continue | First source note and pattern scan | `../07_Source_Material/` |
+| 1 | First founder decision | Unverified | Prepare | Current evidence, options, and decision owner | `../00_Context/Current_Working_State.md` |
 
 ## Decision Options
 
@@ -347,7 +347,7 @@ Use this file when the founder or agent notices a repeated operating failure.
 
 | Failure Mode | Example Trigger | Protocol Fix | Status |
 |---|---|---|---|
-| Summary without system update | Agent summarizes a source but does not create or update an artifact | Create/update artifact, index, and decision queue when input changes project state | Active guardrail |
+| Summary without system update | Agent summarizes a material founder event but leaves canonical systems stale | Reconcile every affected system and verify readback before closure | Active guardrail |
 | Evidence inflation | Public research is treated as validation | Apply evidence maturity label before recommending a decision | Active guardrail |
 | Scope collapse | Current wedge is described as the whole company | Name active wedge, parent theme, and parked paths separately | Active guardrail |
 
@@ -460,12 +460,12 @@ def readme(project_name: str) -> str:
 
 This is a Founder Chief of Staff workspace.
 
-The goal is to keep company memory, decision preparation, relationships, execution, research, and operating controls aligned.
+The goal is to keep company memory, decision preparation, relationships, execution, evidence, and operating controls aligned.
 
 ## Operating Loop
 
 ```text
-input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+founder event -> affected systems -> bounded writes -> verification -> founder view
 ```
 
 ```text
@@ -479,10 +479,10 @@ failure -> eval -> failure log -> protocol/template update -> better next run
 3. Read `00_Context/Current_Working_State.md`.
 4. Read `00_Context/Operating_Control_Map.md`.
 5. Use `00_Context/Daily_Operating_Console.md` for today's execution.
-6. Add source material in `07_Source_Material/`.
-7. Create or update theme notes in `01_Themes/`.
-8. Keep `06_Decision_Log/Active_Decision_Queue.md` current.
-9. Keep `00_Context/Project_Artifact_Index.md` current.
+6. Register external systems and their access boundaries in `00_Context/State_Registry.json`.
+7. Keep `06_Decision_Log/Active_Decision_Queue.md` current.
+8. Keep `00_Context/Project_Artifact_Index.md` current.
+9. Use `07_Source_Material/` and `01_Themes/` only when research or capability synthesis is active.
 10. Use `09_Automation/Automation_Registry.md` for recurring agent workflows.
 11. Use `09_Automation/Continuous_Improvement_Log.md` when the OS changes.
 12. Use `09_Automation/Autonomy_Control_Ledger.json` for structural repair proof.
