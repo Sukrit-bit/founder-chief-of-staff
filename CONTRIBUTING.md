@@ -1,13 +1,14 @@
-# Contributing To Founder Research OS
+# Contributing To Founder Chief of Staff
 
-Founder Research OS is not a prompt pack.
+Founder Chief of Staff is not a prompt pack.
 
-It is an operating system for helping founders turn market signals into evidence-backed startup decisions.
+It is an operating harness for maintaining founder state, preparing decisions, coordinating relationships and execution, synthesizing research, and improving its controls when they fail.
 
 Contributions should make that loop sharper:
 
 ```text
-input -> artifact -> pattern -> decision queue -> experiment -> evidence -> updated context
+founder event -> canonical systems -> verified action
+correction -> structural control -> positive and negative proof
 ```
 
 If a change does not improve memory, evidence quality, decision pressure, data handling, or repeatability, it probably does not belong here.
@@ -19,13 +20,15 @@ If a change does not improve memory, evidence quality, decision pressure, data h
 - Cleaner synthetic examples that show the loop without exposing sensitive work.
 - Data-handling checks that reduce release risk.
 - Small scripts that make the OS easier to run and audit.
-- Documentation that helps founders make continue, narrow, experiment, park, pause, or kill decisions.
+- Documentation that helps founders understand current state, decisions, blockers, and next actions.
 
 ## Strong PRs
 
 Strong PRs usually do one of these:
 
 - move an idea from vague synthesis toward a decision;
+- reconcile one event across every affected source of truth;
+- make a recurring automation safer and easier to verify;
 - make evidence maturity clearer;
 - make sensitive-material handling safer;
 - make the agent's operating rules more enforceable;
@@ -38,7 +41,7 @@ Strong PRs usually do one of these:
 - Generic note-taking templates.
 - Claims that public research equals customer validation.
 - Examples that include real conversations or access paths.
-- Broad productivity-system features that do not improve founder research decisions.
+- Broad productivity features without a clear owner, route, or verification contract.
 
 ## Quality Bar
 
@@ -47,12 +50,14 @@ Before opening a pull request:
 ```bash
 python3 scripts/doc_audit.py --repo .
 python3 scripts/repo_safety_check.py --repo .
+python3 scripts/eval_scenarios.py
 ```
 
 Then ask:
 
 ```text
 Does this help a founder make a better decision?
+Does it keep canonical state and execution consistent?
 Does this preserve the difference between signal, pattern, validation, and conviction?
 Could this be shared without exposing sensitive customer, interview, or company material?
 ```

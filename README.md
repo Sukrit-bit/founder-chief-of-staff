@@ -6,6 +6,18 @@ It keeps the company's state current, prepares decisions, coordinates daily exec
 
 ![Founder Chief of Staff social card](assets/social-card.svg)
 
+## What Is Shipped
+
+This repository contains a working workspace generator, state and automation contracts, Codex and Claude Code entry points, synthetic end-to-end examples, deterministic positive and negative evals, and a one-command release audit.
+
+It does not contain a hosted agent or private founder data. The agent runtime comes from the tool you point at the generated workspace.
+
+```bash
+python3 scripts/release_audit.py
+```
+
+[See exactly what is runnable, agent-dependent, and private](docs/PROOF_OF_OPERATION.md).
+
 ## What It Does
 
 Most AI assistants answer the prompt in front of them. This system also reconciles what changed across the founder's work.
@@ -40,6 +52,7 @@ This is not a promise of perfect memory or zero mistakes. Chat memory is never t
 - [docs/MEMORY_AND_SYNTHESIS.md](docs/MEMORY_AND_SYNTHESIS.md) explains canonical memory, evidence handling, and capability intelligence.
 - [docs/RELATIONSHIP_AND_EXECUTION_STACK.md](docs/RELATIONSHIP_AND_EXECUTION_STACK.md) explains CRM, task planning, and one-way handoffs.
 - [docs/CONTINUOUS_IMPROVEMENT_LOOP.md](docs/CONTINUOUS_IMPROVEMENT_LOOP.md) explains how corrections become tested structural controls.
+- [docs/PROOF_OF_OPERATION.md](docs/PROOF_OF_OPERATION.md) maps each major claim to runnable, synthetic, or agent-dependent evidence.
 - [docs/AUTOMATION_CONTRACTS.md](docs/AUTOMATION_CONTRACTS.md) defines safe recurring work.
 - [Live landing page](https://sukrit-bit.github.io/founder-research-os/) is the public front door.
 
@@ -111,9 +124,7 @@ Other agents: read PROMPT.md
 Run the checks:
 
 ```bash
-python3 scripts/doc_audit.py --repo .
-python3 scripts/repo_safety_check.py --repo .
-python3 scripts/workspace_audit.py ~/founder-workspace/my-company
+python3 scripts/release_audit.py
 ```
 
 ## Daily Rhythm
@@ -143,7 +154,11 @@ This repository is not a prompt pack. It is an inspectable operating harness:
 - bounded automations instead of broad agent access;
 - tested remedies instead of a failure log that nobody enforces.
 
+The public founder-event eval includes both a plan that must pass and a plan that must be blocked for incomplete routing, an invented deadline, an unsupported rejection, and unapproved outreach.
+
 The repo slug is retained for continuity with the original research-focused release. The system has since expanded into a broader Founder Chief of Staff.
+
+See [CHANGELOG.md](CHANGELOG.md) for the current release history.
 
 ## Built With
 

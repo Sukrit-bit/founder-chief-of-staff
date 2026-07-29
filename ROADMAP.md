@@ -1,41 +1,31 @@
 # Roadmap
 
-## v0.1
+## Shipped
 
-- Root docs.
-- Root landing page.
-- Agent spec.
-- Operating protocols.
-- Reusable templates.
-- Synthetic municipal permitting example.
-- Visual operating-loop explainer.
-- Starter workspace script.
-- Docs audit.
-- Repo safety check.
-- Launch essay.
-- Launch thread draft.
-- GitHub release and tag.
+- Canonical founder workspace generator.
+- Codex, Claude Code, and portable agent entry points.
+- State registry and operating control map.
+- Research-to-capability synthesis.
+- CRM-to-personal-execution boundaries.
+- Daily automation contracts.
+- Structural correction controller and proof ledger.
+- Synthetic research, service-pilot, and correction examples.
+- Positive and negative founder-event reconciliation evals.
+- Documentation, safety, generated-workspace, and release audits.
 
-## v0.2
+## Next
 
-- Add a second synthetic example in a different domain.
-- Expand the starter script into a compact CLI.
-- Add artifact-quality eval templates.
-- Add a walkthrough video.
-- Improve the visual explainer after feedback.
-- Add first external-user feedback notes.
-
-## v0.3
-
-- Add a complete example that moves from source signals to a kill, pause, or continue decision.
-- Add a compact CLI for creating new themes.
-- Add examples of failure-mode remediation.
-- Add a founder-facing launch essay with diagrams.
+- Run a cold-user install and agent-start test.
+- Publish the first external-user feedback and resulting changes.
+- Add a second reconciliation scenario covering a multi-system priority change.
+- Add connector setup recipes without making any connector the canonical source.
+- Add a short, current walkthrough of the Founder Chief of Staff rather than the historical research-only release.
+- Improve the CLI only where external use reveals repeated setup work.
 
 ## Release Standard
 
 Each release should make the system better at one job:
 
 ```text
-turning market inputs into evidence-backed startup decisions
+turning messy founder inputs into verified company state and action
 ```

@@ -1,0 +1,23 @@
+{
+  "systems_updated": [
+    "relationship_crm",
+    "personal_execution",
+    "current_state",
+    "decision_queue"
+  ],
+  "states": {
+    "relationship_status": "waiting",
+    "founder_task_status": "waiting"
+  },
+  "claims": [
+    "meeting_did_not_occur",
+    "contact_will_get_back",
+    "response_date_unknown"
+  ],
+  "verification": [
+    "read_back_relationship_thread",
+    "read_back_founder_task",
+    "read_back_current_state",
+    "read_back_decision_queue"
+  ]
+}

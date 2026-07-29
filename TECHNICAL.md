@@ -114,18 +114,20 @@ The starter creates:
 Repository checks:
 
 ```bash
-python3 scripts/doc_audit.py --repo .
-python3 scripts/repo_safety_check.py --repo .
+python3 scripts/release_audit.py
 ```
 
-Generated workspace check:
+The release audit runs:
 
-```bash
-python3 scripts/init_workspace.py /tmp/founder-chief-of-staff-demo
-python3 scripts/workspace_audit.py /tmp/founder-chief-of-staff-demo
-```
+- documentation and link-surface checks;
+- publication-safety checks;
+- positive and negative founder-event reconciliation fixtures;
+- starter-workspace generation;
+- workspace integrity checks.
 
-The workspace audit checks required control files, JSON validity, state-registry targets, and required automation-control fields.
+The scenario eval is deterministic. It checks routing, state, inference, and verification contracts; it does not pretend to evaluate every possible model response.
+
+See [docs/PROOF_OF_OPERATION.md](docs/PROOF_OF_OPERATION.md) for the claim-to-evidence map.
 
 ## Security And Privacy Boundaries
 

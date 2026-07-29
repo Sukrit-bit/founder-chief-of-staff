@@ -10,7 +10,7 @@ The common error is answering a project-level question from the current sprint.
 
 | Layer | Meaning |
 |---|---|
-| Project | The full founder research OS. |
+| Project | The full Founder Chief of Staff operating system. |
 | Theme | A broad arena with many possible companies. |
 | Sub-arena | A narrower market or workflow cluster inside a theme. |
 | Company hypothesis | A possible company direction. |
@@ -36,6 +36,5 @@ This project is about municipal permitting.
 Better:
 
 ```text
-The project is a founder research OS. Municipal permitting is a synthetic example used to show the loop.
+The project is a Founder Chief of Staff. Municipal permitting is a synthetic example used to show one research-to-decision route.
 ```
-

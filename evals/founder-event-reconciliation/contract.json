@@ -1,0 +1,20 @@
+{
+  "scenario": "An investor meeting did not occur. The contact said they would get back, but gave no date.",
+  "required_systems": [
+    "relationship_crm",
+    "personal_execution",
+    "current_state",
+    "decision_queue"
+  ],
+  "required_states": {
+    "relationship_status": "waiting",
+    "founder_task_status": "waiting"
+  },
+  "forbidden_claims": [
+    "meeting_completed",
+    "investor_rejected",
+    "response_date_known",
+    "outreach_sent"
+  ],
+  "inference_rule": "Do not invent a response date, outcome, or follow-up action."
+}

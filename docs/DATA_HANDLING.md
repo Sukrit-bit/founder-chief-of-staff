@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Founder Research OS is designed to be used with real founder research.
+Founder Chief of Staff is designed to be used with real company operations.
 
 The repo itself ships with synthetic examples. Your working copy may contain sources, interviews, company notes, customer conversations, strategy, or credentials. Treat that material with the same care you would apply to any founder workspace.
 

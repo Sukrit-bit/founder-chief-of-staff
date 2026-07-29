@@ -20,12 +20,15 @@ LAUNCH_FILES = [
     "docs/RELATIONSHIP_AND_EXECUTION_STACK.md",
     "docs/ARTIFACT_LIFECYCLE.md",
     "docs/CONTINUOUS_IMPROVEMENT_LOOP.md",
+    "docs/PROOF_OF_OPERATION.md",
     "docs/DAILY_OPERATING_CONSOLE.md",
     "docs/AUTOMATION_CONTRACTS.md",
     "docs/IMPLEMENTATION_HANDOFF.md",
     "docs/LAUNCH_ESSAY.md",
     "docs/LAUNCH_ESSAY.html",
     "scripts/init_workspace.py",
+    "scripts/eval_scenarios.py",
+    "scripts/release_audit.py",
     "scripts/workspace_audit.py",
     "examples/synthetic-municipal-permitting/example_journey.md",
     "examples/synthetic-ai-services-pilot/README.md",
@@ -39,6 +42,9 @@ LAUNCH_FILES = [
     "templates/implementation_handoff.md",
     "templates/pilot_evidence.md",
     "templates/protocol_change.md",
+    "evals/founder-event-reconciliation/contract.json",
+    "evals/founder-event-reconciliation/valid-plan.json",
+    "evals/founder-event-reconciliation/invalid-plan.json",
 ]
 
 README_HINTS = [

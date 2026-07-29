@@ -598,7 +598,7 @@
       </a>
       <div class="nav-links">
         <a href="#method">Method</a>
-        <a href="#example">Example</a>
+        <a href="#proof">Proof</a>
         <a href="#start">Start</a>
         <a class="button primary" href="https://github.com/Sukrit-bit/founder-research-os">GitHub</a>
       </div>
@@ -630,16 +630,16 @@
         <div class="hero-actions">
         <a class="button primary" href="https://github.com/new?template_name=founder-research-os&amp;template_owner=Sukrit-bit">Use the template</a>
           <a class="button" href="PRD.md">Read the product brief</a>
-          <a class="button" href="visuals/operating-loop.html">Open the map</a>
+          <a class="button" href="docs/PROOF_OF_OPERATION.md">Inspect the proof</a>
         </div>
         <div class="proof-strip" aria-label="Project proof points">
           <span class="pill">Templates</span>
           <span class="pill">Agent spec</span>
           <span class="pill">State registry</span>
           <span class="pill">CRM + tasks</span>
-          <span class="pill">Structural evals</span>
+          <span class="pill">Positive + negative evals</span>
           <span class="pill">Starter script</span>
-          <span class="pill">Synthetic examples</span>
+          <span class="pill">One-command audit</span>
         </div>
       </div>
 
@@ -726,24 +726,24 @@
       </div>
     </section>
 
-    <section id="example">
+    <section id="proof">
       <div class="section-head">
-        <h2>A complete loop</h2>
-        <p>The synthetic examples show why the system is not just a note pack. One loop reaches a decision. Another loop improves the OS after a bad run.</p>
+        <h2>A founder event, tested end to end</h2>
+        <p>The public eval checks that one messy update reaches every affected system without inventing an outcome, deadline, or action.</p>
       </div>
       <div class="example">
         <div class="decision-panel">
-          <h3>Example decision</h3>
-          <p>Run a narrow discovery experiment on permit resubmission workflows. Do not promote the idea into a venture thesis yet.</p>
-          <code>Decision: experiment, do not promote</code>
+          <h3>Synthetic input</h3>
+          <p>An investor meeting did not occur. The contact said they would get back, but gave no date.</p>
+          <code>Status: waiting, not rejected</code>
         </div>
         <div class="timeline">
-          <div class="timeline-item"><span class="num">1</span><div><b>Raw signal</b><br>Permitting pain looks broad, but broad pain is not a startup wedge.</div></div>
-          <div class="timeline-item"><span class="num">2</span><div><b>Pattern</b><br>The tighter workflow is the resubmission loop after city comments.</div></div>
-          <div class="timeline-item"><span class="num">3</span><div><b>Problem candidate</b><br>Translate comment packets into missing-document lists, owner maps, and resubmission packages.</div></div>
-          <div class="timeline-item"><span class="num">4</span><div><b>Experiment</b><br>Shadow one resubmission and interview expediters and contractors.</div></div>
-          <div class="timeline-item"><span class="num">5</span><div><b>Decision rule</b><br>Continue only if the workflow saves time and reduces missed items.</div></div>
-          <div class="timeline-item"><span class="num">6</span><div><b>Improvement rule</b><br>If the agent summarizes without logging, update the failure register and protocol before the next run.</div></div>
+          <div class="timeline-item"><span class="num">1</span><div><b>Relationship truth</b><br>Record that the meeting did not occur and keep the investor thread waiting.</div></div>
+          <div class="timeline-item"><span class="num">2</span><div><b>Founder execution</b><br>Keep the founder action visible without inventing a follow-up date.</div></div>
+          <div class="timeline-item"><span class="num">3</span><div><b>Current state</b><br>Replace the stale scheduled-meeting state with the supported waiting state.</div></div>
+          <div class="timeline-item"><span class="num">4</span><div><b>Decision queue</b><br>Preserve investor readiness while making the uncertainty explicit.</div></div>
+          <div class="timeline-item"><span class="num">5</span><div><b>Positive check</b><br>The complete, evidence-bounded update must pass.</div></div>
+          <div class="timeline-item"><span class="num">6</span><div><b>Negative check</b><br>A plan that invents rejection, timing, or outreach must fail.</div></div>
         </div>
       </div>
     </section>
@@ -756,6 +756,7 @@
       <pre><code>git clone https://github.com/Sukrit-bit/founder-research-os.git
 cd founder-research-os
 python3 scripts/init_workspace.py ~/founder-research/my-next-idea</code></pre>
+      <p><a href="docs/PROOF_OF_OPERATION.md">Review the proof map</a> or run <code>python3 scripts/release_audit.py</code> before trusting a release.</p>
     </section>
 
     <section>

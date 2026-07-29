@@ -1,6 +1,6 @@
 # Artifact Lifecycle
 
-Founder Research OS works because important thinking does not stay trapped in chat.
+Founder Chief of Staff works because important thinking does not stay trapped in chat.
 
 Every meaningful input should become the right artifact, at the right level, with the right evidence label.
 
@@ -93,4 +93,3 @@ An artifact is complete when a future session can answer:
 3. What evidence level does it have?
 4. What decision does it pressure?
 5. What should happen next?
-

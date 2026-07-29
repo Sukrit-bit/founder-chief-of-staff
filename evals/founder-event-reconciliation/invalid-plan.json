@@ -1,0 +1,17 @@
+{
+  "systems_updated": [
+    "relationship_crm",
+    "personal_execution"
+  ],
+  "states": {
+    "relationship_status": "rejected",
+    "founder_task_status": "active"
+  },
+  "claims": [
+    "meeting_did_not_occur",
+    "investor_rejected",
+    "response_date_known",
+    "outreach_sent"
+  ],
+  "verification": []
+}
