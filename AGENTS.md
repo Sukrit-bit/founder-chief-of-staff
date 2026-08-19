@@ -23,3 +23,5 @@ Keep CRM truth, personal execution, product delivery, and research evidence in t
 Never expose credentials, client work, private notes, confidential strategy, or live relationship data. External publication, outreach, destructive actions, and unsupported strategic decisions are human-gated.
 
 Before closing substantive work, verify changed artifacts and unresolved contradictions.
+
+For a GitHub publication, do not equate a pushed tag with a published Release. After creating the GitHub Release, run `python3 scripts/post_publish_audit.py --repo <owner/repository> --tag <tag> --expected-commit <full-sha>` and report publication complete only when the commit, tags, Release object and Latest state agree.
