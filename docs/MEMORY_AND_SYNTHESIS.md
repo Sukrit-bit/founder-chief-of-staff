@@ -6,6 +6,24 @@ The memory layer should help an agent recover current truth without pretending t
 
 The synthesis layer should turn research into decisions without treating every company as a competitor verdict or every feature as roadmap scope.
 
+## Queryable Operating Memory
+
+Canonical memory is necessary but insufficient. If an agent must reread the whole workspace, it will waste context, flatten authority, and still miss relationships that make a fact meaningful.
+
+Version 0.3.0 adds a derived retrieval layer with four rules:
+
+1. canonical files remain authoritative;
+2. the SQLite index can always be rebuilt;
+3. retrieval returns a bounded context bundle with source IDs and authority;
+4. relationship expansion follows explicit registered edges rather than resemblance alone.
+
+The goal is not to remember everything. It is to recover the smallest reliable slice needed to move the current work forward without losing provenance or nuance.
+
+```bash
+python3 runtime/cli.py rebuild
+python3 runtime/cli.py context "What should change after a repeated failure?"
+```
+
 ## Memory Model
 
 Use five distinct layers:
@@ -19,6 +37,8 @@ Use five distinct layers:
 | History and proof | Audit trail | Why a rule changed and how it was tested |
 
 Chat is an input to this system. It is not one of these layers.
+
+The generated SQLite database is also not one of these authority layers. It is a disposable access structure over them.
 
 ## State Registry Contract
 
@@ -93,5 +113,6 @@ A future agent should be able to answer:
 4. Which contradiction remains open?
 5. Which transferable capability was extracted?
 6. Which decision or experiment should use it?
+7. How much context was retrieved, and why were those sources included?
 
 Style check: external style applied.

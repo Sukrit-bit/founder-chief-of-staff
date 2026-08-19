@@ -2,156 +2,109 @@
 
 ## The Problem
 
-An early-stage founder works across product, customers, hiring, fundraising, partnerships, research, and daily execution. Important facts arrive through calls, messages, documents, spreadsheets, and half-formed thoughts.
+Founders work across product, customers, hiring, fundraising, partnerships, research, and execution. The record is spread across documents, spreadsheets, repositories, messages, and meetings. General AI agents can help with individual tasks, but their usefulness collapses when they cannot recover what matters across time.
 
-General AI assistants can help with each task, but they usually fail at the longer job:
+The failure has three layers:
 
-- carrying authoritative state across weeks;
-- knowing which document owns which fact;
-- reconciling one update across every affected system;
-- separating evidence from conviction;
-- turning company research into product choices;
-- connecting relationship follow-ups to daily work;
-- learning structurally from a correction.
+1. Important facts may exist, but the agent cannot tell which source is authoritative.
+2. Search can return text, but not necessarily the smallest useful context or the relationships that explain it.
+3. Corrections can be logged, but remain passive and fail to change the next same-class task.
 
-The result is repeated explanation, stale priorities, contradictory documents, and an agent that sounds informed without reliably running the founder's operating system.
+The founder repeatedly restates context, stale claims resurface, token use grows, and “learning” becomes a list of mistakes rather than improved behavior.
 
 ## The Core Insight
 
-The useful unit is not a conversation. It is a founder-agent operating relationship with inspectable state, clear ownership, bounded autonomy, and verification.
+The useful unit is not a conversation. It is a durable founder-agent operating relationship.
 
-The founder owns judgment, taste, relationships, risk, and final calls. The agent owns capture, reconciliation, synthesis, cross-references, decision preparation, daily planning, checks, and system maintenance.
+That relationship requires both queryable operating memory—canonical sources, explicit authority, relationships, and bounded retrieval—and bounded learning—failures converted into applicable controls, pre-release checks, and same-class evidence.
 
-```text
-founder event
--> canonical reconciliation
--> decision and execution effects
--> verified writes
--> concise founder view
-```
+Memory without retrieval becomes an archive. Retrieval without authority becomes plausible noise. A failure registry without enforcement does not improve behavior.
 
-When the system fails:
+## User and Job
 
-```text
-signal
--> failure classification
--> blast-radius check
--> structural remedy
--> positive and negative tests
--> proof window
-```
+The primary user is a founder who wants an AI agent to carry meaningful work forward without surrendering judgment or repeatedly re-explaining the company.
+
+> Recover the right operating context, help move the work forward, preserve what changed, and make an earlier correction relevant before the same mistake escapes again.
+
+## The Product Contract
+
+For a material task, the system should:
+
+1. identify the canonical sources and their authority;
+2. retrieve a bounded set of relevant passages;
+3. expand only through explicit useful relationships;
+4. surface contradictions and uncertainty rather than blending them away;
+5. select failure controls applicable to this task;
+6. evaluate candidate work before release;
+7. write verified changes back to the owning operating sources;
+8. record whether a control prevented, caught, repeated, or did not apply.
+
+## Release-One Scope
+
+Version 0.3.0 delivers a public, local reference implementation:
+
+- JSON source and relationship registry;
+- Markdown/JSON ingestion into a derived SQLite FTS index;
+- bounded retrieval with provenance and context-size reporting;
+- task-time control selection;
+- candidate-output enforcement;
+- typed learning-event records;
+- fixed synthetic evaluation cases and a one-command release audit.
+
+It sits beneath the existing founder workspace. Dashboard, working state, decision queue, research and capability records, relationship systems, daily plan, automation contracts, and improvement records remain canonical operating surfaces.
 
 ## Key Decisions
 
-### 1. Use canonical state, not chat memory
+### Start with an inspectable local architecture
 
-Chat context is useful but not authoritative. The workspace keeps a registry of current sources of truth, their owners, update triggers, and access boundaries.
+SQLite FTS and explicit graph edges are sufficient to validate authority-aware retrieval and bounded learning. A vector database, external graph store, and managed orchestration layer are deferred until observed retrieval failures justify them.
 
-### 2. Route state by job
+### Keep canonical and derived state separate
 
-Current focus, full continuity, decisions, relationships, personal execution, research evidence, and automation controls have different owners. The operating control map defines the route and prevents a single memory document from becoming a dump.
+The index can always be rebuilt. It never silently becomes the authority.
 
-### 3. Reconcile events across systems
+### Make proof boundaries visible
 
-A material founder update can change a relationship, a task, a decision, and current state at once. The agent identifies every implicated canonical system before it replies.
+The public evaluator proves behavior only on its declared synthetic casebook. Live longitudinal improvement requires operating evidence across repeated real tasks and remains unproved here.
 
-### 4. Prepare decisions without taking them
+### Preserve founder judgment
 
-The system turns evidence into options, assumptions, tradeoffs, and next tests. It does not silently promote a hypothesis, assign ownership, invent a deadline, or make a founder-level strategic call.
-
-### 5. Turn market research into capability intelligence
-
-Company analysis is decomposed into the problem solved, user, workflow, capability, proof, limitation, and transfer conditions. The result can inform build, integrate, bundle, compete, monitor, or reject decisions. Competitor presence is evidence, never a ceiling.
-
-### 6. Keep CRM and personal execution distinct
-
-The relationship system owns people, organizations, opportunities, interactions, and introductions. The personal console owns the founder's tasks. CRM actions can flow into the console as suggestions; v0 has no automatic writeback.
-
-### 7. Contract every recurring automation
-
-Scheduled work must specify eligible inputs, allowed writes, prohibited actions, inference rules, deduplication, stop conditions, verification, and reporting behavior.
-
-### 8. Treat corrections as system failures when warranted
-
-A local answer correction is enough only for a local mistake. A recurring or high-risk failure must change the controlling prompt, protocol, schema, test, or code path and stay under a proof window.
-
-### 9. Hand implementation context to coding agents narrowly
-
-A coding agent receives product intent, current decisions, constraints, non-goals, acceptance checks, and source links through an implementation handoff. It does not need confidential founder or customer context.
-
-### 10. Ship synthetic examples
-
-The public repository demonstrates the method without exposing private research, company strategy, customer work, credentials, or live relationships.
+The system can prepare decisions, enforce controls, and maintain low-risk internal state. External publication, consequential commitments, and unsupported strategy remain human-gated.
 
 ## The Output
 
-A founder gets:
+A successful release produces:
 
-- a current decision dashboard;
-- a canonical working state;
-- a source-of-truth registry;
-- a compact artifact index and control map;
-- evidence and capability records;
-- an active decision queue;
-- a relationship CRM contract;
-- a personal daily operating console;
-- bounded automation contracts;
-- failure, protocol-change, and proof logs;
-- implementation handoffs for separate coding agents;
-- audits for documentation, workspace integrity, and public safety.
+- a compact context bundle rather than a workspace dump;
+- source IDs, authority, and relationships for inspection;
+- applicable controls before the answer is released;
+- a pass/fail candidate evaluation with reasons;
+- learning evidence that can be queried later;
+- an operating update that survives the chat session.
 
-## Architecture
+## Success Measures
 
-The system is file-native at its control layer:
+Release-one measures are deterministic: expected authoritative sources rank correctly; context stays within a declared budget; expected controls are selected; unsafe candidates fail and bounded candidates pass; public claims, links, generated workspace checks, and safety checks pass together.
 
-```text
-00_Context          current state, registry, routing, navigation
-01_Themes           patterns and capability intelligence
-03_Problem_Statements
-04_Venture_Theses
-05_Experiments
-06_Decision_Log
-07_Source_Material
-08_Execution        CRM and personal-console contracts or exports
-09_Automation       contracts, failures, protocol changes, proof
-templates
-```
-
-Live operational data may sit in Sheets or databases. The control layer records which external system is authoritative and what the agent may read or write.
-
-See [TECHNICAL.md](TECHNICAL.md) for implementation details.
+Future live measures include reduced founder restatement, fewer repeated same-class failures, lower context cost for equivalent work, and higher successful carry-forward across sessions. These are target outcomes, not current public claims.
 
 ## Edge Cases
 
-- If sources conflict, record the contradiction and stop the affected closure.
-- If evidence is weak, lower the maturity label instead of improving the prose.
-- If a deadline or owner is missing, create a clarification need instead of inferring it.
-- If a CRM action is already a task, update or link it instead of creating a duplicate.
-- If a correction affects a class of behavior, inspect every route that can reproduce it.
-- If an automation has no eligible input, make no writes and produce no noisy report.
-- If a product build needs context, create a narrow handoff instead of exposing the whole workspace.
-- If a public artifact depends on private proof, replace it with a synthetic example or a bounded claim.
+- Two sources disagree: preserve both and require clarification.
+- A source is historical: retrieve it only with historical status intact.
+- A failure control fires too broadly: narrow its trigger and add a regression case.
+- No relevant source exists: say so; do not fill the gap from chat confidence.
+- A task needs private data: keep private sources outside the public corpus.
+- A benchmark passes: report synthetic evidence, not general reliability.
 
-## Results
+## Architecture
 
-The system is working when:
-
-- a founder can resume without reconstructing prior chats;
-- material updates reach every affected canonical surface;
-- decisions show their evidence and remaining assumptions;
-- CRM and daily execution remain linked without source-of-truth confusion;
-- repeated mistakes produce tested controls;
-- an external reader can understand the framework without private context.
+See [TECHNICAL.md](TECHNICAL.md). The causal chain is source registry → derived index → bounded context → applicable controls → candidate enforcement → verified operating update → typed learning evidence.
 
 ## What's Next
 
-- Test the generated workspace with founders other than its creator.
-- Measure duplicate reduction, stale-state detection, and time-to-daily-plan.
-- Add connector-specific adapters without weakening the canonical-state contract.
-- Publish more synthetic proof cases for corrections, contradictions, and capability synthesis.
+After real-task evidence identifies clear gaps: relationship-aware ranking improvements, richer contradiction handling, incremental rebuilds, optional embeddings, connector ingestion, and proof-window reporting. None should precede evidence that release one is insufficient.
 
 ## How It Was Built
 
-The framework expanded through sustained use from decision support into a broader Founder Chief of Staff. The design decisions come from real operating failures: stale state, superficial corrections, inflated evidence, duplicated trackers, and context handed to the wrong agent.
-
-Style check: external style applied.
+The release was migrated through an explicit claim contract and six-gate audit covering narrative consistency, evidence boundaries, runnable behavior, safety and links, visuals, and cold-reader comprehension. See [docs/EVALS.md](docs/EVALS.md) and [docs/releases/v0.3.0-evaluation.md](docs/releases/v0.3.0-evaluation.md).

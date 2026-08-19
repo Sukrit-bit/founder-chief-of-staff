@@ -6,4 +6,6 @@ Read `AGENTS.md` first. In this public template repository, continue with `docs/
 
 Follow the same canonical-state, reconciliation, evidence, correction, automation, and privacy contracts defined in `AGENTS.md`. Use `PROMPT.md` for the full portable specification.
 
+Use the queryable-memory runtime when present. Retrieve bounded source-aware context, treat SQLite as derived, apply relevant failure controls before release, and keep synthetic benchmark evidence distinct from live proof.
+
 When implementation happens in a separate product repository, consume a narrow implementation handoff. Do not infer product scope from private founder notes or broad research folders.

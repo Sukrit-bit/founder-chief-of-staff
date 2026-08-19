@@ -2,150 +2,101 @@
 
 ## Overview
 
-Founder Chief of Staff is a file-native control layer for AI-assisted company building. It can coordinate connected Sheets, documents, repositories, and automations, but no connector becomes the source of truth merely because the agent can access it.
+Founder Chief of Staff is a file-native control layer for durable AI-assisted work. Version 0.3.0 adds a queryable-memory and bounded-learning runtime using Python and SQLite FTS5.
 
 Start with [README.md](README.md) and [PRD.md](PRD.md).
 
 ## System Model
 
 ```text
-founder or external event
-        |
-        v
-eligibility and evidence check
-        |
-        v
-operating control map -> state registry -> implicated canonical systems
-        |                                  |
-        |                                  +-> decisions
-        |                                  +-> relationships
-        |                                  +-> tasks
-        |                                  +-> research and capabilities
-        v
-bounded writes -> read-back verification -> proof or clarification status
+registered canonical sources + authority metadata
+                 |
+                 v
+       generated SQLite FTS index
+                 |
+        exact + full-text ranking
+                 |
+     bounded relationship expansion
+                 |
+        inspectable context bundle
+                 |
+      task-applicable controls
+                 |
+       candidate output checks
+                 |
+verified canonical update + typed learning outcome
 ```
 
 ## Engineering Decisions
 
-### 1. File-native control, tool-native data
+### Canonical files, derived database
 
-Markdown and JSON make the control system inspectable and portable. Live CRM or task records may remain in Sheets. Product delivery status may remain in another repository. The state registry records authority, access mode, and update triggers.
+`runtime/source_manifest.json` registers sources, authority, status, and relationships. `runtime/memory.sqlite3` is generated and ignored by Git. `rebuild` deletes and recreates the index from the manifest. Search infrastructure therefore cannot silently become a second source of truth.
 
-Tradeoff: the agent must route carefully. Benefit: one tool outage or chat reset does not redefine truth.
+### Bounded hybrid retrieval without embeddings
 
-### 2. Registry plus control map
+Release one combines title and metadata signals, SQLite FTS5 ranking, and explicit relationship traversal. Context creation reports returned sources and character count. Limits are part of the interface, not a prompt suggestion.
 
-The state registry is machine-readable. The control map is human-readable. Together they answer:
+Embeddings and an external graph database are deferred. They should be added only when a measured retrieval failure cannot be resolved through better source structure, vocabulary, or explicit relationships.
 
-- what is authoritative;
-- what is current versus historical;
-- what is read-only;
-- what can be updated automatically;
-- what requires a human decision;
-- what must never be opened or published.
+### Control selection before candidate enforcement
 
-### 3. Event-to-system reconciliation
+`runtime/control_registry.json` holds machine-testable controls with task triggers and candidate requirements or prohibitions. The runtime first determines which controls apply to the task, then checks the candidate only against that subset. This avoids treating every historical failure as relevant to every task.
 
-The agent classifies a founder update as a fact change, commitment, decision, relationship event, research signal, correction, or combination. It then resolves every implicated route before closing the turn.
+### Typed learning evidence
 
-This prevents the common failure where chat is correct but the CRM, task list, and working state remain stale.
+`runtime/learning_events.json` records outcomes such as `prevented`, `caught_before_release`, `repeated`, and `not_applicable`. A log entry is evidence about the control, not permission for the system to rewrite its own policy.
 
-### 4. Evidence and contradiction gates
+### Explicit proof classes
 
-Material claims carry a source, evidence level, and proof status. When two current sources disagree, the agent records a contradiction and blocks closure of the affected claim.
+The public release distinguishes structural evidence, synthetic evidence, and live evidence. The included evaluator provides structural and synthetic evidence only.
 
-This does not eliminate hallucinations. It makes unsupported claims and unresolved conflicts observable.
+## Runtime Components
 
-### 5. Capability intelligence
+| Component | Responsibility |
+|---|---|
+| `source_manifest.json` | Registered sources, authority, status, relationships |
+| `pcos_memory.py` | Parsing, indexing, retrieval, context assembly, controls |
+| `cli.py` | Rebuild, search, context, control, candidate, and status commands |
+| `control_registry.json` | Task triggers and candidate enforcement rules |
+| `learning_events.json` | Typed observed outcomes |
+| `benchmarks/public_casebook.json` | Fixed synthetic evaluation contract |
+| `evaluate_runtime.py` | Retrieval, budget, control, and candidate evaluation |
 
-Company research enters as evidence, not scope. A normalized capability record contains:
-
-```text
-problem -> user -> trigger -> workflow -> capability -> proof
--> limitation -> transfer conditions -> Inkstone-style decision
-```
-
-The final field is generic in a new workspace: build, integrate, bundle, compete, monitor, reject, or needs evidence.
-
-### 6. One-way operational handoffs
-
-CRM actions may create suggestions in the personal execution console. The console does not silently update CRM opportunity truth. Product strategy may create an implementation brief. The coding agent does not silently rewrite strategy.
-
-### 7. Automation as a contract
-
-Each recurring job defines:
-
-- trigger and purpose;
-- allowed inputs and eligible states;
-- allowed writes;
-- prohibited actions;
-- inference and deduplication rules;
-- stop conditions;
-- verification;
-- reporting behavior.
-
-No eligible input means no write. No material change can mean no report.
-
-### 8. Structural correction controller
-
-Correction handling has three routes:
-
-| Route | Use | Required proof |
-|---|---|---|
-| Local | One output is wrong and cannot recur through a shared control | Correct output and read-back |
-| Bounded structural | Shared prompt, protocol, schema, or automation can reproduce the failure | Control change, rollback path, positive and negative tests |
-| Human gate | External, destructive, sensitive, or strategic decision | Explicit founder approval |
-
-A proof window tracks whether the same failure class returns. A clean test proves the control works on the fixture; it does not prove the system can never fail.
-
-## Generated Workspace
-
-The starter creates:
-
-- current dashboard, working state, artifact index, control map, and JSON state registry;
-- decision queue and operating reviews;
-- relationship and personal-execution boundaries;
-- automation registry and contracts;
-- failure, continuous-improvement, protocol-change, and autonomy-control logs;
-- reusable templates.
-
-## Verification
-
-Repository checks:
+## Commands
 
 ```bash
-python3 scripts/release_audit.py
+python3 runtime/cli.py rebuild
+python3 runtime/cli.py search "operating memory"
+python3 runtime/cli.py context "Prepare work after a repeated failure"
+python3 runtime/cli.py controls "A correction was repeated"
+python3 runtime/cli.py candidate "A correction was repeated" "The failure was logged, so it is learned."
+python3 runtime/evaluate_runtime.py
 ```
 
-The release audit runs:
+## Evaluation Architecture
 
-- documentation and link-surface checks;
-- publication-safety checks;
-- positive and negative founder-event reconciliation fixtures;
-- starter-workspace generation;
-- workspace integrity checks.
+The release audit combines six gates: claim and migration contract; repository-wide narrative consistency; claim-to-evidence consistency; runnable retrieval, budget, control, and candidate cases; generated workspace, safety, identity, and link integrity; and visual plus cold-reader review evidence.
 
-The scenario eval is deterministic. It checks routing, state, inference, and verification contracts; it does not pretend to evaluate every possible model response.
+`python3 scripts/release_audit.py` is the single release command. A partial pass is not a release pass.
 
-See [docs/PROOF_OF_OPERATION.md](docs/PROOF_OF_OPERATION.md) for the claim-to-evidence map.
+## Failure Handling
 
-## Security And Privacy Boundaries
+- Missing registered file: rebuild fails visibly.
+- Invalid JSON or schema: command fails rather than ignoring the record.
+- No retrieval match: return an empty or limited bundle; do not invent context.
+- Candidate violates a selected control: return the failed control and message.
+- Over-broad control: update trigger and add positive and negative regression cases.
+- Stale derived index: run `rebuild`; do not edit the database directly.
 
-- Keep credentials and environment files outside publishable paths.
-- Keep client and customer work in restricted systems.
-- Give agents the minimum read and write scope needed for the route.
-- Treat external publication and outreach as human-gated.
-- Use synthetic examples in the public repository.
-- Run the safety check before a commit intended for sharing.
+## Security and Data Boundary
 
-## Tradeoffs
+The public manifest includes only public repository files and synthetic fixtures. Common credential, secret, environment, and Git paths are excluded. This is a local reference implementation, not a tenant-isolated hosted service.
 
-The system adds operating discipline. That is worthwhile only if each artifact has one clear job.
+## Extensibility
 
-Avoid adding a new document when an existing canonical surface can own the information. Add a new control only when it prevents a real failure, removes recurring work, or defines a distinct source of truth.
+Future adapters can ingest Docs, Sheets, Gmail, Calendar, or project systems into registered canonical sources. They should preserve authority, provenance, access boundaries, rebuildability, and proof classification. Connector availability alone is not a reason to ingest a source.
 
-## Closing
+## Result
 
-The technical claim is narrow: a general agent becomes more reliable as a founder's Chief of Staff when state, ownership, evidence, write boundaries, corrections, and verification are explicit and inspectable.
-
-Style check: external style applied.
+The architecture makes operating memory queryable without loading the entire workspace, and makes prior failures executable without claiming that an agent has autonomously learned merely because a note exists.

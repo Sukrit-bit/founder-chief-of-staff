@@ -47,6 +47,14 @@ LAUNCH_FILES = [
     "evals/founder-event-reconciliation/contract.json",
     "evals/founder-event-reconciliation/valid-plan.json",
     "evals/founder-event-reconciliation/invalid-plan.json",
+    "runtime/source_manifest.json",
+    "runtime/control_registry.json",
+    "runtime/benchmarks/public_casebook.json",
+    "runtime/evaluate_runtime.py",
+    "evals/release-v0.3.0/claim_contract.json",
+    "docs/releases/v0.3.0-evaluation.md",
+    "scripts/narrative_audit.py",
+    "scripts/link_audit.py",
 ]
 
 README_HINTS = [

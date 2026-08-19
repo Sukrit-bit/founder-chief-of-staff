@@ -12,11 +12,11 @@ Most AI assistants answer the message and leave those systems stale.
 
 Show `README.md` and the live landing page.
 
-## 2. Show The Operating Contract
+## 2. Show Queryable Operating Memory
 
 ```text
-Chat is input, not authority.
-The state registry and control map tell the agent which system owns each fact and what it may change.
+Chat is input, not authority. The source registry identifies canonical state.
+The derived index retrieves a bounded context bundle and expands only through explicit relationships.
 ```
 
 Show:
@@ -25,13 +25,20 @@ Show:
 - `docs/MEMORY_AND_SYNTHESIS.md`
 - `AGENTS.md`
 
+Run:
+
+```bash
+python3 runtime/cli.py rebuild
+python3 runtime/cli.py context "How should a repeated failure change the next answer?"
+```
+
 ## 3. Run The Public Proof
 
 ```bash
 python3 scripts/release_audit.py
 ```
 
-Explain:
+Explain that the release audit includes both the founder-event fixtures and the queryable-memory casebook:
 
 ```text
 The positive founder-event fixture must reconcile CRM, personal execution,
@@ -39,6 +46,9 @@ current state, and the decision queue.
 
 The negative fixture must be blocked when it invents a rejection,
 response date, or outreach.
+
+The runtime cases also test retrieval rank, context budget,
+control selection, unsafe candidate rejection, and bounded candidate acceptance.
 ```
 
 Show:
@@ -47,6 +57,8 @@ Show:
 - `evals/founder-event-reconciliation/valid-plan.json`
 - `evals/founder-event-reconciliation/invalid-plan.json`
 - `docs/PROOF_OF_OPERATION.md`
+- `runtime/benchmarks/public_casebook.json`
+- `docs/releases/v0.3.0-evaluation.md`
 
 ## 4. Show Structural Improvement
 
@@ -54,6 +66,7 @@ Show:
 When a failure can recur, fixing one answer is insufficient.
 The shared control changes, positive and negative tests run,
 and the remedy stays under observation.
+The next same-class task retrieves the control and applies it before release.
 ```
 
 Show:

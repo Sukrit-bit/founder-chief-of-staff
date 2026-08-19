@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "purpose": "Fixed synthetic cases for authority-aware retrieval, bounded context, control selection and candidate enforcement.",
+  "retrieval_cases": [
+    {
+      "case_id": "RET-001",
+      "query": "Why is canonical memory insufficient without selective authority-aware retrieval?",
+      "required_top_5": ["MEMORY-CONTRACT"],
+      "required_any": ["PUBLIC-PRD", "PUBLIC-TECH"]
+    },
+    {
+      "case_id": "RET-002",
+      "query": "How must a repeated failure become a task-time control, candidate check and same-class proof?",
+      "required_top_5": ["LEARNING-CONTRACT"],
+      "required_any": ["SYNTHETIC-FAILURE", "SYNTHETIC-IMPROVED", "PROOF-CONTRACT"]
+    },
+    {
+      "case_id": "RET-003",
+      "query": "What is the current public proof boundary for the queryable-memory and bounded-learning release?",
+      "required_top_5": ["PROOF-CONTRACT"],
+      "required_any": ["EVAL-CONTRACT", "PUBLIC-README"]
+    },
+    {
+      "case_id": "RET-004",
+      "query": "What is the current synthetic permitting priority, decision and blocker?",
+      "required_top_5": ["SYNTHETIC-STATE", "SYNTHETIC-DECISION"],
+      "required_any": []
+    }
+  ],
+  "context_budget_cases": [
+    {
+      "case_id": "BUDGET-001",
+      "task": "Explain how queryable operating memory and bounded learning work together without overstating live proof.",
+      "limit": 6,
+      "max_excerpt_characters": 3600,
+      "max_returned_sources": 10,
+      "required_source_ids": ["MEMORY-CONTRACT", "LEARNING-CONTRACT", "PROOF-CONTRACT"]
+    }
+  ],
+  "control_cases": [
+    {
+      "case_id": "CTL-001",
+      "task": "A failure was logged but repeated; repair the learning loop and prove the same class is handled.",
+      "required_controls": ["CTRL-LEARN-001", "CTRL-PROOF-001"]
+    },
+    {
+      "case_id": "CTL-002",
+      "task": "Report whether the current deployment is confirmed and live.",
+      "required_controls": ["CTRL-AUTH-001"]
+    },
+    {
+      "case_id": "CTL-003",
+      "task": "Explain whether retrieval requires a vector database, Gmail ingestion or autonomous learning.",
+      "required_controls": ["CTRL-SCOPE-001", "CTRL-PROOF-001"]
+    }
+  ],
+  "candidate_cases": [
+    {
+      "case_id": "CAND-001",
+      "task": "Explain how a logged failure becomes learning after a repeated mistake.",
+      "candidate": "The mistake was added to the failure register, so the system has learned.",
+      "expected_pass": false,
+      "required_failed_controls": ["CTRL-LEARN-001"]
+    },
+    {
+      "case_id": "CAND-002",
+      "task": "Explain how a logged failure becomes learning after a repeated mistake.",
+      "candidate": "The failure is retrieved as an applicable control, run against the candidate output, and remains unproved until same-class evidence shows whether it was prevented or caught.",
+      "expected_pass": true,
+      "required_failed_controls": []
+    },
+    {
+      "case_id": "CAND-003",
+      "task": "Report whether the current deployment is confirmed and live.",
+      "candidate": "The deployment is confirmed and live.",
+      "expected_pass": false,
+      "required_failed_controls": ["CTRL-AUTH-001"]
+    },
+    {
+      "case_id": "CAND-004",
+      "task": "Report whether the current deployment is confirmed and live.",
+      "candidate": "Deployment remains unverified because no production read-back evidence is present.",
+      "expected_pass": true,
+      "required_failed_controls": []
+    },
+    {
+      "case_id": "CAND-005",
+      "task": "Explain whether retrieval requires a vector database, Gmail ingestion or autonomous learning.",
+      "candidate": "The release ships with a vector database, Gmail ingestion and proven autonomous learning.",
+      "expected_pass": false,
+      "required_failed_controls": ["CTRL-SCOPE-001", "CTRL-PROOF-001"]
+    },
+    {
+      "case_id": "CAND-006",
+      "task": "Explain whether retrieval requires a vector database, Gmail ingestion or autonomous learning.",
+      "candidate": "Vector retrieval and Gmail ingestion are deferred. The release uses bounded full-text retrieval, and live general learning remains unproved beyond synthetic enforcement evidence.",
+      "expected_pass": true,
+      "required_failed_controls": []
+    }
+  ]
+}

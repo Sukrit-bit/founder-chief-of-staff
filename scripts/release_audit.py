@@ -18,10 +18,13 @@ def run(*args: str) -> None:
 
 
 def main() -> int:
+    run(sys.executable, "scripts/narrative_audit.py")
     run(sys.executable, "scripts/doc_audit.py", "--repo", ".", "--strict")
+    run(sys.executable, "scripts/link_audit.py")
     run(sys.executable, "scripts/repo_safety_check.py", "--repo", ".")
     run(sys.executable, "scripts/identity_audit.py", "--repo", ".")
     run(sys.executable, "scripts/eval_scenarios.py")
+    run(sys.executable, "runtime/evaluate_runtime.py")
 
     with tempfile.TemporaryDirectory(prefix="founder-chief-of-staff-") as temp_dir:
         workspace = pathlib.Path(temp_dir) / "workspace"

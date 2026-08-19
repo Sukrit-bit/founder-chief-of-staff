@@ -6,6 +6,16 @@ A self-improving agent must do more than remember that it made a mistake.
 
 The system improves only when a correction changes the control that produced the failure and the change is tested.
 
+A failure register is therefore an input, not evidence of learning. The learning loop becomes operational only when the system can retrieve the relevant failure for a new task, select its control, test candidate work before release, and record same-class evidence.
+
+```text
+failure signal
+→ structural control
+→ task-time retrieval
+→ candidate evaluation
+→ prevented / caught_before_release / repeated / not_applicable
+```
+
 ## Trigger Signals
 
 Run this loop when:
@@ -31,6 +41,8 @@ Run this loop when:
 8. Run a negative test
 9. Read back the affected state
 10. Record proof status and observation window
+11. Make the control retrievable for the next same-class task
+12. Record the observed outcome without upgrading synthetic proof to live proof
 ```
 
 ## Repair Classes
@@ -55,6 +67,8 @@ A structural remedy must identify:
 - the window in which recurrence will be watched.
 
 Updating only the failure log is not a structural remedy.
+
+The public runtime makes this contract inspectable through `runtime/control_registry.json`, candidate checks in `runtime/pcos_memory.py`, typed outcomes in `runtime/learning_events.json`, and positive plus negative cases in `runtime/benchmarks/public_casebook.json`.
 
 ## Proof Language
 

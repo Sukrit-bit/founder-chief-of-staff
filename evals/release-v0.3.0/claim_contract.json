@@ -1,0 +1,63 @@
+{
+  "release": "v0.3.0",
+  "purpose": "Keep the public narrative, implementation and evidence boundary aligned during the queryable-memory and bounded-learning migration.",
+  "central_claim": "Founder Chief of Staff turns a general AI agent into a durable operating partner by recovering bounded authoritative context, carrying work forward and applying previous failures as task-time controls.",
+  "causal_spine": [
+    "authoritative operating sources",
+    "bounded retrieval with explicit relationships",
+    "task context and applicable controls",
+    "decision support or candidate work",
+    "pre-release enforcement and verified updates",
+    "same-class learning evidence"
+  ],
+  "required_distinctions": [
+    "A context window is not operating memory.",
+    "Search is not understanding.",
+    "A failure log is not learning.",
+    "Canonical sources remain authoritative; SQLite is a derived index.",
+    "Structural, synthetic and live evidence must remain distinct."
+  ],
+  "shipped_claims": [
+    {
+      "claim_id": "CLM-001",
+      "claim": "The release registers canonical sources, authority and explicit relationships.",
+      "evidence": ["runtime/source_manifest.json", "runtime/pcos_memory.py"]
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim": "The release builds a local derived SQLite full-text index and bounded context bundles.",
+      "evidence": ["runtime/pcos_memory.py", "runtime/cli.py", "runtime/benchmarks/public_casebook.json"]
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim": "The release selects task-applicable controls and evaluates candidate output.",
+      "evidence": ["runtime/control_registry.json", "runtime/pcos_memory.py", "runtime/evaluate_runtime.py"]
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim": "The release records typed learning outcomes without self-modifying policy.",
+      "evidence": ["runtime/learning_events.json", "runtime/README.md"]
+    },
+    {
+      "claim_id": "CLM-005",
+      "claim": "The release has deterministic synthetic evaluation for retrieval, context budget, control selection and candidate enforcement.",
+      "evidence": ["runtime/benchmarks/public_casebook.json", "runtime/evaluate_runtime.py"]
+    }
+  ],
+  "prohibited_overclaims": [
+    "General live reliability has been proven.",
+    "The system autonomously rewrites and improves its own policy.",
+    "The release includes vector retrieval or a graph database.",
+    "The release includes Gmail or Calendar ingestion.",
+    "The derived SQLite index is a canonical source of truth."
+  ],
+  "deferred": [
+    "optional vector retrieval",
+    "external graph database",
+    "Gmail and Calendar ingestion",
+    "hosted multi-tenant service",
+    "self-modifying policy",
+    "live longitudinal proof reporting"
+  ],
+  "release_rule": "No public release until every gate in docs/EVALS.md passes and the versioned evaluation report records the final evidence and any remediation."
+}

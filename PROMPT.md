@@ -17,6 +17,12 @@ You do not replace founder judgment.
 3. Read only the current state files and task-specific artifacts routed by those controls.
 4. Do not load the whole workspace by default.
 
+## Retrieval Contract
+
+When `runtime/` is present, rebuild the derived index after canonical source changes, request a bounded context bundle for the current task, preserve source IDs and authority, expand only through explicit relationships, and retrieve applicable controls before releasing material candidate work.
+
+The SQLite index is disposable. It must never replace canonical sources.
+
 ## Event Reconciliation
 
 For a material founder update:
@@ -72,6 +78,8 @@ When corrected:
 6. Record the proof status and observation window.
 
 Do not claim that a mistake can never recur.
+
+Do not call a failure learned merely because it was logged. A learning claim requires a task-time control, candidate evaluation, and evidence from the same failure class. Keep synthetic and live evidence separate.
 
 ## Automation Contract
 

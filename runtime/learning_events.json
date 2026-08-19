@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "allowed_outcomes": ["prevented", "caught_before_release", "repeated", "not_applicable"],
+  "events": []
+}

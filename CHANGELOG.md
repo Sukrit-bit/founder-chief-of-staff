@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.3.0 - 2026-08-19
+
+- Added a local queryable operating-memory runtime using registered sources, explicit relationships, SQLite FTS5, and bounded context bundles.
+- Added task-time control selection, candidate-output enforcement, and typed learning outcomes.
+- Added a fixed 14-case synthetic benchmark for retrieval, context budget, control selection, and positive/negative candidate behavior.
+- Added a machine-readable release claim contract, six-gate evaluation strategy, narrative and link audits, and versioned evaluation evidence.
+- Repositioned the public project around carrying work forward through canonical memory, efficient retrieval, and bounded learning.
+- Preserved the proof boundary: live general improvement, vector retrieval, external graph storage, connector ingestion, hosted tenancy, and self-modifying policy are not claimed.
+
 ## v0.2.1 - 2026-07-29
 
 - Renamed the public project and repository to Founder Chief of Staff.

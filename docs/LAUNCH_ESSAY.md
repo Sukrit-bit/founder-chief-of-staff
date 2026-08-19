@@ -1,4 +1,10 @@
-# An AI Chief Of Staff Needs A System, Not A Longer Prompt
+# An AI Chief Of Staff Needs Operating Memory, Not A Longer Prompt
+
+The practical promise is simple: a general AI agent should be able to return tomorrow, recover the right context, and help move the work forward without the founder rebuilding the world in every session.
+
+That requires more than storing documents. A context window is not operating memory. Search is not understanding. A failure log is not learning.
+
+Founder Chief of Staff combines canonical operating sources with bounded, relationship-aware retrieval and task-time learning controls. It brings the smallest useful slice of the company into the task, keeps source authority visible, and checks whether earlier failure modes are being repeated before candidate work is released.
 
 Founders do not work in one workflow.
 
@@ -22,6 +28,8 @@ The system gives each kind of state one named owner:
 
 The agent reads only the current context required for the task. When a material founder event arrives, it identifies every affected system, applies only permitted changes, and reads them back before closing.
 
+Version 0.3.0 makes that selective recovery runnable. Registered sources are compiled into a disposable SQLite full-text index. The agent retrieves bounded excerpts, expands through explicit relationships, and retains provenance. Canonical documents remain authoritative.
+
 ## The Founder Keeps Judgment
 
 The agent can capture, reconcile, synthesize, prepare, check, and maintain.
@@ -35,6 +43,8 @@ The goal is not to automate the founder. It is to remove the system work surroun
 A self-improving agent cannot merely remember that it was wrong.
 
 When a failure can recur, the system finds the shared control, changes the rule or code, runs a positive test and a negative test, records proof status, and watches the next qualifying events. A clean fixture proves only the tested behavior.
+
+The new runtime also makes the control available at task time and evaluates candidate output against it. Outcomes are recorded as prevented, caught before release, repeated, or not applicable. This is bounded learning, not a claim that the agent autonomously rewrites itself.
 
 ## Research Is One Module
 
@@ -53,9 +63,13 @@ The repository contains:
 - positive and negative reconciliation evals;
 - safety, identity, documentation, and workspace audits;
 - a one-command release check.
+- a local queryable-memory and candidate-control runtime;
+- fixed retrieval, context-budget, control-selection, and enforcement benchmarks.
 
 It contains no private founder data, customer work, relationship records, or credentials.
 
 The bet is straightforward: a general AI agent becomes materially more useful when company state, ownership, boundaries, and verification are explicit.
+
+The public benchmark is synthetic evidence. Live general reliability remains to be proved through repeated operating use.
 
 Style check: external style applied.

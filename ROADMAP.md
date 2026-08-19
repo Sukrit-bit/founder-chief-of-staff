@@ -12,6 +12,10 @@
 - Synthetic research, service-pilot, and correction examples.
 - Positive and negative founder-event reconciliation evals.
 - Documentation, safety, generated-workspace, and release audits.
+- Queryable operating memory with a derived SQLite FTS index and explicit source relationships.
+- Bounded context creation with provenance and context-size reporting.
+- Task-time control selection, candidate enforcement, and typed learning evidence.
+- Fixed synthetic runtime benchmarks and a release claim contract.
 
 ## Next
 
@@ -21,11 +25,14 @@
 - Add connector setup recipes without making any connector the canonical source.
 - Record a short walkthrough video after the cold-user test.
 - Improve the CLI only where external use reveals repeated setup work.
+- Collect live same-class evidence before making general learning claims.
+- Measure retrieval misses and context cost before deciding whether embeddings are needed.
+- Add connector ingestion only with explicit authority, permission, and provenance contracts.
 
 ## Release Standard
 
 Each release should make the system better at one job:
 
 ```text
-turning messy founder inputs into verified company state and action
+recovering the right operating context, turning it into verified action, and improving the next same-class task
 ```

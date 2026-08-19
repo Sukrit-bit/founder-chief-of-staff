@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "purpose": "Public, synthetic source registry for authority-aware and relationship-aware retrieval.",
+  "sources": [
+    {
+      "source_id": "PUBLIC-README",
+      "title": "Founder Chief of Staff README",
+      "path": "README.md",
+      "family": "product_overview",
+      "portfolio": "public_framework",
+      "authority": "current public product overview and start path",
+      "lifecycle": "current",
+      "system_id": "public_readme",
+      "tags": ["product promise", "queryable memory", "bounded learning", "setup"],
+      "review_trigger": "The public product promise, release evidence or setup changes"
+    },
+    {
+      "source_id": "PUBLIC-PRD",
+      "title": "Founder Chief of Staff Product Requirements",
+      "path": "PRD.md",
+      "family": "product_requirements",
+      "portfolio": "public_framework",
+      "authority": "public product problem, insight, workflows and success criteria",
+      "lifecycle": "current",
+      "system_id": "public_prd",
+      "tags": ["product intent", "context action learning", "founder judgment", "requirements"],
+      "review_trigger": "Product scope or product-level evidence changes"
+    },
+    {
+      "source_id": "PUBLIC-TECH",
+      "title": "Founder Chief of Staff Technical Notes",
+      "path": "TECHNICAL.md",
+      "family": "implementation",
+      "portfolio": "public_framework",
+      "authority": "public implementation decisions, tradeoffs and measured characteristics",
+      "lifecycle": "current",
+      "system_id": "public_technical",
+      "tags": ["SQLite", "full text search", "relationships", "candidate checks", "tradeoffs"],
+      "review_trigger": "Runtime architecture, benchmark or implementation boundary changes"
+    },
+    {
+      "source_id": "MEMORY-CONTRACT",
+      "title": "Memory and Synthesis Contract",
+      "path": "docs/MEMORY_AND_SYNTHESIS.md",
+      "family": "operating_memory",
+      "portfolio": "public_framework",
+      "authority": "canonical-memory, retrieval and context-bundle contract",
+      "lifecycle": "current",
+      "system_id": "memory_contract",
+      "tags": ["authority", "provenance", "freshness", "uncertainty", "context budget"],
+      "review_trigger": "Source registration, retrieval ranking or context assembly changes"
+    },
+    {
+      "source_id": "LEARNING-CONTRACT",
+      "title": "Continuous Improvement Contract",
+      "path": "docs/CONTINUOUS_IMPROVEMENT_LOOP.md",
+      "family": "learning_control",
+      "portfolio": "public_framework",
+      "authority": "failure-to-control, candidate-check and proof contract",
+      "lifecycle": "current",
+      "system_id": "learning_contract",
+      "tags": ["failure class", "correction chain", "control", "candidate evaluation", "same class proof"],
+      "review_trigger": "Control selection, candidate enforcement or learning evidence changes"
+    },
+    {
+      "source_id": "PROOF-CONTRACT",
+      "title": "Proof of Operation",
+      "path": "docs/PROOF_OF_OPERATION.md",
+      "family": "proof",
+      "portfolio": "public_framework",
+      "authority": "current public evidence states and claim boundaries",
+      "lifecycle": "current",
+      "system_id": "proof_contract",
+      "tags": ["runnable", "synthetic", "inspectable", "live proof pending"],
+      "review_trigger": "A benchmark, live proof state or public claim changes"
+    },
+    {
+      "source_id": "EVAL-CONTRACT",
+      "title": "Evaluation Strategy",
+      "path": "docs/EVALS.md",
+      "family": "release_control",
+      "portfolio": "public_framework",
+      "authority": "public release evaluation strategy and acceptance gates",
+      "lifecycle": "current",
+      "system_id": "evaluation_contract",
+      "tags": ["claim migration", "positive test", "negative test", "visual QA", "release gate"],
+      "review_trigger": "The public evaluation mechanism or release acceptance criteria change"
+    },
+    {
+      "source_id": "OPERATING-LOOP",
+      "title": "Context to Action to Learning Operating Loop",
+      "path": "docs/OPERATING_LOOP.md",
+      "family": "operating_model",
+      "portfolio": "public_framework",
+      "authority": "current public operating-loop model",
+      "lifecycle": "current",
+      "system_id": "operating_loop",
+      "tags": ["event", "retrieval", "decision", "execution", "verification", "learning"],
+      "review_trigger": "The end-to-end operating sequence changes"
+    },
+    {
+      "source_id": "SYNTHETIC-STATE",
+      "title": "Synthetic Municipal Working State",
+      "path": "examples/synthetic-municipal-permitting/working_state.md",
+      "family": "operating_state",
+      "portfolio": "synthetic_municipal_permitting",
+      "authority": "synthetic current-state example only",
+      "lifecycle": "current",
+      "system_id": "synthetic_working_state",
+      "tags": ["priority", "blocker", "current state", "synthetic"],
+      "review_trigger": "The synthetic example journey changes"
+    },
+    {
+      "source_id": "SYNTHETIC-DECISION",
+      "title": "Synthetic Municipal Decision Memo",
+      "path": "examples/synthetic-municipal-permitting/decision_memo.md",
+      "family": "decision",
+      "portfolio": "synthetic_municipal_permitting",
+      "authority": "synthetic decision rationale only",
+      "lifecycle": "current",
+      "system_id": "synthetic_decision",
+      "tags": ["decision", "tradeoff", "evidence", "synthetic"],
+      "review_trigger": "The synthetic decision example changes"
+    },
+    {
+      "source_id": "SYNTHETIC-FAILURE",
+      "title": "Synthetic Failure Mode Register",
+      "path": "examples/synthetic-self-improving-loop/failure_mode_register.md",
+      "family": "learning_evidence",
+      "portfolio": "synthetic_learning",
+      "authority": "synthetic recurring-failure example only",
+      "lifecycle": "current",
+      "system_id": "synthetic_failure_register",
+      "tags": ["failure", "recurrence", "control", "synthetic"],
+      "review_trigger": "The synthetic learning example changes"
+    },
+    {
+      "source_id": "SYNTHETIC-IMPROVED",
+      "title": "Synthetic Improved Next Run",
+      "path": "examples/synthetic-self-improving-loop/improved_next_run.md",
+      "family": "learning_evidence",
+      "portfolio": "synthetic_learning",
+      "authority": "synthetic candidate-level improvement evidence only",
+      "lifecycle": "current",
+      "system_id": "synthetic_improved_run",
+      "tags": ["candidate", "control applied", "proof boundary", "synthetic"],
+      "review_trigger": "The synthetic candidate-evaluation example changes"
+    }
+  ],
+  "relationships": [
+    {"from": "PUBLIC-PRD", "to": "PUBLIC-TECH", "type": "governs_product_intent_for"},
+    {"from": "PUBLIC-PRD", "to": "OPERATING-LOOP", "type": "defines"},
+    {"from": "MEMORY-CONTRACT", "to": "PUBLIC-TECH", "type": "implemented_by"},
+    {"from": "MEMORY-CONTRACT", "to": "LEARNING-CONTRACT", "type": "supplies_task_context_to"},
+    {"from": "LEARNING-CONTRACT", "to": "PROOF-CONTRACT", "type": "reports_outcomes_to"},
+    {"from": "EVAL-CONTRACT", "to": "PROOF-CONTRACT", "type": "qualifies_claims_in"},
+    {"from": "SYNTHETIC-STATE", "to": "SYNTHETIC-DECISION", "type": "provides_context_for"},
+    {"from": "SYNTHETIC-FAILURE", "to": "SYNTHETIC-IMPROVED", "type": "evaluated_in"}
+  ]
+}

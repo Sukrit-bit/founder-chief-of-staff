@@ -13,6 +13,10 @@ This page separates what the repository proves directly from what depends on an 
 | Block invented outcomes and deadlines | The negative fixture must fail when it treats silence as rejection, invents a response date, or claims outreach | Synthetic negative pass |
 | Start Codex, Claude Code, or another agent | `AGENTS.md`, `CLAUDE.md`, and `PROMPT.md` provide native and portable operating contracts | Inspectable |
 | Verify a release | `scripts/release_audit.py` runs documentation, safety, scenario, generation, and workspace checks together | Runnable |
+| Build queryable operating memory | `runtime/cli.py rebuild` compiles registered public and synthetic sources into a disposable SQLite FTS index | Runnable |
+| Retrieve bounded context | `runtime/cli.py context` returns limited source-aware excerpts and reports context size | Runnable |
+| Apply earlier failures at task time | The control registry, task selection, and candidate check evaluate applicable rules before release | Runnable, bounded |
+| Evaluate retrieval and learning mechanics | `runtime/evaluate_runtime.py` runs fixed retrieval, context-budget, control-selection, and candidate-enforcement cases | Synthetic fixture evidence |
 
 Run the complete proof:
 
@@ -35,6 +39,8 @@ The agent is responsible for:
 
 The public evals test the contracts around that behavior. They do not prove that every model will follow them perfectly.
 
+The runtime reduces dependence on an agent rereading the entire repository. It does not remove agent judgment, guarantee perfect retrieval, or prove live longitudinal improvement.
+
 ## Private Operating Evidence
 
 The framework is used in a private founder workspace for relationship triage, daily planning, company-state reconciliation, research synthesis, and correction control. That workspace is intentionally not included because it contains company strategy, relationships, and operating data.
@@ -48,5 +54,7 @@ The public repository exposes the schemas, contracts, synthetic cases, and verif
 - `Inspectable` means the contract is present and reviewable, but execution depends on an agent.
 - Private use is not independent external validation.
 - A clean eval proves the tested behavior, not permanent immunity from failure.
+- The SQLite index is derived access infrastructure, not canonical truth.
+- Version 0.3.0 ships without vector retrieval, a graph database, Gmail or Calendar ingestion, hosted tenancy, or self-modifying policy.
 
 Style check: external style applied.
