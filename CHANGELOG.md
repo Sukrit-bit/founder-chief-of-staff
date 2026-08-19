@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.3.1 - 2026-08-19
+
+- Added a task-time external-writing control and public writing standard.
+- Added a blocking external-style audit to the one-command release gate.
+- Added an evaluator self-test that rejects the previous marker-plus-jargon failure and accepts a plain-language alternative.
+- Rewrote the README, landing page, launch essay and walkthrough for one-read external clarity.
+- Removed internal style-check markers from published documentation.
+- Added public runtime source, control and positive/negative cases for external writing.
+- Preserved the evidence boundary: mechanical readability checks and recorded cold-reader review do not prove universal comprehension.
+
 ## v0.3.0 - 2026-08-19
 
 - Added a local queryable operating-memory runtime using registered sources, explicit relationships, SQLite FTS5, and bounded context bundles.

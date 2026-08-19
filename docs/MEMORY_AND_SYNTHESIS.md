@@ -114,5 +114,3 @@ A future agent should be able to answer:
 5. Which transferable capability was extracted?
 6. Which decision or experiment should use it?
 7. How much context was retrieved, and why were those sources included?
-
-Style check: external style applied.

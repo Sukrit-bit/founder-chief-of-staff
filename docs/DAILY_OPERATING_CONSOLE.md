@@ -86,5 +86,3 @@ The daily console may import a CRM next action as a suggestion. It should dedupl
 - Do not let a task tracker become the CRM source of truth.
 - Do not over-measure in v0. Start with visibility before metrics.
 - Review carryovers honestly. A repeated carryover is a decision signal.
-
-Style check: external style applied.

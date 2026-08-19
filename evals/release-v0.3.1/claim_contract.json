@@ -1,0 +1,71 @@
+{
+  "release": "v0.3.1",
+  "purpose": "Keep the public product story, runtime behavior, proof boundary and external-reader clarity aligned.",
+  "central_claim": "Founder Chief of Staff gives an AI agent the memory and discipline to keep founder work moving and apply earlier lessons before release.",
+  "causal_spine": [
+    "named sources of truth",
+    "small source-backed context",
+    "relevant failure rules",
+    "prepared founder work",
+    "pre-release checks",
+    "verified updates",
+    "observed learning outcomes"
+  ],
+  "required_distinctions": [
+    "A context window is not operating memory.",
+    "Search is not understanding.",
+    "A failure log is not learning.",
+    "Original sources remain authoritative; SQLite is a disposable search index.",
+    "Structural, synthetic and live evidence remain separate.",
+    "Narrative consistency and external-reader clarity are different release gates."
+  ],
+  "shipped_claims": [
+    {
+      "claim_id": "CLM-001",
+      "claim": "The release registers source ownership and explicit relationships.",
+      "evidence": ["runtime/source_manifest.json", "runtime/pcos_memory.py"]
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim": "The release builds a local disposable SQLite index and small context bundles.",
+      "evidence": ["runtime/pcos_memory.py", "runtime/cli.py", "runtime/benchmarks/public_casebook.json"]
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim": "The release selects relevant failure rules and evaluates work before release.",
+      "evidence": ["runtime/control_registry.json", "runtime/pcos_memory.py", "runtime/evaluate_runtime.py"]
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim": "The release records typed outcomes without allowing policy to rewrite itself.",
+      "evidence": ["runtime/learning_events.json", "runtime/README.md"]
+    },
+    {
+      "claim_id": "CLM-005",
+      "claim": "The release has fixed tests for retrieval, context limits, rule selection and candidate checks.",
+      "evidence": ["runtime/benchmarks/public_casebook.json", "runtime/evaluate_runtime.py"]
+    },
+    {
+      "claim_id": "CLM-006",
+      "claim": "The public release blocks declared external surfaces that fail the writing contract.",
+      "evidence": ["docs/EXTERNAL_WRITING_STANDARD.md", "scripts/external_style_audit.py", "evals/release-v0.3.1/external_style_contract.json"]
+    }
+  ],
+  "prohibited_overclaims": [
+    "General live reliability has been proven.",
+    "Every external reader will understand every artifact.",
+    "The system autonomously rewrites and improves its own policy.",
+    "The release includes vector retrieval or a graph database.",
+    "The release includes Gmail or Calendar ingestion.",
+    "The SQLite index is a source of truth."
+  ],
+  "deferred": [
+    "optional vector retrieval",
+    "external graph database",
+    "Gmail and Calendar ingestion",
+    "hosted multi-tenant service",
+    "self-modifying policy",
+    "live longitudinal proof reporting"
+  ],
+  "release_rule": "No public release until claim, reader, runtime, safety, link and visual gates all pass and the versioned report records the evidence."
+}

@@ -109,4 +109,4 @@ Before closing substantive work, verify:
 - any structural remedy has positive and negative test evidence;
 - the founder can see what changed, what matters now, and what remains uncertain.
 
-Style check: external style applied.
+For public or externally shared work, also verify that the reader can understand the problem, outcome, mechanism, evidence and proof boundary in one read. Use `docs/EXTERNAL_WRITING_STANDARD.md`. Do not publish the internal style-check marker as content.

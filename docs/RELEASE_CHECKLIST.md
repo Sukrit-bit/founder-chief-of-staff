@@ -12,6 +12,8 @@ The release is not ready unless all of these are true:
 |---|---|
 | Identity | Product name, repository slug, metadata, URLs, and current docs say Founder Chief of Staff |
 | Ninety-second scan | A cold reader understands the job before studying the architecture |
+| External writing | The declared public surfaces pass `scripts/external_style_audit.py`; the internal style marker is absent |
+| Evaluator self-test | The external-style evaluator rejects the old marker-plus-jargon fixture and accepts the plain-language fixture |
 | Runnable proof | Workspace generation, integrity checks, and positive and negative event evals pass |
 | Claim boundaries | Runnable, synthetic, agent-dependent, and private evidence remain distinct |
 | Agent entry | Codex, Claude Code, and portable instructions agree on role and boundaries |
@@ -25,8 +27,8 @@ The release is not ready unless all of these are true:
 ## Positioning
 
 ```text
-Founder Chief of Staff turns a general AI agent into a durable operating partner
-for company state, decisions, relationships, execution, and continuous improvement.
+Founder Chief of Staff gives an AI agent the memory and discipline to keep
+important founder work moving without repeating known mistakes.
 ```
 
 Do not reduce it to:
@@ -34,5 +36,3 @@ Do not reduce it to:
 ```text
 AI notes, a prompt pack, or a market-research folder.
 ```
-
-Style check: external style applied.

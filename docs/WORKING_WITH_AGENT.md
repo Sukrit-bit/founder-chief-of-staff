@@ -108,5 +108,3 @@ After substantive work, the founder should know:
 4. which action is next;
 5. what is blocked or uncertain;
 6. what the agent changed in the operating system.
-
-Style check: external style applied.

@@ -17,6 +17,7 @@ This page separates what the repository proves directly from what depends on an 
 | Retrieve bounded context | `runtime/cli.py context` returns limited source-aware excerpts and reports context size | Runnable |
 | Apply earlier failures at task time | The control registry, task selection, and candidate check evaluate applicable rules before release | Runnable, bounded |
 | Evaluate retrieval and learning mechanics | `runtime/evaluate_runtime.py` runs fixed retrieval, context-budget, control-selection, and candidate-enforcement cases | Synthetic fixture evidence |
+| Block hard-to-read public copy | `scripts/external_style_audit.py` checks declared external surfaces and proves it rejects the prior marker-plus-jargon failure | Runnable, bounded |
 
 Run the complete proof:
 
@@ -55,6 +56,4 @@ The public repository exposes the schemas, contracts, synthetic cases, and verif
 - Private use is not independent external validation.
 - A clean eval proves the tested behavior, not permanent immunity from failure.
 - The SQLite index is derived access infrastructure, not canonical truth.
-- Version 0.3.0 ships without vector retrieval, a graph database, Gmail or Calendar ingestion, hosted tenancy, or self-modifying policy.
-
-Style check: external style applied.
+- Version 0.3.1 ships without vector retrieval, a graph database, Gmail or Calendar ingestion, hosted tenancy, or self-modifying policy.

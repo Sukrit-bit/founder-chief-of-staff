@@ -90,5 +90,3 @@ Each run should answer:
 - Route external, destructive, sensitive, or strategic actions to a human gate.
 
 These may run at different times. Each needs its own contract, write boundary, and verification.
-
-Style check: external style applied.

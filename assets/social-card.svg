@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Founder Chief of Staff</title>
-  <desc id="desc">Queryable operating memory and bounded learning for durable founder-agent work.</desc>
+  <desc id="desc">Operating memory and enforced learning for durable founder-agent work.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#f8fbff"/>
@@ -40,8 +40,8 @@
     <text x="0" y="0" fill="#c2410c" font-family="Menlo, Consolas, monospace" font-size="20" font-weight="700" letter-spacing="3">AI-NATIVE FOUNDER OPERATIONS</text>
     <text x="0" y="72" fill="url(#ink)" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">Founder</text>
     <text x="0" y="154" fill="url(#ink)" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700">Chief of Staff</text>
-    <text x="0" y="218" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="31">Queryable operating memory.</text>
-    <text x="0" y="258" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="31">Bounded learning. Verified action.</text>
+    <text x="0" y="218" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="31">Remember how the company works.</text>
+    <text x="0" y="258" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="31">Carry work forward. Catch known mistakes.</text>
   </g>
   <g transform="translate(735 141)" font-family="Menlo, Consolas, monospace" font-size="18" font-weight="700">
     <path d="M130 80 C238 83 298 146 278 226 C258 306 142 340 58 283 C-26 226 -8 115 78 88" fill="none" stroke="#0f766e" stroke-width="5" stroke-linecap="round"/>

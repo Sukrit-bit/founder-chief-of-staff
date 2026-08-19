@@ -1,75 +1,60 @@
 # An AI Chief Of Staff Needs Operating Memory, Not A Longer Prompt
 
-The practical promise is simple: a general AI agent should be able to return tomorrow, recover the right context, and help move the work forward without the founder rebuilding the world in every session.
+A useful AI partner should be able to return tomorrow, recover the right context and keep the work moving. The founder should not have to rebuild the company inside every new chat.
 
-That requires more than storing documents. A context window is not operating memory. Search is not understanding. A failure log is not learning.
+That takes more than stored documents. A context window is not operating memory. Search is not understanding. A failure log is not learning.
 
-Founder Chief of Staff combines canonical operating sources with bounded, relationship-aware retrieval and task-time learning controls. It brings the smallest useful slice of the company into the task, keeps source authority visible, and checks whether earlier failure modes are being repeated before candidate work is released.
+Founder Chief of Staff is an open-source system for that larger job.
 
-Founders do not work in one workflow.
+## Founders Do Not Work In One Thread
 
-A customer call changes a relationship, a task, a product assumption, and the current company narrative at the same time. A new deadline changes today's plan. A correction may expose a rule that can fail again. Research may affect a roadmap decision, but it is not automatically scope.
+A customer call can change a relationship, a task, a product assumption and the company story at the same time. A deadline can change today's priorities. A correction can expose a rule that matters again next week.
 
-Most AI assistants handle the message in front of them. The founder is still left to remember which spreadsheet, document, decision, and follow-up should change.
+Most AI assistants handle the message in front of them. The founder still has to remember which document, spreadsheet, decision and follow-up should change.
 
-Founder Chief of Staff is an open-source operating harness for that larger job.
+This project gives each kind of information one clear owner. Current focus belongs in the dashboard. Decisions belong in the decision queue. Relationships belong in the relationship system. Personal work belongs in the daily console. Failures and their remedies belong in the learning record.
 
-## Chat Is Input, Not Memory
+The agent finds only the sources needed for the current task. It keeps their status and ownership visible. After verified work, it updates the systems that actually own the information.
 
-The system gives each kind of state one named owner:
+## Memory Must Be Easy To Use
 
-- current focus lives in a decision dashboard;
-- continuity lives in current working state;
-- unresolved judgment lives in a decision queue;
-- relationships and opportunities live in a CRM;
-- personal execution lives in a daily console;
-- authority and access live in a state registry;
-- failures and structural remedies live in control and proof logs.
+Files alone do not solve the problem. The agent must be able to find the right passage quickly without rereading the whole workspace.
 
-The agent reads only the current context required for the task. When a material founder event arrives, it identifies every affected system, applies only permitted changes, and reads them back before closing.
+The release builds a disposable SQLite search index from approved Markdown and JSON files. The original files remain the source of truth. The index returns a small set of excerpts and follows only declared relationships between them.
 
-Version 0.3.0 makes that selective recovery runnable. Registered sources are compiled into a disposable SQLite full-text index. The agent retrieves bounded excerpts, expands through explicit relationships, and retains provenance. Canonical documents remain authoritative.
+This saves context while keeping the reasoning inspectable.
+
+## Corrections Must Change The Next Task
+
+Writing a mistake into a register does not mean the system has learned.
+
+When a failure can recur, it must become a rule. That rule needs a clear task trigger. It must be tested against bad and good examples. It must also enter the next relevant task before the work is released.
+
+The system records whether the rule prevented the mistake, caught it before release, failed again or did not apply. This is a controlled learning loop. It is not a claim that the agent rewrites itself freely.
+
+Version 0.3.1 applies that principle to the repository itself. The previous release had an external-writing standard, but the standard was not part of task-time retrieval or the release audit. Accurate but difficult public copy passed. The new release registers the rule, tests it and blocks publication when the public front door fails the reader check.
 
 ## The Founder Keeps Judgment
 
-The agent can capture, reconcile, synthesize, prepare, check, and maintain.
+The agent can capture, reconcile, prepare, check and maintain. It cannot invent a material fact, deadline, owner, relationship or outcome.
 
-It cannot invent a material fact, deadline, owner, relationship, or outcome. External communication, publication, destructive work, and strategic commitments remain human-gated.
-
-The goal is not to automate the founder. It is to remove the system work surrounding founder judgment.
-
-## Corrections Must Change The System
-
-A self-improving agent cannot merely remember that it was wrong.
-
-When a failure can recur, the system finds the shared control, changes the rule or code, runs a positive test and a negative test, records proof status, and watches the next qualifying events. A clean fixture proves only the tested behavior.
-
-The new runtime also makes the control available at task time and evaluates candidate output against it. Outcomes are recorded as prevented, caught before release, repeated, or not applicable. This is bounded learning, not a claim that the agent autonomously rewrites itself.
-
-## Research Is One Module
-
-Company and market research remain important, but they are one input to the Chief of Staff.
-
-The synthesis layer extracts problems, workflows, capabilities, evidence, limitations, and transfer conditions. It can recommend build, integrate, bundle, compete, monitor, reject, or collect more evidence. A competitor's existence is evidence, never a ceiling.
+The founder still owns judgment, risk, relationships and final calls. The purpose of the system is to remove the operating work around those decisions.
 
 ## What Ships
 
-The repository contains:
+The repository includes:
 
 - a founder-workspace generator;
-- Codex, Claude Code, and portable agent entry points;
-- state, routing, execution, automation, and correction contracts;
-- synthetic end-to-end examples;
-- positive and negative reconciliation evals;
-- safety, identity, documentation, and workspace audits;
-- a one-command release check.
-- a local queryable-memory and candidate-control runtime;
-- fixed retrieval, context-budget, control-selection, and enforcement benchmarks.
+- entry points for Codex, Claude Code and other agents;
+- a local search and context runtime;
+- task-specific failure rules;
+- positive and negative test cases;
+- a public-writing release gate;
+- synthetic examples;
+- one complete release command.
 
-It contains no private founder data, customer work, relationship records, or credentials.
+It contains no private founder data, customer work, live relationship records or credentials.
 
-The bet is straightforward: a general AI agent becomes materially more useful when company state, ownership, boundaries, and verification are explicit.
+The fixed tests show that the declared mechanisms work on their fixtures. General live reliability still needs to be earned through repeated use.
 
-The public benchmark is synthetic evidence. Live general reliability remains to be proved through repeated operating use.
-
-Style check: external style applied.
+The bet is simple: an AI agent becomes far more useful when it can recover the right company context, keep work connected and apply earlier lessons before the same mistake escapes again.

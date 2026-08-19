@@ -48,6 +48,18 @@
       "failure_message": "An improvement or reliability claim appears without its evidence class.",
       "risk_tier": "human_gate",
       "status": "active"
+    },
+    {
+      "control_id": "CTRL-EXT-WRITE-001",
+      "failure_class": "external_style_present_but_not_applied",
+      "title": "Apply and evaluate the external-writing standard before release",
+      "source_ids": ["EXTERNAL-WRITING-CONTRACT", "EVAL-CONTRACT"],
+      "task_trigger_regex": "(?i)(external[- ]facing|public|publish|README|landing page|website copy|launch essay|walkthrough|social card|investor|customer|partner|accelerator|application|LinkedIn|Twitter|\\bX\\b)",
+      "required_context_regex": "(?i)(external writing|plain language|one[- ]read|cold reader|founder voice|style gate|readability)",
+      "forbidden_candidate_regex": "(?i)Style check:\\s*external style applied",
+      "failure_message": "The external artifact lacks an inspectable external-writing evaluation or publishes the internal style-check marker as content.",
+      "risk_tier": "human_gate",
+      "status": "active"
     }
   ]
 }

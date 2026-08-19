@@ -16,6 +16,7 @@
 - Bounded context creation with provenance and context-size reporting.
 - Task-time control selection, candidate enforcement, and typed learning evidence.
 - Fixed synthetic runtime benchmarks and a release claim contract.
+- Task-time external-writing enforcement and a blocking public-reader audit.
 
 ## Next
 
@@ -26,6 +27,7 @@
 - Record a short walkthrough video after the cold-user test.
 - Improve the CLI only where external use reveals repeated setup work.
 - Collect live same-class evidence before making general learning claims.
+- Observe three later external artifacts without a repeated style-enforcement failure before calling the new reader gate proved in live use.
 - Measure retrieval misses and context cost before deciding whether embeddings are needed.
 - Add connector ingestion only with explicit authority, permission, and provenance contracts.
 

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "release": "v0.3.1",
+  "purpose": "Make one-read external clarity a blocking public-release condition rather than a decorative style claim.",
+  "forbidden_phrases": [
+    "Style check: external style applied",
+    "game-changer",
+    "paradigm shift",
+    "leveraging AI",
+    "harnessing the power",
+    "it is important to note",
+    "in today's rapidly"
+  ],
+  "dense_terms": [
+    "canonical",
+    "bounded retrieval",
+    "relationship-aware retrieval",
+    "source provenance",
+    "task-time controls",
+    "candidate enforcement",
+    "candidate output",
+    "derived index",
+    "causal spine"
+  ],
+  "surfaces": [
+    {
+      "path": "README.md",
+      "audience": "general external reader",
+      "front_window_words": 260,
+      "max_dense_terms": 3,
+      "max_average_sentence_words": 24,
+      "max_sentence_words": 42,
+      "max_paragraph_words": 120
+    },
+    {
+      "path": "index.html",
+      "audience": "general external reader",
+      "front_window_words": 260,
+      "max_dense_terms": 2,
+      "max_average_sentence_words": 22,
+      "max_sentence_words": 38,
+      "max_paragraph_words": 100
+    },
+    {
+      "path": "docs/LAUNCH_ESSAY.md",
+      "audience": "founder and product reader",
+      "front_window_words": 320,
+      "max_dense_terms": 3,
+      "max_average_sentence_words": 24,
+      "max_sentence_words": 42,
+      "max_paragraph_words": 120
+    },
+    {
+      "path": "docs/WALKTHROUGH_SCRIPT.md",
+      "audience": "spoken public walkthrough",
+      "front_window_words": 320,
+      "max_dense_terms": 3,
+      "max_average_sentence_words": 22,
+      "max_sentence_words": 38,
+      "max_paragraph_words": 110
+    },
+    {
+      "path": "assets/social-card.svg",
+      "audience": "social preview",
+      "front_window_words": 120,
+      "max_dense_terms": 1,
+      "max_average_sentence_words": 18,
+      "max_sentence_words": 28,
+      "max_paragraph_words": 60
+    },
+    {
+      "path": "visuals/operating-loop.html",
+      "audience": "visual product explainer",
+      "front_window_words": 240,
+      "max_dense_terms": 3,
+      "max_average_sentence_words": 22,
+      "max_sentence_words": 38,
+      "max_paragraph_words": 90
+    }
+  ],
+  "manual_reader_questions": [
+    "Can the reader state the founder problem after 15 seconds?",
+    "Can the reader explain what the product changes after 45 seconds?",
+    "Can the reader distinguish shipped evidence from unproved live reliability after 90 seconds?",
+    "Does the writing sound like a founder explaining a product rather than an internal report?"
+  ],
+  "proof_boundary": "Mechanical style checks and recorded cold-reader review are release evidence. They do not prove that every future reader will understand every artifact."
+}

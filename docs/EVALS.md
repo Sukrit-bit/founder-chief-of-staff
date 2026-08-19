@@ -23,7 +23,7 @@ Every material release has a machine-readable claim contract under `evals/releas
 
 The contract is the migration authority. It prevents a repo-wide rewrite from turning into a collection of individually plausible but mutually inconsistent pages.
 
-## The Six Gates
+## The Seven Gates
 
 ### Gate One — Claim and migration contract
 
@@ -62,7 +62,22 @@ Synthetic success must never be described as proof of general live reliability. 
 
 Failure means: narrow the language, add evidence, or remove the claim.
 
-### Gate Four — Runnable product behavior
+### Gate Four — External-reader clarity
+
+Run `scripts/external_style_audit.py` across the README, landing page, launch essay, walkthrough and social preview.
+
+The gate checks:
+
+- whether the internal style marker leaked into published copy;
+- whether the opening depends on unexplained internal terms;
+- whether sentences and paragraphs remain readable;
+- whether the evaluator rejects the old failure and accepts a plain-language alternative.
+
+Then record the manual 15/45/90-second reader review in the versioned release report. A narrative audit cannot substitute for this gate.
+
+Failure means: stop the release, rewrite every implicated public surface and rerun the evaluator from its negative fixture.
+
+### Gate Five — Runnable product behavior
 
 Run fixed cases for:
 
@@ -76,21 +91,15 @@ Both positive and negative cases are required. The public casebook is fixed befo
 
 Failure means: repair the runtime or the declared contract, add a regression case, and rerun the whole gate.
 
-### Gate Five — Generated product, safety, identity, and link integrity
+### Gate Six — Generated product, safety, identity, and link integrity
 
 Run the existing document, repository-safety, identity, synthetic-scenario, workspace-generation, and workspace-audit checks. Validate internal links and referenced files.
 
 Failure means: fix the broken artifact or path and rerun from the top-level release command.
 
-### Gate Six — Visual and 90-second reviewer test
+### Gate Seven — Visual review
 
-Inspect the landing page, operating-loop visual, and social card at desktop and narrow widths. Then apply a cold-reader test:
-
-- Within 15 seconds: can the reader state the outcome for a founder?
-- Within 45 seconds: can the reader explain memory plus retrieval plus learning?
-- Within 90 seconds: can the reader distinguish shipped evidence from future ambition?
-
-Check hierarchy, overflow, contrast, legibility, and whether implementation detail overwhelms the product story.
+Inspect the landing page, operating-loop visual and social card at desktop and narrow widths. Check hierarchy, overflow, contrast and legibility. Gate Four owns the reader-comprehension test so visual polish cannot hide difficult writing.
 
 Failure means: revise the relevant surface and re-inspect it. Visual review is recorded evidence; it is not implied by a code pass.
 
@@ -127,4 +136,4 @@ Each release report records:
 - remaining limitations;
 - final release decision.
 
-For this migration, see [v0.3.0 evaluation](releases/v0.3.0-evaluation.md).
+For the current release, see [v0.3.1 evaluation](releases/v0.3.1-evaluation.md).

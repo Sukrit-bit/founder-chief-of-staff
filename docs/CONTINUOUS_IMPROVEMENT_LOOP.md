@@ -68,6 +68,10 @@ A structural remedy must identify:
 
 Updating only the failure log is not a structural remedy.
 
+Every recurring control must now pass a control-health check. The check requires a registered source, a task-selection case, a bad candidate that the control rejects, and a bounded candidate that it accepts. This catches the gap between remembering a rule and applying it.
+
+The external-writing failure is the first public example. The previous release had the rule in a private operating document, but the runtime did not retrieve it and the release command did not evaluate it. Version 0.3.1 connects the source, trigger, candidate check, release audit and proof window.
+
 The public runtime makes this contract inspectable through `runtime/control_registry.json`, candidate checks in `runtime/pcos_memory.py`, typed outcomes in `runtime/learning_events.json`, and positive plus negative cases in `runtime/benchmarks/public_casebook.json`.
 
 ## Proof Language
@@ -122,5 +126,3 @@ The loop closes only when:
 4. positive and negative checks passed;
 5. unresolved human decisions are explicit;
 6. proof language matches the evidence.
-
-Style check: external style applied.

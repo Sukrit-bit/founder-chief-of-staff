@@ -19,6 +19,7 @@ def run(*args: str) -> None:
 
 def main() -> int:
     run(sys.executable, "scripts/narrative_audit.py")
+    run(sys.executable, "scripts/external_style_audit.py")
     run(sys.executable, "scripts/doc_audit.py", "--repo", ".", "--strict")
     run(sys.executable, "scripts/link_audit.py")
     run(sys.executable, "scripts/repo_safety_check.py", "--repo", ".")

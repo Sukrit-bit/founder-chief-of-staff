@@ -2,7 +2,7 @@
 
 ## Overview
 
-Founder Chief of Staff is a file-native control layer for durable AI-assisted work. Version 0.3.0 adds a queryable-memory and bounded-learning runtime using Python and SQLite FTS5.
+Founder Chief of Staff is a file-native control layer for durable AI-assisted work. Version 0.3.1 adds task-time external-writing enforcement and a blocking reader audit to the queryable-memory and learning runtime.
 
 Start with [README.md](README.md) and [PRD.md](PRD.md).
 
@@ -62,6 +62,8 @@ The public release distinguishes structural evidence, synthetic evidence, and li
 | `learning_events.json` | Typed observed outcomes |
 | `benchmarks/public_casebook.json` | Fixed synthetic evaluation contract |
 | `evaluate_runtime.py` | Retrieval, budget, control, and candidate evaluation |
+| `external_style_audit.py` | Front-door readability checks and positive/negative evaluator self-test |
+| `external_style_contract.json` | Declared public surfaces, thresholds, forbidden markers, and reader questions |
 
 ## Commands
 
@@ -76,7 +78,7 @@ python3 runtime/evaluate_runtime.py
 
 ## Evaluation Architecture
 
-The release audit combines six gates: claim and migration contract; repository-wide narrative consistency; claim-to-evidence consistency; runnable retrieval, budget, control, and candidate cases; generated workspace, safety, identity, and link integrity; and visual plus cold-reader review evidence.
+The release audit combines seven gates: claim contract; narrative consistency; claim-to-evidence consistency; external-reader clarity; runnable retrieval and control cases; generated-workspace, safety, identity and link integrity; and visual review evidence.
 
 `python3 scripts/release_audit.py` is the single release command. A partial pass is not a release pass.
 
@@ -88,6 +90,7 @@ The release audit combines six gates: claim and migration contract; repository-w
 - Candidate violates a selected control: return the failed control and message.
 - Over-broad control: update trigger and add positive and negative regression cases.
 - Stale derived index: run `rebuild`; do not edit the database directly.
+- Public copy passes claims but fails readability: stop the release, rewrite the front-door surface, and rerun the external-style audit.
 
 ## Security and Data Boundary
 
@@ -99,4 +102,4 @@ Future adapters can ingest Docs, Sheets, Gmail, Calendar, or project systems int
 
 ## Result
 
-The architecture makes operating memory queryable without loading the entire workspace, and makes prior failures executable without claiming that an agent has autonomously learned merely because a note exists.
+The architecture makes operating memory queryable without loading the entire workspace. It also turns prior failures into task-time checks, including the rules used to evaluate this public repository.

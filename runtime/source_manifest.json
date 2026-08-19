@@ -87,6 +87,18 @@
       "review_trigger": "The public evaluation mechanism or release acceptance criteria change"
     },
     {
+      "source_id": "EXTERNAL-WRITING-CONTRACT",
+      "title": "External Writing Standard",
+      "path": "docs/EXTERNAL_WRITING_STANDARD.md",
+      "family": "release_control",
+      "portfolio": "public_framework",
+      "authority": "public one-read comprehension and writing-release standard",
+      "lifecycle": "current",
+      "system_id": "external_writing_contract",
+      "tags": ["external writing", "plain language", "founder voice", "cold reader", "README", "website", "release gate"],
+      "review_trigger": "A public artifact fails readability or the external-writing evaluation changes"
+    },
+    {
       "source_id": "OPERATING-LOOP",
       "title": "Context to Action to Learning Operating Loop",
       "path": "docs/OPERATING_LOOP.md",
@@ -154,6 +166,8 @@
     {"from": "MEMORY-CONTRACT", "to": "LEARNING-CONTRACT", "type": "supplies_task_context_to"},
     {"from": "LEARNING-CONTRACT", "to": "PROOF-CONTRACT", "type": "reports_outcomes_to"},
     {"from": "EVAL-CONTRACT", "to": "PROOF-CONTRACT", "type": "qualifies_claims_in"},
+    {"from": "EXTERNAL-WRITING-CONTRACT", "to": "EVAL-CONTRACT", "type": "enforced_by"},
+    {"from": "EXTERNAL-WRITING-CONTRACT", "to": "PUBLIC-README", "type": "governs_public_surface"},
     {"from": "SYNTHETIC-STATE", "to": "SYNTHETIC-DECISION", "type": "provides_context_for"},
     {"from": "SYNTHETIC-FAILURE", "to": "SYNTHETIC-IMPROVED", "type": "evaluated_in"}
   ]

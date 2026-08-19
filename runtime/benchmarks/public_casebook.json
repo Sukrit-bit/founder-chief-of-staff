@@ -25,6 +25,12 @@
       "query": "What is the current synthetic permitting priority, decision and blocker?",
       "required_top_5": ["SYNTHETIC-STATE", "SYNTHETIC-DECISION"],
       "required_any": []
+    },
+    {
+      "case_id": "RET-005",
+      "query": "What one-read external-writing and cold-reader gate applies before publishing the README, landing page or launch essay?",
+      "required_top_5": ["EXTERNAL-WRITING-CONTRACT"],
+      "required_any": ["EVAL-CONTRACT", "PUBLIC-README"]
     }
   ],
   "context_budget_cases": [
@@ -52,6 +58,11 @@
       "case_id": "CTL-003",
       "task": "Explain whether retrieval requires a vector database, Gmail ingestion or autonomous learning.",
       "required_controls": ["CTRL-SCOPE-001", "CTRL-PROOF-001"]
+    },
+    {
+      "case_id": "CTL-004",
+      "task": "Rewrite and publish the public README, landing page and launch essay for external readers.",
+      "required_controls": ["CTRL-EXT-WRITE-001"]
     }
   ],
   "candidate_cases": [
@@ -94,6 +105,20 @@
       "case_id": "CAND-006",
       "task": "Explain whether retrieval requires a vector database, Gmail ingestion or autonomous learning.",
       "candidate": "Vector retrieval and Gmail ingestion are deferred. The release uses bounded full-text retrieval, and live general learning remains unproved beyond synthetic enforcement evidence.",
+      "expected_pass": true,
+      "required_failed_controls": []
+    },
+    {
+      "case_id": "CAND-007",
+      "task": "Publish the public README and landing page for external readers.",
+      "candidate": "The narrative is aligned. Style check: external style applied.",
+      "expected_pass": false,
+      "required_failed_controls": ["CTRL-EXT-WRITE-001"]
+    },
+    {
+      "case_id": "CAND-008",
+      "task": "Publish the public README and landing page for external readers.",
+      "candidate": "The external-writing and cold-reader evaluation passed after the public front door was rewritten in plain language. The internal review marker is not published.",
       "expected_pass": true,
       "required_failed_controls": []
     }

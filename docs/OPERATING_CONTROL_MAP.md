@@ -70,5 +70,3 @@ A cold reader or new agent should know:
 4. what action is next;
 5. what was verified;
 6. what is still uncertain.
-
-Style check: external style applied.

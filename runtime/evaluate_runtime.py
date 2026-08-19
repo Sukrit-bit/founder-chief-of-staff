@@ -99,6 +99,44 @@ def main() -> int:
             if not passed:
                 findings.append(result)
 
+        selection_coverage = {
+            control_id
+            for case in cases["control_cases"]
+            for control_id in case["required_controls"]
+        }
+        negative_coverage = {
+            control_id
+            for case in cases["candidate_cases"]
+            if not case["expected_pass"]
+            for control_id in case["required_failed_controls"]
+        }
+        positive_coverage: set[str] = set()
+        for case in cases["candidate_cases"]:
+            if case["expected_pass"]:
+                positive_coverage.update(
+                    control["control_id"]
+                    for control in runtime.applicable_controls(case["task"])
+                )
+
+        active_controls = {
+            control["control_id"] for control in runtime.controls if control.get("status") == "active"
+        }
+        control_health = {
+            "case_id": "CONTROL-HEALTH",
+            "kind": "control_health",
+            "passed": True,
+            "missing_selection_cases": sorted(active_controls - selection_coverage),
+            "missing_negative_cases": sorted(active_controls - negative_coverage),
+            "missing_positive_cases": sorted(active_controls - positive_coverage),
+        }
+        control_health["passed"] = not any(
+            control_health[key]
+            for key in ("missing_selection_cases", "missing_negative_cases", "missing_positive_cases")
+        )
+        results.append(control_health)
+        if not control_health["passed"]:
+            findings.append(control_health)
+
     summary = {
         "passed": not findings,
         "cases": len(results),

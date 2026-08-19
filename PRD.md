@@ -41,7 +41,7 @@ For a material task, the system should:
 
 ## Release-One Scope
 
-Version 0.3.0 delivers a public, local reference implementation:
+Version 0.3.1 delivers a public, local reference implementation:
 
 - JSON source and relationship registry;
 - Markdown/JSON ingestion into a derived SQLite FTS index;
@@ -49,7 +49,8 @@ Version 0.3.0 delivers a public, local reference implementation:
 - task-time control selection;
 - candidate-output enforcement;
 - typed learning-event records;
-- fixed synthetic evaluation cases and a one-command release audit.
+- fixed synthetic evaluation cases and a one-command release audit;
+- task-time external-writing enforcement and a blocking public-readability check.
 
 It sits beneath the existing founder workspace. Dashboard, working state, decision queue, research and capability records, relationship systems, daily plan, automation contracts, and improvement records remain canonical operating surfaces.
 
@@ -71,6 +72,10 @@ The public evaluator proves behavior only on its declared synthetic casebook. Li
 
 The system can prepare decisions, enforce controls, and maintain low-risk internal state. External publication, consequential commitments, and unsupported strategy remain human-gated.
 
+### Make public readability a release condition
+
+The earlier release checked whether the public narrative was accurate and consistent. It did not test whether a smart, busy reader could understand the writing in one pass. Version 0.3.1 adds a separate reader gate. A style label and a narrative audit cannot substitute for that test.
+
 ## The Output
 
 A successful release produces:
@@ -84,7 +89,7 @@ A successful release produces:
 
 ## Success Measures
 
-Release-one measures are deterministic: expected authoritative sources rank correctly; context stays within a declared budget; expected controls are selected; unsafe candidates fail and bounded candidates pass; public claims, links, generated workspace checks, and safety checks pass together.
+Release-one measures are deterministic: expected authoritative sources rank correctly; context stays within a declared budget; expected controls are selected; unsafe candidates fail and bounded candidates pass; public claims, external readability, links, generated workspace checks, and safety checks pass together.
 
 Future live measures include reduced founder restatement, fewer repeated same-class failures, lower context cost for equivalent work, and higher successful carry-forward across sessions. These are target outcomes, not current public claims.
 
@@ -107,4 +112,4 @@ After real-task evidence identifies clear gaps: relationship-aware ranking impro
 
 ## How It Was Built
 
-The release was migrated through an explicit claim contract and six-gate audit covering narrative consistency, evidence boundaries, runnable behavior, safety and links, visuals, and cold-reader comprehension. See [docs/EVALS.md](docs/EVALS.md) and [docs/releases/v0.3.0-evaluation.md](docs/releases/v0.3.0-evaluation.md).
+The release uses an explicit claim contract and a seven-gate audit. Public readability is now separate from narrative consistency. See [docs/EVALS.md](docs/EVALS.md) and [docs/releases/v0.3.1-evaluation.md](docs/releases/v0.3.1-evaluation.md).

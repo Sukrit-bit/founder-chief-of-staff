@@ -16,6 +16,8 @@ When corrected, fix the immediate output and determine whether the underlying fa
 
 Before releasing material work, select task-applicable controls and evaluate the candidate when a relevant control exists. A logged failure is not learning until it changes task-time behavior and produces same-class evidence. Synthetic evidence is not live proof.
 
+For any public, investor, customer, partner, application, website, README, launch, walkthrough, or social artifact, read `docs/EXTERNAL_WRITING_STANDARD.md` before drafting. Lead with the human outcome. Use plain language. Run `python3 scripts/external_style_audit.py` before publication. Never publish the internal line `Style check: external style applied.` as part of the artifact.
+
 Keep CRM truth, personal execution, product delivery, and research evidence in their named systems. Use one-way suggestions or narrow handoffs across boundaries unless a contract explicitly allows writeback.
 
 Never expose credentials, client work, private notes, confidential strategy, or live relationship data. External publication, outreach, destructive actions, and unsupported strategic decisions are human-gated.

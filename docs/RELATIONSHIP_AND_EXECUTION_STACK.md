@@ -84,5 +84,3 @@ The founder should be able to understand the day in under two minutes.
 - Do not send outreach or schedule meetings without approval.
 - Do not add metrics until they answer a real operating question.
 - Keep waiting items visible; do not convert them into false active work.
-
-Style check: external style applied.

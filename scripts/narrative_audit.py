@@ -9,11 +9,12 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-CONTRACT = ROOT / "evals" / "release-v0.3.0" / "claim_contract.json"
+CONTRACT = ROOT / "evals" / "release-v0.3.1" / "claim_contract.json"
 SURFACES = [
     "README.md", "PRD.md", "TECHNICAL.md", "index.html",
     "docs/MEMORY_AND_SYNTHESIS.md", "docs/CONTINUOUS_IMPROVEMENT_LOOP.md",
     "docs/PROOF_OF_OPERATION.md", "docs/LAUNCH_ESSAY.md",
+    "docs/EXTERNAL_WRITING_STANDARD.md",
     "docs/WALKTHROUGH_SCRIPT.md", "visuals/operating-loop.html",
     "assets/social-card.svg"
 ]
@@ -45,7 +46,8 @@ def main() -> int:
         "bounded retrieval": "bounded", "relationships": "relationship",
         "task-time controls": "task-time", "learning evidence": "learning evidence",
         "synthetic boundary": "synthetic", "live proof boundary": "live",
-        "derived index boundary": "derived index"
+        "derived index boundary": "derived index",
+        "external reader gate": "external writing"
     }
     missing = [label for label, phrase in required.items() if phrase not in combined]
     if missing:

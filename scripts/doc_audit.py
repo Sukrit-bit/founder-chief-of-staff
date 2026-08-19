@@ -55,6 +55,11 @@ LAUNCH_FILES = [
     "docs/releases/v0.3.0-evaluation.md",
     "scripts/narrative_audit.py",
     "scripts/link_audit.py",
+    "scripts/external_style_audit.py",
+    "docs/EXTERNAL_WRITING_STANDARD.md",
+    "evals/release-v0.3.1/external_style_contract.json",
+    "evals/release-v0.3.1/claim_contract.json",
+    "docs/releases/v0.3.1-evaluation.md",
 ]
 
 README_HINTS = [
