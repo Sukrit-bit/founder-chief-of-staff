@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Added a post-publication audit that rejects tag-only publication and verifies the GitHub Release object and latest-release state.
+- Made the distinction between pushing a tag and publishing a GitHub Release explicit in the release checklist.
+
 ## v0.3.1 - 2026-08-19
 
 - Added a task-time external-writing control and public writing standard.

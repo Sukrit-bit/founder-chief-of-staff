@@ -6,6 +6,15 @@ Run:
 python3 scripts/release_audit.py
 ```
 
+After the commit and tag are pushed, create the GitHub Release and verify the published state:
+
+```bash
+gh release create <tag> --title "Founder Chief of Staff <tag>" --notes-file <release-notes> --verify-tag --latest
+python3 scripts/post_publish_audit.py --repo Sukrit-bit/founder-chief-of-staff --tag <tag> --expected-commit <full-commit-sha>
+```
+
+Pushing a tag is not the same as publishing a GitHub Release. Publication is incomplete until GitHub exposes the expected tag as a non-draft, non-prerelease latest release.
+
 The release is not ready unless all of these are true:
 
 | Check | Requirement |
@@ -23,6 +32,7 @@ The release is not ready unless all of these are true:
 | Data handling | No client work, private relationships, credentials, or confidential company context are published |
 | Responsive surface | Landing page has no horizontal overflow on desktop or mobile |
 | External proof | CI and Pages deployment pass for the exact published commit |
+| GitHub publication | Commit, local tag, remote tag, GitHub Release object and latest-release state agree |
 
 ## Positioning
 
